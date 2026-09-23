@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+warm_cache/
+*.prof
+*.gif
+*.mp4
+.DS_Store
