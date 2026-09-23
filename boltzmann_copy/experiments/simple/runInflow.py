@@ -94,6 +94,7 @@ ADD_EDGE_CORRECTION = False   # horizon (edge) estimator: statistically zero in 
 N_AVG = 1                     # initial number of CRN seeds; grows adaptively up to N_AVG_MAX
 ADAPTIVE_SEEDS = True
 N_AVG_MAX = 1
+SEED0 = 0                     # first CRN seed: main() uses seeds SEED0 .. SEED0+N_AVG-1 (replicate runs use another offset)
 GRAD_SIGNIFICANCE = 2.0       # add seeds while ||g|| < GRAD_SIGNIFICANCE * s.e.(g)
 MIN_DISPLACEMENT = 1e-8       # stop when an accepted step moves C by less than this
 ARMIJO_C = 0.1                # sufficient-decrease fraction of the noise-aware Armijo test
@@ -304,7 +305,7 @@ def backward_pass_impulse(C, steps, edge=None):
     nv = steps[0].get("nv", 3) if steps else 3      # velocity components: 3 (2D3V, this file), 2 (planar variant, runInflow)
     beta = np.zeros((N, nv))
     alpha = np.zeros((N, 2))
-    grad = np.zeros(2 * N_FOURIER + 1)
+    grad = np.zeros(len(C))                   # gradient length follows the coefficient vector, not N_FOURIER
 
     # Horizon (window-edge) term, IMPLICIT part. The jump term at an edge is
     # -/+ (1/dt) sum_i h_i dt*_i/dC with the exact hit-time derivative
@@ -445,10 +446,10 @@ def edge_term(rec, C):
     to that edge:  -(2W/dt) * sum n_x * (dr/dC_m)(theta) * <e_r, n>  (module docstring).
     Resampled hits are included: the forward pass counted their impulse (and the adjoint
     keeps their source terms); the hit-time shift the term estimates is purely geometric."""
-    g = np.zeros(2 * N_FOURIER + 1)
+    g = np.zeros(len(C))
     if rec is None:
         return g
-    k = np.arange(1, N_FOURIER + 1)
+    k = np.arange(1, (len(C) - 1) // 2 + 1)
     for h in rec["hits"]:
         inc = h["incoming"]
         th = h["theta"][inc]
@@ -472,7 +473,7 @@ def edge_residual(edge, C):
     start_pair, end_pair = edge
     def centred(pair):
         terms = [edge_term(r, C) for r in pair if r is not None]
-        return np.mean(terms, axis=0) if terms else np.zeros(2 * N_FOURIER + 1)
+        return np.mean(terms, axis=0) if terms else np.zeros(len(C))
     return centred(end_pair) - centred(start_pair)
 
 
@@ -533,8 +534,36 @@ def _A0():
     return _A0_VALUE
 
 
-def make_evaluate_adjoint(seeds):
+def per_seed_eval(C, C_sim, s):
+    """One seed's (J, g, g_tilde, e): objective on the simulated shape and its gradient w.r.t. the raw
+    parameters C (chain rule through the constraint rescaling, which is linear in g, so per-seed
+    transformed gradients average to the transformed mean). Module level so that worker processes
+    (sweep/pool.py) can call it; make_evaluate_adjoint uses it for the serial path."""
+    Ix, steps, edge = simulate_and_record(C_sim, s)
+    if ADD_EDGE_CORRECTION:
+        g_tilde = backward_pass_impulse(C_sim, steps, edge)   # pathwise + implicit edge part
+        e = edge_residual(edge, C_sim)                        # explicit (geometric) edge part
+        g_sim = g_tilde + e
+    else:
+        g_tilde = backward_pass_impulse(C_sim, steps)
+        e = np.zeros_like(g_tilde)
+        g_sim = g_tilde
+    J, g_obj = objective_from_impulse(C_sim, Ix, g_sim)
+    g = _constrained_grad(C, g_obj)
+    return J, g, g_tilde, e
+
+
+def per_seed_loss(C_sim, s):
+    """One seed's objective only (no tape, no adjoint): the line-search trial evaluation."""
+    return objective_from_impulse(C_sim, simulate_impulse(C_sim, s))[0]
+
+
+def make_evaluate_adjoint(seeds, pool=None):
     """Primary evaluate() for the optimiser: exact adjoint gradient (+ edge term), no FD.
+
+    pool: optional worker pool (sweep/pool.py: SeedPool) with methods losses(C_sim, seeds) and
+    grads(C, C_sim, seeds) that evaluate the seeds in parallel processes; None = serial, in-process.
+    Results are bitwise identical either way (every seed is an independent computation).
 
     Seeds are common random numbers: every call -- current point, gradient, line-search
     trials -- uses the same list, so losses are comparable. The list only GROWS: (i) inside
@@ -559,6 +588,8 @@ def make_evaluate_adjoint(seeds):
       edge, edge_rel   edge-term residual (C_sim coords) and its size over ||d Ix/d C_sim||"""
     seeds = list(seeds)
     state = {"losses": None, "n_seeds": len(seeds), "grad_se": float("nan"),
+             "G": None,           # per-seed gradients of the LAST gradient call, (n_seeds, len(C)), same units as g
+             "seeds_used": list(seeds),
              "grad_signif": float("inf"), "gnorm_corr": float("nan"),
              "edge": None, "edge_rel": float("nan"), "loss_se": float("nan"),
              "scale": None,      # loss divisor: "both"/"objective": J(C_init) on the initial seed list; "gradient": ||g||/(frac ||C||)
@@ -611,32 +642,28 @@ def make_evaluate_adjoint(seeds):
             evaluate(C, want_grad=True)          # define the scale the same way (one gradient evaluation)
         return state["scale"]
 
-    def _per_seed(C, C_sim, s):
-        Ix, steps, edge = simulate_and_record(C_sim, s)
-        if ADD_EDGE_CORRECTION:
-            g_tilde = backward_pass_impulse(C_sim, steps, edge)   # pathwise + implicit edge part
-            e = edge_residual(edge, C_sim)                        # explicit (geometric) edge part
-            g_sim = g_tilde + e
-        else:
-            g_tilde = backward_pass_impulse(C_sim, steps)
-            e = np.zeros_like(g_tilde)
-            g_sim = g_tilde
-        # objective on the simulated shape (drag force or impulse, + curvature penalty), then the
-        # chain rule through the constraint rescaling (linear in g, so per-seed transformed
-        # gradients average to the transformed mean)
-        J, g_obj = objective_from_impulse(C_sim, Ix, g_sim)
-        g = _constrained_grad(C, g_obj)
-        return J, g, g_tilde, e
+    def _grads(C, C_sim, ss):
+        """Per-seed (J, g, g_tilde, e) for the seeds ss, in worker processes when a pool is given."""
+        ss = list(ss)
+        if pool is not None and ss:
+            return list(pool.grads(C, C_sim, ss))
+        return [per_seed_eval(C, C_sim, s) for s in ss]
+
+    def _losses_only(C_sim, ss):
+        ss = list(ss)
+        if pool is not None and ss:
+            return list(pool.losses(C_sim, ss))
+        return [per_seed_loss(C_sim, s) for s in ss]
 
     def evaluate(C, want_grad=True):
         C_sim = _effective(C)
         if not want_grad:
             sc = _scale_or_raw(C)                # may run one gradient evaluation and GROW `seeds`: fix it first
-            L_all = np.array([objective_from_impulse(C_sim, simulate_impulse(C_sim, s))[0] for s in seeds]) / sc
-            state.update(losses=L_all, n_seeds=len(seeds),
+            L_all = np.array(_losses_only(C_sim, seeds), dtype=float) / sc
+            state.update(losses=L_all, n_seeds=len(seeds), seeds_used=list(seeds),
                          loss_se=float(L_all.std(ddof=1) / np.sqrt(len(L_all))) if len(L_all) > 1 else float("nan"))
             return float(L_all.mean()), None
-        res = [_per_seed(C, C_sim, s) for s in seeds]
+        res = _grads(C, C_sim, seeds)
         while True:
             n = len(res)
             G = np.array([r[1] for r in res])
@@ -648,7 +675,7 @@ def make_evaluate_adjoint(seeds):
                 trS_hist.pop()          # this evaluation will be redone with more seeds
             n_before = len(seeds)
             grow()
-            res += [_per_seed(C, C_sim, s) for s in seeds[n_before:]]
+            res += _grads(C, C_sim, seeds[n_before:])
         L_all = np.array([r[0] for r in res])
         sc = _scale(L_all, g)                    # fixes the scale(s) at the first (C_init) call
         gs = state["gscale"] if (NORMALIZE_MODE == "both" and state["gscale"]) else 1.0
@@ -659,7 +686,7 @@ def make_evaluate_adjoint(seeds):
         e = np.mean([r[3] for r in res], axis=0) / (sc * gs)
         gn = float(np.linalg.norm(g))
         state.update(
-            losses=L_all, n_seeds=len(seeds), grad_se=se,
+            losses=L_all, n_seeds=len(seeds), grad_se=se, G=G / (sc * gs), seeds_used=list(seeds),
             grad_signif=gn / se if 0 < se < np.inf else float("inf"),
             gnorm_corr=float(np.sqrt(max(gn * gn - se * se, 0.0))) if np.isfinite(se) else float("nan"),
             edge=e, edge_rel=float(np.linalg.norm(e) / (np.linalg.norm(g_tilde) + 1e-300)),
@@ -1104,20 +1131,28 @@ def warm_state(seed):
     tag = hashlib.sha1(repr(key).encode()).hexdigest()[:12]
     fname = os.path.join(cdir, f"warm_s{seed}_{tag}.npz")
     K = int(round(T_WARM / DT))
+    d = None
     if os.path.exists(fname):
-        d = np.load(fname, allow_pickle=False)
-        if str(d["key"]) == repr(key):
-            st = (d["x"], d["v"], d["alive"], d["pid"], int(d["counter"]))
-            _WARM_CACHE[key] = st
-            _WARM_STEP[seed] = -K - 1
-            return st
+        try:
+            d = np.load(fname, allow_pickle=False)
+            if str(d["key"]) != repr(key):
+                d = None
+        except Exception:               # corrupt or half-written file (another run was building it): rebuild
+            d = None
+    if d is not None:
+        st = (d["x"], d["v"], d["alive"], d["pid"], int(d["counter"]))
+        _WARM_CACHE[key] = st
+        _WARM_STEP[seed] = -K - 1
+        return st
     x = np.zeros((CAP, 2)); v = np.zeros((CAP, VEL_DIM)); alive = np.zeros(CAP, dtype=bool); pid = np.zeros(CAP, dtype=np.int64)
     counter = prefill(x, v, alive, pid, seed, C_init) if PREFILL else 0
     for kk in range(-K, 0):
         _advance_one(x, v, alive, pid, seed, kk, C_init)
         counter = _advance_inject(x, v, alive, pid, seed, kk, counter)
     st = (x, v, alive, pid, counter)
-    np.savez(fname, x=x, v=v, alive=alive, pid=pid, counter=counter, key=np.array(repr(key)))
+    tmp = f"{fname}.tmp{os.getpid()}.npz"
+    np.savez(tmp, x=x, v=v, alive=alive, pid=pid, counter=counter, key=np.array(repr(key)))
+    os.replace(tmp, fname)          # atomic: a concurrent run never reads a half-written cache file
     _WARM_CACHE[key] = st
     _WARM_STEP[seed] = -K - 1
     return st
@@ -1452,7 +1487,8 @@ def validate_adjoint(n_steps_=80, n_avg=2, seed0=3, collisions=False, box=(6.0, 
 # =============================================================================
 # Main
 # =============================================================================
-def plot_results(C_init_eff, C_opt_eff, hist, scale):
+def plot_results(C_init_eff, C_opt_eff, hist, scale, out=None):
+    """out: output path (default OUT_DIR/PLOT_NAME, the historical behaviour)."""
     fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(18, 5))
     ax1.plot([loss_to_force(l, scale) for l in hist["loss"]], "b-o", ms=3)
     ax1.set_xlabel("iteration")
@@ -1464,7 +1500,7 @@ def plot_results(C_init_eff, C_opt_eff, hist, scale):
     ax3.plot(*body_outline(C_opt_eff), "royalblue", lw=2.5, label="optimised body")
     ax3.annotate("inflow  U0 ->", xy=(0, 1.4), ha="center", color="green")
     ax3.set_aspect("equal"); ax3.grid(True, alpha=0.3); ax3.legend(); ax3.set_title("Body shape (open channel)")
-    plt.tight_layout(); out = os.path.join(OUT_DIR, PLOT_NAME); plt.savefig(out, dpi=140); print(f"Saved {out}")
+    plt.tight_layout(); out = out or os.path.join(OUT_DIR, PLOT_NAME); plt.savefig(out, dpi=140); plt.close(fig); print(f"Saved {out}")
 
 
 def shape_evolution_gif(C_hist, force_hist=None, out=None, fps=2, dpi=110, effective=True, hold_frames=6):
@@ -1539,7 +1575,21 @@ def shape_evolution_gif(C_hist, force_hist=None, out=None, fps=2, dpi=110, effec
     return path
 
 
-def main():
+def run_optimisation(seeds=None, *, pool=None, wrap_evaluate=None, make_plots=True, plot_out=None,
+                     gif_out=None, reeval_init=True):
+    """The optimisation run of main(), reusable from other scripts.
+
+    seeds         : CRN seed list (default range(SEED0, SEED0 + N_AVG)); it grows in place if ADAPTIVE_SEEDS.
+    pool          : optional sweep.pool.SeedPool -- per-seed simulations, rewarm and gradients run in worker
+                    processes (bitwise-identical results, wall time / n_seeds).
+    wrap_evaluate : optional callable(evaluate) -> evaluate-like object; the optimiser then calls the
+                    wrapper, which must expose .state/.seeds/.grow (sweep.recorder.Recorder records
+                    every gradient call and line-search trial this way).
+    make_plots    : save the convergence PNG (plot_out, default OUT_DIR/PLOT_NAME) and the shape GIF
+                    (gif_out, default OUT_DIR/SHAPE_GIF_NAME).
+    reeval_init   : re-evaluate C_init on the final seed list at the end (one extra forward pass per seed;
+                    diagnostic of the moving-warm-start drift of the C_init loss).
+    Returns dict(C_opt, hist, shape_hist, evaluate, scale, L0_same, seeds, wall, init_disp)."""
     global _L0_VALUE
     selftest_geometry(); print("Geometry selftest passed.")
     set_reference_shape(C_init)
@@ -1556,7 +1606,8 @@ def main():
     print(f"  units: {units};  first trial moves C by {GRAD_INIT_FRAC} x ||C_init|| = {GRAD_INIT_FRAC*Cn:.4f}"
           f"   seeds {N_AVG}->{N_AVG_MAX}   edge term {'added' if ADD_EDGE_CORRECTION else 'reported only'}")
     init_disp = GRAD_INIT_FRAC * Cn
-    seeds = list(range(N_AVG)); evaluate_core = make_evaluate_adjoint(seeds); t0 = time.time()
+    seeds = list(range(SEED0, SEED0 + N_AVG)) if seeds is None else list(seeds)
+    evaluate_core = make_evaluate_adjoint(seeds, pool=pool); t0 = time.time()
 
     class _Evaluate:
         """Wrapper: before every GRADIENT evaluation (i.e. at every accepted iterate) the cached
@@ -1577,10 +1628,15 @@ def main():
         def __call__(self, C, want_grad=True):
             if want_grad and REWARM_T > 0:
                 C_sim = _effective(C)
-                for s_ in list(evaluate_core.seeds):
-                    rewarm(s_, C_sim)
+                if pool is not None:
+                    pool.rewarm(C_sim, list(evaluate_core.seeds))
+                else:
+                    for s_ in list(evaluate_core.seeds):
+                        rewarm(s_, C_sim)
             return evaluate_core(C, want_grad)
     evaluate = _Evaluate()
+    if wrap_evaluate is not None:
+        evaluate = wrap_evaluate(evaluate)
 
     shape_hist = [C_init.copy()]      # one entry per on_accept call (line search + endgame), prefixed
                                        # with C_init; aligns with hist["loss"] (see shape_evolution_gif below)
@@ -1619,17 +1675,30 @@ def main():
         hist["loss"] += eg["loss"][1:]; hist["gnorm"] += eg["gnorm"][1:]
         print(f"Endgame status: {eg['status']}   ||g||/s.e.: {eg['signif'][0]:.2f} -> {eg['signif'][-1]:.2f}")
     sc = evaluate.state["scale"] or 1.0
-    L0_same, _ = evaluate(C_init, want_grad=False)      # NOTE: from the warm states last advanced at C_opt
-    print(f"\nDone in {time.time()-t0:.0f}s.  Drag force on the final {evaluate.state['n_seeds']}-seed list: "
-          f"F_x {loss_to_force(hist['loss'][0], sc, C_init):.1f} (first evaluation, {hist['n_seeds'][0]} seeds, C_init steady state) -> "
-          f"{loss_to_force(hist['loss'][-1], sc, C_opt):.1f}   [C_init re-evaluated on the final list from the C_opt-adapted states: {loss_to_force(L0_same, sc, C_init):.1f}]"
-          + (f"   (objective J incl. penalty: {L0_same*sc:.1f} -> {hist['loss'][-1]*sc:.1f})" if CURV_LAMBDA else "")
-          + f"   normalised loss {L0_same:.4f} -> {hist['loss'][-1]:.4f}")
+    if reeval_init:
+        L0_same, _ = evaluate(C_init, want_grad=False)      # NOTE: from the warm states last advanced at C_opt
+        print(f"\nDone in {time.time()-t0:.0f}s.  Drag force on the final {evaluate.state['n_seeds']}-seed list: "
+              f"F_x {loss_to_force(hist['loss'][0], sc, C_init):.1f} (first evaluation, {hist['n_seeds'][0]} seeds, C_init steady state) -> "
+              f"{loss_to_force(hist['loss'][-1], sc, C_opt):.1f}   [C_init re-evaluated on the final list from the C_opt-adapted states: {loss_to_force(L0_same, sc, C_init):.1f}]"
+              + (f"   (objective J incl. penalty: {L0_same*sc:.1f} -> {hist['loss'][-1]*sc:.1f})" if CURV_LAMBDA else "")
+              + f"   normalised loss {L0_same:.4f} -> {hist['loss'][-1]:.4f}")
+    else:
+        L0_same = float("nan")
+        print(f"\nDone in {time.time()-t0:.0f}s.  F_x {loss_to_force(hist['loss'][0], sc, C_init):.1f} -> "
+              f"{loss_to_force(hist['loss'][-1], sc, C_opt):.1f}   normalised loss {hist['loss'][0]:.4f} -> {hist['loss'][-1]:.4f}")
     print(f"C_opt = {np.round(C_opt, 4)}")
-    plot_results(_effective(C_init), _effective(C_opt), hist, sc)
-    nf = min(len(shape_hist), len(hist["loss"]))          # usually equal; truncate defensively otherwise
-    force_hist = [loss_to_force(hist["loss"][i], sc, shape_hist[i]) for i in range(nf)]
-    shape_evolution_gif(shape_hist[:nf], force_hist=force_hist)
+    if make_plots:
+        plot_results(_effective(C_init), _effective(C_opt), hist, sc, out=plot_out)
+        nf = min(len(shape_hist), len(hist["loss"]))          # usually equal; truncate defensively otherwise
+        force_hist = [loss_to_force(hist["loss"][i], sc, shape_hist[i]) for i in range(nf)]
+        shape_evolution_gif(shape_hist[:nf], force_hist=force_hist, out=gif_out)
+    return dict(C_opt=C_opt, hist=hist, shape_hist=shape_hist, evaluate=evaluate, scale=sc, L0_same=L0_same,
+                seeds=list(evaluate.seeds), wall=time.time() - t0, init_disp=init_disp)
+
+
+def main():
+    """Historical entry point: optimise with the module defaults and save the PNG and the GIF."""
+    run_optimisation()
 
 
 if __name__ == "__main__":

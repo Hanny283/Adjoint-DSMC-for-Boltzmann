@@ -6,3 +6,4 @@ warm_cache/
 *.gif
 *.mp4
 .DS_Store
+**/sweep_results/smoke/
