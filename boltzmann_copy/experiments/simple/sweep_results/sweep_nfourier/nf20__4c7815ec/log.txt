@@ -1,0 +1,58 @@
+=== 2026-09-26 16:44:11  optimise sweep_nfourier/nf20  id=4c7815ecee  pid=3095810=== 2026-09-26 16:44:11  optimise sweep_nfourier/nf20  id=4c7815ecee  pid=3095810
+
+{"N_REF": 250000, "N_FOURIER": 20, "N_AVG": 4, "N_AVG_MAX": 4, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}{"N_REF": 250000, "N_FOURIER": 20, "N_AVG": 4, "N_AVG_MAX": 4, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}
+
+[sweep] optimise sweep_nfourier/nf20 id=4c7815ecee seeds=[0, 1, 2, 3] workers=4[sweep] optimise sweep_nfourier/nf20 id=4c7815ecee seeds=[0, 1, 2, 3] workers=4
+
+Geometry selftest passed.Geometry selftest passed.
+
+Open-channel drag minimisation (inflow left / outflow right / freestream top-bottom) -- exact adjointOpen-channel drag minimisation (inflow left / outflow right / freestream top-bottom) -- exact adjoint
+
+  box 16.0x8.0  U0=1.0 T0=0.5 Kn=1.0  dt=0.1  window (0.0, 5.0] = steps 0..49  N_REF=250000 (inflow 1642.1 particles/step, warm start T_WARM=60.0)  collisions=True  box 16.0x8.0  U0=1.0 T0=0.5 Kn=1.0  dt=0.1  window (0.0, 5.0] = steps 0..49  N_REF=250000 (inflow 1642.1 particles/step, warm start T_WARM=60.0)  collisions=True
+
+  objective: drag + 1 x oint kappa^2 ds (= 6.3 at C_init, P0 = 6.283)   constraint: perimeter (L0 = 6.283, A0 = 3.142)  objective: drag + 1 x oint kappa^2 ds (= 6.3 at C_init, P0 = 6.283)   constraint: perimeter (L0 = 6.283, A0 = 3.142)
+
+  units: loss J/J(C_init) -> 1 and gradient/||g(C_init)|| -> 1 (independent factors; the optimiser uses the true slope kappa g.d);  first trial moves C by 0.05 x ||C_init|| = 0.0500   seeds 4->4   edge term reported only  units: loss J/J(C_init) -> 1 and gradient/||g(C_init)|| -> 1 (independent factors; the optimiser uses the true slope kappa g.d);  first trial moves C by 0.05 x ||C_init|| = 0.0500   seeds 4->4   edge term reported only
+
+init: ||grad||=1.000e+00 -> init_step=5.000e-02 (first trial moves C by 0.05)init: ||grad||=1.000e+00 -> init_step=5.000e-02 (first trial moves C by 0.05)
+
+   [368s] perimeter=6.283  seeds=4  ||g||/s.e.=1.5  ||g||corr=1.702 (=170.2% of initial)  F_x=6037.8  edge-term=0%   [368s] perimeter=6.283  seeds=4  ||g||/s.e.=1.5  ||g||corr=1.702 (=170.2% of initial)  F_x=6037.8  edge-term=0%
+
+iter   0: L=0.922577  ||grad||=2.2521e+00  step=0.075  alpha=0.05  |dC|=0.05iter   0: L=0.922577  ||grad||=2.2521e+00  step=0.075  alpha=0.05  |dC|=0.05
+
+   [519s] perimeter=6.283  seeds=4  ||g||/s.e.=3.0  ||g||corr=11.92 (=1192.4% of initial)  F_x=5901.9  edge-term=0%   [519s] perimeter=6.283  seeds=4  ||g||/s.e.=3.0  ||g||corr=11.92 (=1192.4% of initial)  F_x=5901.9  edge-term=0%
+
+iter   1: L=0.904121  ||grad||=1.2663e+01  step=0.01406  alpha=0.009375  |dC|=0.0211iter   1: L=0.904121  ||grad||=1.2663e+01  step=0.01406  alpha=0.009375  |dC|=0.0211
+
+   [759s] perimeter=6.283  seeds=4  ||g||/s.e.=0.8  ||g||corr=0 (=0.0% of initial)  F_x=5924.5  edge-term=0%   [759s] perimeter=6.283  seeds=4  ||g||/s.e.=0.8  ||g||corr=0 (=0.0% of initial)  F_x=5924.5  edge-term=0%
+
+iter   2: L=0.907509  ||grad||=3.5477e+00  step=8.24e-05  alpha=5.493e-05  |dC|=0.000696iter   2: L=0.907509  ||grad||=3.5477e+00  step=8.24e-05  alpha=5.493e-05  |dC|=0.000696
+
+iter   3: noise-limited (predicted decrease 0.00288 < 2 x paired loss s.e. 0.00473 at |dC|=0.000292) and no more precision available -> stoppingiter   3: noise-limited (predicted decrease 0.00288 < 2 x paired loss s.e. 0.00473 at |dC|=0.000292) and no more precision available -> stopping
+
+
+Line-search phase done in 775s.  status: noise-limited  seeds 4 -> 4
+Line-search phase done in 775s.  status: noise-limited  seeds 4 -> 4
+
+
+Done in 775s.  F_x 6600.8 -> 5924.5   normalised loss 1.0000 -> 0.9075
+Done in 775s.  F_x 6600.8 -> 5924.5   normalised loss 1.0000 -> 0.9075
+
+C_opt = [ 9.998e-01 -5.200e-03  3.970e-02 -3.310e-02  1.010e-02 -9.000e-04
+ -9.000e-04  2.100e-03 -4.000e-03  3.900e-03 -2.000e-03  1.000e-03
+ -3.500e-03  7.300e-03 -9.000e-03  7.000e-03 -4.200e-03  5.200e-03
+ -6.700e-03  5.500e-03 -6.400e-03  2.000e-04 -1.000e-03  1.900e-03
+ -2.100e-03  1.400e-03 -5.000e-04 -6.000e-04  7.000e-04 -9.000e-04
+  1.600e-03 -1.900e-03  2.100e-03 -7.000e-04 -9.000e-04  2.000e-04
+  2.700e-03 -2.300e-03 -9.000e-04  2.100e-03 -1.700e-03]C_opt = [ 9.998e-01 -5.200e-03  3.970e-02 -3.310e-02  1.010e-02 -9.000e-04
+ -9.000e-04  2.100e-03 -4.000e-03  3.900e-03 -2.000e-03  1.000e-03
+ -3.500e-03  7.300e-03 -9.000e-03  7.000e-03 -4.200e-03  5.200e-03
+ -6.700e-03  5.500e-03 -6.400e-03  2.000e-04 -1.000e-03  1.900e-03
+ -2.100e-03  1.400e-03 -5.000e-04 -6.000e-04  7.000e-04 -9.000e-04
+  1.600e-03 -1.900e-03  2.100e-03 -7.000e-04 -9.000e-04  2.000e-04
+  2.700e-03 -2.300e-03 -9.000e-04  2.100e-03 -1.700e-03]
+
+Saved /homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep_results/sweep_nfourier/nf20__4c7815ec/convergence.pngSaved /homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep_results/sweep_nfourier/nf20__4c7815ec/convergence.png
+
+=== done in 776s=== done in 776s
+

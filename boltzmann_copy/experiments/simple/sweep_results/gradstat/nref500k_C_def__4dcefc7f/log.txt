@@ -1,0 +1,8 @@
+=== 2026-09-26 17:20:33  gradstat gradstat/nref500k_C_def  id=4dcefc7f5b  pid=3101688=== 2026-09-26 17:20:33  gradstat gradstat/nref500k_C_def  id=4dcefc7f5b  pid=3101688
+
+{"N_REF": 500000, "N_FOURIER": 10, "N_AVG": 16, "N_AVG_MAX": 16, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}{"N_REF": 500000, "N_FOURIER": 10, "N_AVG": 16, "N_AVG_MAX": 16, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}
+
+[sweep] gradstat gradstat/nref500k_C_def id=4dcefc7f5b N_REF=500000 seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] workers=16[sweep] gradstat gradstat/nref500k_C_def id=4dcefc7f5b N_REF=500000 seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] workers=16
+
+=== done in 211s=== done in 211s
+

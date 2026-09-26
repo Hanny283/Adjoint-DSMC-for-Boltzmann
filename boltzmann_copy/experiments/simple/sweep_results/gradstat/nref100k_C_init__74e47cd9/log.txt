@@ -1,0 +1,94 @@
+=== 2026-09-22 22:34:58  gradstat gradstat/nref100k_C_init  id=74e47cd901  pid=2200067=== 2026-09-22 22:34:58  gradstat gradstat/nref100k_C_init  id=74e47cd901  pid=2200067
+
+{"N_REF": 100000, "N_FOURIER": 10, "N_AVG": 16, "N_AVG_MAX": 16, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}{"N_REF": 100000, "N_FOURIER": 10, "N_AVG": 16, "N_AVG_MAX": 16, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}
+
+[sweep] gradstat gradstat/nref100k_C_init id=74e47cd901 N_REF=100000 seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] workers=16[sweep] gradstat gradstat/nref100k_C_init id=74e47cd901 N_REF=100000 seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] workers=16
+
+concurrent.futures.processconcurrent.futures.process.._RemoteTraceback_RemoteTraceback: : 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/concurrent/futures/process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/pool.py", line 40, in _w_warm
+    st = _RI.warm_state(seed)                      # builds (T_WARM at C_init) or loads the file cache
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/runInflow.py", line 1154, in warm_state
+    np.savez(tmp, x=x, v=v, alive=alive, pid=pid, counter=counter, key=np.array(repr(key)))
+  File "<__array_function__ internals>", line 180, in savez
+  File "/usr/local/lib/python3.10/dist-packages/numpy/lib/npyio.py", line 615, in savez
+    _savez(file, args, kwds, False)
+  File "/usr/local/lib/python3.10/dist-packages/numpy/lib/npyio.py", line 723, in _savez
+    zipf.close()
+  File "/usr/lib/python3.10/zipfile.py", line 1869, in close
+    self._fpclose(fp)
+  File "/usr/lib/python3.10/zipfile.py", line 1969, in _fpclose
+    fp.close()
+OSError: [Errno 28] No space left on device
+"""
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/concurrent/futures/process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/pool.py", line 40, in _w_warm
+    st = _RI.warm_state(seed)                      # builds (T_WARM at C_init) or loads the file cache
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/runInflow.py", line 1154, in warm_state
+    np.savez(tmp, x=x, v=v, alive=alive, pid=pid, counter=counter, key=np.array(repr(key)))
+  File "<__array_function__ internals>", line 180, in savez
+  File "/usr/local/lib/python3.10/dist-packages/numpy/lib/npyio.py", line 615, in savez
+    _savez(file, args, kwds, False)
+  File "/usr/local/lib/python3.10/dist-packages/numpy/lib/npyio.py", line 723, in _savez
+    zipf.close()
+  File "/usr/lib/python3.10/zipfile.py", line 1869, in close
+    self._fpclose(fp)
+  File "/usr/lib/python3.10/zipfile.py", line 1969, in _fpclose
+    fp.close()
+OSError: [Errno 28] No space left on device
+"""
+
+
+The above exception was the direct cause of the following exception:
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/run.py", line 85, in main
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/run.py", line 85, in main
+        run_job(cfg, run_dir, ri)run_job(cfg, run_dir, ri)
+
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/jobs.py", line 161, in run_job
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/jobs.py", line 161, in run_job
+        return {"optimise": run_optimise, "gradstat": run_gradstat, "warm": run_warm}[cfg["kind"]](cfg, run_dir, ri)return {"optimise": run_optimise, "gradstat": run_gradstat, "warm": run_warm}[cfg["kind"]](cfg, run_dir, ri)
+
+  File "=== 2026-09-26 14:30:57  gradstat gradstat/nref100k_C_init  id=74e47cd901  pid=3074157Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+        return _run_code(code, main_globals, None,return _run_code(code, main_globals, None,
+
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+        exec(code, run_globals)exec(code, run_globals)
+
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/run.py", line 100, in <module>
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/run.py", line 100, in <module>
+        sys.exit(main())sys.exit(main())
+
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/run.py", line 81, in main
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/run.py", line 81, in main
+        print(f"=== {time.strftime('%Y-%m-%d %H:%M:%S')}  {cfg['kind']} {cfg['group']}/{cfg['name']}  id={cfg['run_id']}  pid={os.getpid()}")print(f"=== {time.strftime('%Y-%m-%d %H:%M:%S')}  {cfg['kind']} {cfg['group']}/{cfg['name']}  id={cfg['run_id']}  pid={os.getpid()}")
+
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/run.py", line 31, in write
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/run.py", line 31, in write
+        st.write(s)st.write(s)
+
+OSErrorOSError: : [Errno 28] No space left on device[Errno 28] No space left on device
+
+=== 2026-09-26 14:33:02  gradstat gradstat/nref100k_C_init  id=74e47cd901  pid=3074594=== 2026-09-26 14:33:02  gradstat gradstat/nref100k_C_init  id=74e47cd901  pid=3074594
+
+{"N_REF": 100000, "N_FOURIER": 10, "N_AVG": 16, "N_AVG_MAX": 16, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}{"N_REF": 100000, "N_FOURIER": 10, "N_AVG": 16, "N_AVG_MAX": 16, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}
+
+[sweep] gradstat gradstat/nref100k_C_init id=74e47cd901 N_REF=100000 seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] workers=16[sweep] gradstat gradstat/nref100k_C_init id=74e47cd901 N_REF=100000 seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] workers=16
+
+=== done in 104s=== done in 104s
+

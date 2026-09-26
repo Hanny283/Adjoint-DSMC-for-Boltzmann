@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+
+=== 2026-09-26 19:45:09  gradstat gradstat/nref100k_C_def  id=d77e2c28e9  pid=3125114=== 2026-09-26 19:45:09  gradstat gradstat/nref100k_C_def  id=d77e2c28e9  pid=3125114
+
+{"N_REF": 100000, "N_FOURIER": 10, "N_AVG": 16, "N_AVG_MAX": 16, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}{"N_REF": 100000, "N_FOURIER": 10, "N_AVG": 16, "N_AVG_MAX": 16, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}
+
+[sweep] gradstat gradstat/nref100k_C_def id=d77e2c28e9 N_REF=100000 seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] workers=16[sweep] gradstat gradstat/nref100k_C_def id=d77e2c28e9 N_REF=100000 seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] workers=16
+
+=== done in 45s=== done in 45s
+

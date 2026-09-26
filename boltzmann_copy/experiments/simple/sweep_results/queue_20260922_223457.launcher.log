@@ -1,0 +1,86 @@
+[launcher] 23 pending of 23 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started gradstat/nref100k_C_init (cores=16, ~7.18 GB); running=1 pending=22
+[launcher] finished (1): gradstat/nref100k_C_init
+[launcher] started gradstat/nref100k_C_def (cores=16, ~7.18 GB); running=1 pending=21
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/launcher.py", line 179, in <module>
+    main()
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/launcher.py", line 175, in main
+    schedule(args.queue, args.max_cores, args.mem_budget_gb, poll=args.poll)
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/launcher.py", line 104, in schedule
+    _save()
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/launcher.py", line 76, in _save
+    state_file.write_text(json.dumps(dict(pid=os.getpid(), time=time.strftime("%Y-%m-%d %H:%M:%S"),
+  File "/usr/lib/python3.10/pathlib.py", line 1154, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+OSError: [Errno 28] No space left on device
+[launcher] 23 pending of 23 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started gradstat/nref100k_C_init (cores=16, ~7.18 GB); running=1 pending=22
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/launcher.py", line 179, in <module>
+    main()
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/launcher.py", line 175, in main
+    schedule(args.queue, args.max_cores, args.mem_budget_gb, poll=args.poll)
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/launcher.py", line 104, in schedule
+    _save()
+  File "/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep/launcher.py", line 76, in _save
+    state_file.write_text(json.dumps(dict(pid=os.getpid(), time=time.strftime("%Y-%m-%d %H:%M:%S"),
+  File "/usr/lib/python3.10/pathlib.py", line 1154, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+OSError: [Errno 28] No space left on device
+[launcher] 23 pending of 23 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started gradstat/nref100k_C_init (cores=16, ~7.18 GB); running=1 pending=22
+[launcher] finished (0): gradstat/nref100k_C_init
+[launcher] started gradstat/nref100k_C_def (cores=16, ~7.18 GB); running=1 pending=21
+[launcher] finished (1): gradstat/nref100k_C_def
+[launcher] started gradstat/nref250k_C_init (cores=16, ~12.7 GB); running=1 pending=20
+[launcher] finished (0): gradstat/nref250k_C_init
+[launcher] started gradstat/nref250k_C_def (cores=16, ~12.7 GB); running=1 pending=19
+[launcher] finished (0): gradstat/nref250k_C_def
+[launcher] started baseline/B0_seed0 (cores=4, ~3.4 GB); running=1 pending=18
+[launcher] started sweep_frac/frac0.01 (cores=4, ~3.4 GB); running=2 pending=17
+[launcher] started sweep_frac/frac0.02 (cores=4, ~3.4 GB); running=3 pending=16
+[launcher] started sweep_frac/frac0.1 (cores=4, ~3.4 GB); running=4 pending=15
+[launcher] finished (0): sweep_frac/frac0.01
+[launcher] finished (0): sweep_frac/frac0.02
+[launcher] started sweep_frac/frac0.2 (cores=4, ~3.4 GB); running=3 pending=14
+[launcher] started sweep_seeds/nseeds1 (cores=1, ~1.07 GB); running=4 pending=13
+[launcher] started sweep_seeds/nseeds2 (cores=2, ~1.85 GB); running=5 pending=12
+[launcher] finished (0): baseline/B0_seed0
+[launcher] finished (0): sweep_frac/frac0.1
+[launcher] started sweep_seeds/nseeds8 (cores=8, ~6.5 GB); running=4 pending=11
+[launcher] finished (0): sweep_seeds/nseeds1
+[launcher] finished (0): sweep_seeds/nseeds2
+[launcher] finished (0): sweep_frac/frac0.2
+[launcher] finished (0): sweep_seeds/nseeds8
+[launcher] started sweep_seeds/nseeds16 (cores=16, ~12.7 GB); running=1 pending=10
+[launcher] finished (0): sweep_seeds/nseeds16
+[launcher] started sweep_nfourier/nf3 (cores=4, ~3.4 GB); running=1 pending=9
+[launcher] started sweep_nfourier/nf5 (cores=4, ~3.4 GB); running=2 pending=8
+[launcher] started sweep_nfourier/nf20 (cores=4, ~3.4 GB); running=3 pending=7
+[launcher] finished (0): sweep_nfourier/nf20
+[launcher] finished (0): sweep_nfourier/nf3
+[launcher] finished (0): sweep_nfourier/nf5
+[launcher] started gradstat/nref500k_C_init (cores=16, ~21.9 GB); running=1 pending=6
+[launcher] finished (0): gradstat/nref500k_C_init
+[launcher] started gradstat/nref500k_C_def (cores=16, ~21.9 GB); running=1 pending=5
+[launcher] finished (0): gradstat/nref500k_C_def
+[launcher] started gradstat/nref1M_C_init (cores=16, ~40.3 GB); running=1 pending=4
+[launcher] finished (0): gradstat/nref1M_C_init
+[launcher] started gradstat/nref1M_C_def (cores=16, ~40.3 GB); running=1 pending=3
+[launcher] finished (0): gradstat/nref1M_C_def
+[launcher] started sweep_nref/nref100k (cores=4, ~2.02 GB); running=1 pending=2
+[launcher] started sweep_nref/nref500k (cores=4, ~5.7 GB); running=2 pending=1
+[launcher] started sweep_nref/nref1M (cores=4, ~10.3 GB); running=3 pending=0
+[launcher] finished (0): sweep_nref/nref100k
+[launcher] finished (0): sweep_nref/nref500k
+[launcher] finished (0): sweep_nref/nref1M
+[launcher] queue finished

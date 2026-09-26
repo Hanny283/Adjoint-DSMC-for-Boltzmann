@@ -1,0 +1,209 @@
+[
+ {
+  "run_dir": "sweep_results/gradstat/nref100k_C_init__74e47cd9",
+  "kind": "gradstat",
+  "group": "gradstat",
+  "name": "nref100k_C_init",
+  "run_id": "74e47cd901",
+  "cores": 16,
+  "mem_gb": 7.18
+ },
+ {
+  "run_dir": "sweep_results/gradstat/nref100k_C_def__d77e2c28",
+  "kind": "gradstat",
+  "group": "gradstat",
+  "name": "nref100k_C_def",
+  "run_id": "d77e2c28e9",
+  "cores": 16,
+  "mem_gb": 7.18
+ },
+ {
+  "run_dir": "sweep_results/gradstat/nref250k_C_init__bee95bbb",
+  "kind": "gradstat",
+  "group": "gradstat",
+  "name": "nref250k_C_init",
+  "run_id": "bee95bbb47",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results/gradstat/nref250k_C_def__ea3088b6",
+  "kind": "gradstat",
+  "group": "gradstat",
+  "name": "nref250k_C_def",
+  "run_id": "ea3088b6f0",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results/baseline/B0_seed0__82fe5d97",
+  "kind": "optimise",
+  "group": "baseline",
+  "name": "B0_seed0",
+  "run_id": "82fe5d972d",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results/sweep_frac/frac0.01__ef31ed36",
+  "kind": "optimise",
+  "group": "sweep_frac",
+  "name": "frac0.01",
+  "run_id": "ef31ed36eb",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results/sweep_frac/frac0.02__2c339a7e",
+  "kind": "optimise",
+  "group": "sweep_frac",
+  "name": "frac0.02",
+  "run_id": "2c339a7efb",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results/sweep_frac/frac0.1__1cdd4e5b",
+  "kind": "optimise",
+  "group": "sweep_frac",
+  "name": "frac0.1",
+  "run_id": "1cdd4e5b0b",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results/sweep_frac/frac0.2__df91e33f",
+  "kind": "optimise",
+  "group": "sweep_frac",
+  "name": "frac0.2",
+  "run_id": "df91e33fbf",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results/sweep_seeds/nseeds1__cdbbb862",
+  "kind": "optimise",
+  "group": "sweep_seeds",
+  "name": "nseeds1",
+  "run_id": "cdbbb862a0",
+  "cores": 1,
+  "mem_gb": 1.07
+ },
+ {
+  "run_dir": "sweep_results/sweep_seeds/nseeds2__6cf4cd97",
+  "kind": "optimise",
+  "group": "sweep_seeds",
+  "name": "nseeds2",
+  "run_id": "6cf4cd978d",
+  "cores": 2,
+  "mem_gb": 1.85
+ },
+ {
+  "run_dir": "sweep_results/sweep_seeds/nseeds8__8d8b1a01",
+  "kind": "optimise",
+  "group": "sweep_seeds",
+  "name": "nseeds8",
+  "run_id": "8d8b1a0180",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results/sweep_seeds/nseeds16__44842314",
+  "kind": "optimise",
+  "group": "sweep_seeds",
+  "name": "nseeds16",
+  "run_id": "44842314fa",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results/sweep_nfourier/nf3__01128417",
+  "kind": "optimise",
+  "group": "sweep_nfourier",
+  "name": "nf3",
+  "run_id": "0112841720",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results/sweep_nfourier/nf5__53260985",
+  "kind": "optimise",
+  "group": "sweep_nfourier",
+  "name": "nf5",
+  "run_id": "532609852d",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results/sweep_nfourier/nf20__4c7815ec",
+  "kind": "optimise",
+  "group": "sweep_nfourier",
+  "name": "nf20",
+  "run_id": "4c7815ecee",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results/gradstat/nref500k_C_init__5b567fcd",
+  "kind": "gradstat",
+  "group": "gradstat",
+  "name": "nref500k_C_init",
+  "run_id": "5b567fcd52",
+  "cores": 16,
+  "mem_gb": 21.9
+ },
+ {
+  "run_dir": "sweep_results/gradstat/nref500k_C_def__4dcefc7f",
+  "kind": "gradstat",
+  "group": "gradstat",
+  "name": "nref500k_C_def",
+  "run_id": "4dcefc7f5b",
+  "cores": 16,
+  "mem_gb": 21.9
+ },
+ {
+  "run_dir": "sweep_results/gradstat/nref1M_C_init__b320e422",
+  "kind": "gradstat",
+  "group": "gradstat",
+  "name": "nref1M_C_init",
+  "run_id": "b320e4225f",
+  "cores": 16,
+  "mem_gb": 40.3
+ },
+ {
+  "run_dir": "sweep_results/gradstat/nref1M_C_def__97eeff42",
+  "kind": "gradstat",
+  "group": "gradstat",
+  "name": "nref1M_C_def",
+  "run_id": "97eeff429f",
+  "cores": 16,
+  "mem_gb": 40.3
+ },
+ {
+  "run_dir": "sweep_results/sweep_nref/nref100k__291cebdb",
+  "kind": "optimise",
+  "group": "sweep_nref",
+  "name": "nref100k",
+  "run_id": "291cebdb0a",
+  "cores": 4,
+  "mem_gb": 2.02
+ },
+ {
+  "run_dir": "sweep_results/sweep_nref/nref500k__9f123ca4",
+  "kind": "optimise",
+  "group": "sweep_nref",
+  "name": "nref500k",
+  "run_id": "9f123ca47f",
+  "cores": 4,
+  "mem_gb": 5.7
+ },
+ {
+  "run_dir": "sweep_results/sweep_nref/nref1M__d38da454",
+  "kind": "optimise",
+  "group": "sweep_nref",
+  "name": "nref1M",
+  "run_id": "d38da454cd",
+  "cores": 4,
+  "mem_gb": 10.3
+ }
+]

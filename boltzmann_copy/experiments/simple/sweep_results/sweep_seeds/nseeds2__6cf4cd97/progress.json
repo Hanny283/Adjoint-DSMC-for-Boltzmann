@@ -1,0 +1,14 @@
+{
+ "status": "done",
+ "iter": 20,
+ "n_iter": 20,
+ "loss": 0.48596856490582113,
+ "gnorm": 0.4698972791916167,
+ "n_seeds": 2,
+ "elapsed_s": 2036.0863196849823,
+ "eta_s": 0.0,
+ "n_gradient_calls": 21,
+ "n_trials": 32,
+ "pid": 3082006,
+ "last_update": "2026-09-26 15:54:02"
+}

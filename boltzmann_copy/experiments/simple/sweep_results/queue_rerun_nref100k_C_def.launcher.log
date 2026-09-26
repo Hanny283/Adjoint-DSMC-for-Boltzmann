@@ -1,0 +1,4 @@
+[launcher] 1 pending of 1 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started gradstat/nref100k_C_def (cores=16, ~7.18 GB); running=1 pending=0
+[launcher] finished (0): gradstat/nref100k_C_def
+[launcher] queue finished

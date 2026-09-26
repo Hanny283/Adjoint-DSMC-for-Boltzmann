@@ -1,0 +1,11 @@
+[
+ {
+  "run_dir": "sweep_results/gradstat/nref100k_C_def__d77e2c28",
+  "kind": "gradstat",
+  "group": "gradstat",
+  "name": "nref100k_C_def",
+  "run_id": "d77e2c28e9",
+  "cores": 16,
+  "mem_gb": 7.18
+ }
+]
