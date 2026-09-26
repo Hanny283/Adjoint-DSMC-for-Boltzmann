@@ -1139,8 +1139,17 @@ def warm_state(seed):
                 d = None
         except Exception:               # corrupt or half-written file (another run was building it): rebuild
             d = None
-    if d is not None:
+    if d is not None and "slots" in d.files:   # compact file: only the live slots were saved
+        try:
+            slots = d["slots"]
+            x = np.zeros((CAP, 2)); v = np.zeros((CAP, VEL_DIM)); alive = np.zeros(CAP, dtype=bool); pid = np.zeros(CAP, dtype=np.int64)
+            x[slots] = d["x"]; v[slots] = d["v"]; alive[slots] = True; pid[slots] = d["pid"]
+            st = (x, v, alive, pid, int(d["counter"]))
+        except Exception:
+            d = None
+    elif d is not None:                        # old full-capacity file
         st = (d["x"], d["v"], d["alive"], d["pid"], int(d["counter"]))
+    if d is not None:
         _WARM_CACHE[key] = st
         _WARM_STEP[seed] = -K - 1
         return st
@@ -1151,7 +1160,8 @@ def warm_state(seed):
         counter = _advance_inject(x, v, alive, pid, seed, kk, counter)
     st = (x, v, alive, pid, counter)
     tmp = f"{fname}.tmp{os.getpid()}.npz"
-    np.savez(tmp, x=x, v=v, alive=alive, pid=pid, counter=counter, key=np.array(repr(key)))
+    slots = np.flatnonzero(alive)   # dead slots are never read (free slots are refilled from ~alive), so save only live ones
+    np.savez(tmp, slots=slots, x=x[slots], v=v[slots], pid=pid[slots], counter=counter, key=np.array(repr(key)))
     os.replace(tmp, fname)          # atomic: a concurrent run never reads a half-written cache file
     _WARM_CACHE[key] = st
     _WARM_STEP[seed] = -K - 1
