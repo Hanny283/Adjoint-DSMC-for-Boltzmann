@@ -41,10 +41,14 @@ def apply_params(ri, params):
     ri._BACK_TABLE = None
     # 3. resolution (recomputes M_P and N0)
     ri.set_particle_count(int(p["N_REF"]), int(p["CAP"]))
-    # 4. shape parameterisation: the unit circle with N_FOURIER modes
+    # 4. shape parameterisation: the unit circle with N_FOURIER modes, or the harness-only C_START
     ri.N_FOURIER = int(p["N_FOURIER"])
     ri.C_init = np.zeros(2 * ri.N_FOURIER + 1)
     ri.C_init[0] = 1.0
+    if p.get("C_START") is not None:
+        C = np.asarray(p["C_START"], dtype=float)
+        assert len(C) == len(ri.C_init), "C_START must have 2*N_FOURIER+1 coefficients"
+        ri.C_init = C.copy()
     # 5. seeds and optimiser knobs
     for k in ("N_AVG", "N_AVG_MAX", "SEED0", "N_ITER", "ENDGAME_ITERS"):
         setattr(ri, k, int(p[k]))

@@ -1,0 +1,20 @@
+[
+ {
+  "run_dir": "sweep_results_pass5/heldout/p5_capinf_seed500__76bcc9a5",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p5_capinf_seed500",
+  "run_id": "76bcc9a52e",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass5/heldout/p5_capinf_seed600__aa9743c8",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p5_capinf_seed600",
+  "run_id": "aa9743c82c",
+  "cores": 16,
+  "mem_gb": 12.7
+ }
+]

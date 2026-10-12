@@ -178,9 +178,11 @@ class Recorder:
         h["n_trials"], h["n_refines"] = n_trials, n_ref
         # optimiser-side records
         if hist is not None:
-            m = min(n, len(hist["loss"]))
-            h["step"] = np.full(n, np.nan); h["step"][:m] = np.asarray(hist["step"][:m], float)
-            h["disp"] = np.full(n, np.nan); h["disp"][:m] = np.asarray(hist["disp"][:m], float)
+            # the endgame appends its iterates to hist["loss"] but not to hist["step"]/hist["disp"], so clamp each
+            # array to its own length; endgame iterates keep step = nan and get disp from C_raw below
+            ms, md = min(n, len(hist["step"])), min(n, len(hist["disp"]))
+            h["step"] = np.full(n, np.nan); h["step"][:ms] = np.asarray(hist["step"][:ms], float)
+            h["disp"] = np.full(n, np.nan); h["disp"][:md] = np.asarray(hist["disp"][:md], float)
             h["accepted"] = np.asarray(hist["accepted"], bool)
             h["h_secant"] = np.asarray(hist.get("h_secant", []), float)
             h["status"] = np.array(str(hist["status"]))

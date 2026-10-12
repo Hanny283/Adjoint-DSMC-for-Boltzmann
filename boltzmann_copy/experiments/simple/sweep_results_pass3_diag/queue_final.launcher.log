@@ -1,0 +1,14 @@
+[launcher] 6 pending of 14 (8 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started diag/C3_250k_nf20 (cores=16, ~12.7 GB); running=1 pending=5
+[launcher] finished (0): diag/C3_250k_nf20
+[launcher] started heldout/p3_grow4to32_seed0 (cores=16, ~12.7 GB); running=1 pending=4
+[launcher] finished (0): heldout/p3_grow4to32_seed0
+[launcher] started heldout/p3_grow4to32_seed100 (cores=16, ~12.7 GB); running=1 pending=3
+[launcher] finished (0): heldout/p3_grow4to32_seed100
+[launcher] started heldout/p3_grow4to32_seed200 (cores=16, ~12.7 GB); running=1 pending=2
+[launcher] finished (0): heldout/p3_grow4to32_seed200
+[launcher] started heldout/p3_grow4to32_seed300 (cores=16, ~12.7 GB); running=1 pending=1
+[launcher] finished (0): heldout/p3_grow4to32_seed300
+[launcher] started heldout/p3_consensus_C3 (cores=16, ~12.7 GB); running=1 pending=0
+[launcher] finished (0): heldout/p3_consensus_C3
+[launcher] queue finished

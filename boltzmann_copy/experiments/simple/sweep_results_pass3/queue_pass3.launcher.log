@@ -1,0 +1,86 @@
+[launcher] 42 pending of 42 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started diag/C2_250k_nf10 (cores=16, ~12.7 GB); running=1 pending=41
+[launcher] finished (0): diag/C2_250k_nf10
+[launcher] started diag/C2_250k_nf20 (cores=16, ~12.7 GB); running=1 pending=40
+[launcher] finished (0): diag/C2_250k_nf20
+[launcher] started diag/C5_250k_nf10 (cores=16, ~12.7 GB); running=1 pending=39
+[launcher] finished (0): diag/C5_250k_nf10
+[launcher] started diag/C2_100k_nf10 (cores=16, ~7.18 GB); running=1 pending=38
+[launcher] finished (0): diag/C2_100k_nf10
+[launcher] started diag/C2_500k_nf10 (cores=16, ~21.9 GB); running=1 pending=37
+[launcher] finished (0): diag/C2_500k_nf10
+[launcher] started adaptive/grow4to32_seed0 (cores=4, ~3.4 GB); running=1 pending=36
+[launcher] started adaptive/grow4to32_seed100 (cores=4, ~3.4 GB); running=2 pending=35
+[launcher] started adaptive/grow4to32_seed200 (cores=4, ~3.4 GB); running=3 pending=34
+[launcher] started adaptive/grow4to32_seed300 (cores=4, ~3.4 GB); running=4 pending=33
+[launcher] finished (0): adaptive/grow4to32_seed0
+[launcher] finished (0): adaptive/grow4to32_seed200
+[launcher] started heldout/circle (cores=8, ~6.5 GB); running=3 pending=32
+[launcher] finished (0): heldout/circle
+[launcher] started heldout/p1_B0_seed0 (cores=8, ~6.5 GB); running=3 pending=31
+[launcher] finished (0): heldout/p1_B0_seed0
+[launcher] started heldout/p1_frac0.01 (cores=8, ~6.5 GB); running=3 pending=30
+[launcher] finished (0): heldout/p1_frac0.01
+[launcher] started heldout/p1_frac0.02 (cores=8, ~6.5 GB); running=3 pending=29
+[launcher] finished (0): heldout/p1_frac0.02
+[launcher] started heldout/p1_frac0.1 (cores=8, ~6.5 GB); running=3 pending=28
+[launcher] finished (0): heldout/p1_frac0.1
+[launcher] started heldout/p1_frac0.2 (cores=8, ~6.5 GB); running=3 pending=27
+[launcher] finished (0): heldout/p1_frac0.2
+[launcher] started heldout/p1_nf3 (cores=8, ~6.5 GB); running=3 pending=26
+[launcher] finished (0): heldout/p1_nf3
+[launcher] started heldout/p1_nf5 (cores=8, ~6.5 GB); running=3 pending=25
+[launcher] finished (0): heldout/p1_nf5
+[launcher] started heldout/p1_nref100k (cores=8, ~6.5 GB); running=3 pending=24
+[launcher] finished (0): heldout/p1_nref100k
+[launcher] started heldout/p1_nref1M (cores=8, ~6.5 GB); running=3 pending=23
+[launcher] finished (0): heldout/p1_nref1M
+[launcher] started heldout/p1_nref500k (cores=8, ~6.5 GB); running=3 pending=22
+[launcher] finished (0): heldout/p1_nref500k
+[launcher] started heldout/p1_nseeds16 (cores=8, ~6.5 GB); running=3 pending=21
+[launcher] finished (0): heldout/p1_nseeds16
+[launcher] started heldout/p1_nseeds1 (cores=8, ~6.5 GB); running=3 pending=20
+[launcher] finished (0): heldout/p1_nseeds1
+[launcher] started heldout/p1_nseeds2 (cores=8, ~6.5 GB); running=3 pending=19
+[launcher] finished (0): heldout/p1_nseeds2
+[launcher] started heldout/p1_nseeds8 (cores=8, ~6.5 GB); running=3 pending=18
+[launcher] finished (0): heldout/p1_nseeds8
+[launcher] started heldout/p2_B0_seed0 (cores=8, ~6.5 GB); running=3 pending=17
+[launcher] finished (0): heldout/p2_B0_seed0
+[launcher] started heldout/p2_B0_seed100 (cores=8, ~6.5 GB); running=3 pending=16
+[launcher] finished (0): heldout/p2_B0_seed100
+[launcher] started heldout/p2_B0_seed200 (cores=8, ~6.5 GB); running=3 pending=15
+[launcher] finished (0): heldout/p2_B0_seed200
+[launcher] started heldout/p2_frac0.1_seed0 (cores=8, ~6.5 GB); running=3 pending=14
+[launcher] finished (0): heldout/p2_frac0.1_seed0
+[launcher] started heldout/p2_frac0.1_seed100 (cores=8, ~6.5 GB); running=3 pending=13
+[launcher] finished (0): heldout/p2_frac0.1_seed100
+[launcher] started heldout/p2_frac0.1_seed200 (cores=8, ~6.5 GB); running=3 pending=12
+[launcher] finished (0): heldout/p2_frac0.1_seed200
+[launcher] started heldout/p2_nf5_seed0 (cores=8, ~6.5 GB); running=3 pending=11
+[launcher] finished (0): heldout/p2_nf5_seed0
+[launcher] started heldout/p2_nf5_seed100 (cores=8, ~6.5 GB); running=3 pending=10
+[launcher] finished (0): heldout/p2_nf5_seed100
+[launcher] started heldout/p2_nf5_seed200 (cores=8, ~6.5 GB); running=3 pending=9
+[launcher] finished (0): heldout/p2_nf5_seed200
+[launcher] started heldout/p2_nref500k_seed0 (cores=8, ~6.5 GB); running=3 pending=8
+[launcher] finished (0): heldout/p2_nref500k_seed0
+[launcher] started heldout/p2_nref500k_seed100 (cores=8, ~6.5 GB); running=3 pending=7
+[launcher] finished (0): heldout/p2_nref500k_seed100
+[launcher] started heldout/p2_nref500k_seed200 (cores=8, ~6.5 GB); running=3 pending=6
+[launcher] finished (0): heldout/p2_nref500k_seed200
+[launcher] started heldout/p2_nseeds1_seed0 (cores=8, ~6.5 GB); running=3 pending=5
+[launcher] finished (0): heldout/p2_nseeds1_seed0
+[launcher] started heldout/p2_nseeds1_seed100 (cores=8, ~6.5 GB); running=3 pending=4
+[launcher] finished (0): heldout/p2_nseeds1_seed100
+[launcher] started heldout/p2_nseeds1_seed200 (cores=8, ~6.5 GB); running=3 pending=3
+[launcher] finished (0): heldout/p2_nseeds1_seed200
+[launcher] started heldout/p2_nseeds8_seed0 (cores=8, ~6.5 GB); running=3 pending=2
+[launcher] finished (0): heldout/p2_nseeds8_seed0
+[launcher] started heldout/p2_nseeds8_seed100 (cores=8, ~6.5 GB); running=3 pending=1
+[launcher] finished (0): heldout/p2_nseeds8_seed100
+[launcher] started heldout/p2_nseeds8_seed200 (cores=8, ~6.5 GB); running=3 pending=0
+[launcher] finished (0): heldout/p2_nseeds8_seed200
+[launcher] finished (0): adaptive/grow4to32_seed300
+[launcher] finished (0): adaptive/grow4to32_seed100
+[launcher] queue finished

@@ -39,6 +39,14 @@ def _jsonable(v):
     return v
 
 
+# Harness-only params (not runInflow globals). They enter a run's params and hash only when given, so every
+# config written before they existed keeps its run id.
+#   C_START: starting shape [c0, a1..aN, b1..bN] instead of the unit circle; it also becomes runInflow's C_init
+#            (warm-up shape, perimeter reference L0, normalisation point). Continuation runs rescale it to the
+#            circle's perimeter first so the constraint is unchanged.
+EXTRA_PARAMS = ["C_START"]
+
+
 def defaults(ri):
     """Snapshot of runInflow's import-time values of every tunable (taken once per process)."""
     global _DEFAULTS
@@ -54,10 +62,12 @@ def resolve(cfg, ri):
     if kind not in KINDS:
         raise ValueError(f"kind must be one of {KINDS}, got {kind!r}")
     params = defaults(ri)
-    unknown = set(cfg.get("params", {})) - set(TUNABLES)
+    unknown = set(cfg.get("params", {})) - set(TUNABLES) - set(EXTRA_PARAMS)
     if unknown:
         raise ValueError(f"unknown params (not runInflow tunables): {sorted(unknown)}")
     params.update(cfg.get("params", {}))
+    if params.get("C_START") is not None and len(params["C_START"]) != 2 * int(params["N_FOURIER"]) + 1:
+        raise ValueError("C_START must have 2*N_FOURIER+1 coefficients")
     if params.get("CAP") is None:
         params["CAP"] = int(round(1.3 * params["N_REF"]))
     params["N_COLL_CELLS"] = [int(c) for c in params["N_COLL_CELLS"]]

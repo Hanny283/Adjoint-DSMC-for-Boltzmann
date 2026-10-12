@@ -1,0 +1,12 @@
+[launcher] 5 pending of 5 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started warm/w250k_C3_pass5 (cores=16, ~12.7 GB); running=1 pending=4
+[launcher] finished (0): warm/w250k_C3_pass5
+[launcher] started stretch_cap/cap1_seed500 (cores=4, ~3.4 GB); running=1 pending=3
+[launcher] started stretch_cap/cap2_seed500 (cores=4, ~3.4 GB); running=2 pending=2
+[launcher] started stretch_cap/capinf_seed500 (cores=4, ~3.4 GB); running=3 pending=1
+[launcher] started stretch_cap/capinf_seed600 (cores=4, ~3.4 GB); running=4 pending=0
+[launcher] finished (0): stretch_cap/capinf_seed600
+[launcher] finished (0): stretch_cap/capinf_seed500
+[launcher] finished (0): stretch_cap/cap1_seed500
+[launcher] finished (0): stretch_cap/cap2_seed500
+[launcher] queue finished

@@ -1,0 +1,8 @@
+=== 2026-09-28 21:42:02  gradstat probe/C2hi_t0.0025  id=9078bef25b  pid=3622234=== 2026-09-28 21:42:02  gradstat probe/C2hi_t0.0025  id=9078bef25b  pid=3622234
+
+{"N_REF": 250000, "N_FOURIER": 20, "N_AVG": 16, "N_AVG_MAX": 16, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}{"N_REF": 250000, "N_FOURIER": 20, "N_AVG": 16, "N_AVG_MAX": 16, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}
+
+[sweep] gradstat probe/C2hi_t0.0025 id=9078bef25b N_REF=250000 seeds=[1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015] workers=12[sweep] gradstat probe/C2hi_t0.0025 id=9078bef25b N_REF=250000 seeds=[1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015] workers=12
+
+=== done in 258s=== done in 258s
+

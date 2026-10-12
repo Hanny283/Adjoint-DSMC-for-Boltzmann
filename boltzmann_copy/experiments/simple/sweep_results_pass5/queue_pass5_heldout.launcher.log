@@ -1,0 +1,6 @@
+[launcher] 2 pending of 2 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started heldout/p5_capinf_seed500 (cores=16, ~12.7 GB); running=1 pending=1
+[launcher] finished (0): heldout/p5_capinf_seed500
+[launcher] started heldout/p5_capinf_seed600 (cores=16, ~12.7 GB); running=1 pending=0
+[launcher] finished (0): heldout/p5_capinf_seed600
+[launcher] queue finished

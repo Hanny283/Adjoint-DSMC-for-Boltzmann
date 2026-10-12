@@ -1,0 +1,11 @@
+[
+ {
+  "run_dir": "sweep_results_pass4/continuation/C3_1M_endgame_seed400__e6e07255",
+  "kind": "optimise",
+  "group": "continuation",
+  "name": "C3_1M_endgame_seed400",
+  "run_id": "e6e07255ad",
+  "cores": 16,
+  "mem_gb": 40.3
+ }
+]

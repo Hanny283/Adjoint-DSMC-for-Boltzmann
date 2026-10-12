@@ -1,0 +1,128 @@
+[
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C2hi_t0.0025__9078bef2",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C2hi_t0.0025",
+  "run_id": "9078bef25b",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C2hi_t0.005__92b89509",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C2hi_t0.005",
+  "run_id": "92b895094c",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C2hi_t0.01__656192e7",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C2hi_t0.01",
+  "run_id": "656192e7b0",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C2hi_t0.02__0b9181f4",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C2hi_t0.02",
+  "run_id": "0b9181f4be",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C5hi_t0.005__78986a66",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C5hi_t0.005",
+  "run_id": "78986a66ce",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C5hi_t0.01__d22253d6",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C5hi_t0.01",
+  "run_id": "d22253d614",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C5hi_t0.02__a1bdd1c2",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C5hi_t0.02",
+  "run_id": "a1bdd1c22a",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C5hi_t0.04__84381263",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C5hi_t0.04",
+  "run_id": "84381263eb",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/diag/C3_250k_nf20__3e11ba5d",
+  "kind": "gradstat",
+  "group": "diag",
+  "name": "C3_250k_nf20",
+  "run_id": "3e11ba5df2",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p3_grow4to32_seed0__3364cf74",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p3_grow4to32_seed0",
+  "run_id": "3364cf7463",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p3_grow4to32_seed100__c2d4431d",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p3_grow4to32_seed100",
+  "run_id": "c2d4431df8",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p3_grow4to32_seed200__936a328e",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p3_grow4to32_seed200",
+  "run_id": "936a328e0c",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p3_grow4to32_seed300__2203c25f",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p3_grow4to32_seed300",
+  "run_id": "2203c25f55",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p3_consensus_C3__40a3436f",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p3_consensus_C3",
+  "run_id": "40a3436fd2",
+  "cores": 16,
+  "mem_gb": 12.7
+ }
+]

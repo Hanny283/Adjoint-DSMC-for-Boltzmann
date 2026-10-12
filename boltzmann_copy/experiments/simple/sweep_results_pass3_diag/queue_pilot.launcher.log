@@ -1,0 +1,20 @@
+[launcher] 9 pending of 9 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started warm/w250k_nf10_heldout (cores=16, ~12.7 GB); running=1 pending=8
+[launcher] finished (0): warm/w250k_nf10_heldout
+[launcher] started adapt/adapt_T0_C2 (cores=16, ~12.7 GB); running=1 pending=7
+[launcher] finished (0): adapt/adapt_T0_C2
+[launcher] started adapt/adapt_T10_C2 (cores=16, ~12.7 GB); running=1 pending=6
+[launcher] finished (0): adapt/adapt_T10_C2
+[launcher] started adapt/adapt_T20_C2 (cores=16, ~12.7 GB); running=1 pending=5
+[launcher] finished (0): adapt/adapt_T20_C2
+[launcher] started adapt/adapt_T40_C2 (cores=16, ~12.7 GB); running=1 pending=4
+[launcher] finished (0): adapt/adapt_T40_C2
+[launcher] started adapt/adapt_T80_C2 (cores=16, ~12.7 GB); running=1 pending=3
+[launcher] finished (0): adapt/adapt_T80_C2
+[launcher] started warm/w100k_nf10_heldout (cores=16, ~7.18 GB); running=1 pending=2
+[launcher] finished (0): warm/w100k_nf10_heldout
+[launcher] started warm/w500k_nf10_heldout (cores=16, ~21.9 GB); running=1 pending=1
+[launcher] finished (0): warm/w500k_nf10_heldout
+[launcher] started warm/w250k_nf20_heldout (cores=16, ~12.7 GB); running=1 pending=0
+[launcher] finished (0): warm/w250k_nf20_heldout
+[launcher] queue finished

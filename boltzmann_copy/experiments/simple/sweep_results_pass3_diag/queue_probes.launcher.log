@@ -1,0 +1,18 @@
+[launcher] 8 pending of 8 (0 already DONE); max_cores=12 mem_budget=40.0 GB
+[launcher] started probe/C2hi_t0.0025 (cores=12, ~9.6 GB); running=1 pending=7
+[launcher] finished (0): probe/C2hi_t0.0025
+[launcher] started probe/C2hi_t0.005 (cores=12, ~9.6 GB); running=1 pending=6
+[launcher] finished (0): probe/C2hi_t0.005
+[launcher] started probe/C2hi_t0.01 (cores=12, ~9.6 GB); running=1 pending=5
+[launcher] finished (0): probe/C2hi_t0.01
+[launcher] started probe/C2hi_t0.02 (cores=12, ~9.6 GB); running=1 pending=4
+[launcher] finished (0): probe/C2hi_t0.02
+[launcher] started probe/C5hi_t0.005 (cores=12, ~9.6 GB); running=1 pending=3
+[launcher] finished (0): probe/C5hi_t0.005
+[launcher] started probe/C5hi_t0.01 (cores=12, ~9.6 GB); running=1 pending=2
+[launcher] finished (0): probe/C5hi_t0.01
+[launcher] started probe/C5hi_t0.02 (cores=12, ~9.6 GB); running=1 pending=1
+[launcher] finished (0): probe/C5hi_t0.02
+[launcher] started probe/C5hi_t0.04 (cores=12, ~9.6 GB); running=1 pending=0
+[launcher] finished (0): probe/C5hi_t0.04
+[launcher] queue finished

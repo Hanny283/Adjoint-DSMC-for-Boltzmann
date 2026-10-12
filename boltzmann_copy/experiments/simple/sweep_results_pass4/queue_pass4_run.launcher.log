@@ -1,0 +1,4 @@
+[launcher] 1 pending of 1 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started continuation/C3_1M_endgame_seed400 (cores=16, ~40.3 GB); running=1 pending=0
+[launcher] finished (0): continuation/C3_1M_endgame_seed400
+[launcher] queue finished

@@ -1,0 +1,2 @@
+[launcher] 2 pending of 2 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started diag/C3_1M_nf10 (cores=16, ~40.3 GB); running=1 pending=1

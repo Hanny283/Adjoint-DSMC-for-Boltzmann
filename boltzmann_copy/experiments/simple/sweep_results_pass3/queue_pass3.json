@@ -1,0 +1,380 @@
+[
+ {
+  "run_dir": "sweep_results_pass3_diag/diag/C2_250k_nf10__3fb5d84a",
+  "kind": "gradstat",
+  "group": "diag",
+  "name": "C2_250k_nf10",
+  "run_id": "3fb5d84a32",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/diag/C2_250k_nf20__e5928be3",
+  "kind": "gradstat",
+  "group": "diag",
+  "name": "C2_250k_nf20",
+  "run_id": "e5928be34a",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/diag/C5_250k_nf10__7be583c7",
+  "kind": "gradstat",
+  "group": "diag",
+  "name": "C5_250k_nf10",
+  "run_id": "7be583c752",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/diag/C2_100k_nf10__8aec5a69",
+  "kind": "gradstat",
+  "group": "diag",
+  "name": "C2_100k_nf10",
+  "run_id": "8aec5a6963",
+  "cores": 16,
+  "mem_gb": 7.18
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/diag/C2_500k_nf10__df75cb17",
+  "kind": "gradstat",
+  "group": "diag",
+  "name": "C2_500k_nf10",
+  "run_id": "df75cb1729",
+  "cores": 16,
+  "mem_gb": 21.9
+ },
+ {
+  "run_dir": "sweep_results_pass3/adaptive/grow4to32_seed0__dd1f5cb5",
+  "kind": "optimise",
+  "group": "adaptive",
+  "name": "grow4to32_seed0",
+  "run_id": "dd1f5cb5e0",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass3/adaptive/grow4to32_seed100__ca276110",
+  "kind": "optimise",
+  "group": "adaptive",
+  "name": "grow4to32_seed100",
+  "run_id": "ca276110cd",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass3/adaptive/grow4to32_seed200__dd8fa98a",
+  "kind": "optimise",
+  "group": "adaptive",
+  "name": "grow4to32_seed200",
+  "run_id": "dd8fa98a26",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass3/adaptive/grow4to32_seed300__c1132de3",
+  "kind": "optimise",
+  "group": "adaptive",
+  "name": "grow4to32_seed300",
+  "run_id": "c1132de3ec",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/circle__c19761b3",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "circle",
+  "run_id": "c19761b36a",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_B0_seed0__8d7da009",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_B0_seed0",
+  "run_id": "8d7da009f4",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_frac0.01__42bbac11",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_frac0.01",
+  "run_id": "42bbac1136",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_frac0.02__3b53f7f1",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_frac0.02",
+  "run_id": "3b53f7f102",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_frac0.1__b70b5e17",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_frac0.1",
+  "run_id": "b70b5e17f1",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_frac0.2__0efd5735",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_frac0.2",
+  "run_id": "0efd573532",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_nf3__d6b27281",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_nf3",
+  "run_id": "d6b272813f",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_nf5__ab9d9156",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_nf5",
+  "run_id": "ab9d9156df",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_nref100k__ef35b3b8",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_nref100k",
+  "run_id": "ef35b3b8e5",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_nref1M__27d673ab",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_nref1M",
+  "run_id": "27d673ab6e",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_nref500k__3e3bf150",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_nref500k",
+  "run_id": "3e3bf15013",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_nseeds16__caefeaf9",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_nseeds16",
+  "run_id": "caefeaf998",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_nseeds1__ebb6ca7f",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_nseeds1",
+  "run_id": "ebb6ca7fb0",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_nseeds2__0f1a89a2",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_nseeds2",
+  "run_id": "0f1a89a270",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p1_nseeds8__6956af61",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p1_nseeds8",
+  "run_id": "6956af61af",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_B0_seed0__453d15ac",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_B0_seed0",
+  "run_id": "453d15ac44",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_B0_seed100__4d68e9a9",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_B0_seed100",
+  "run_id": "4d68e9a90a",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_B0_seed200__c465733c",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_B0_seed200",
+  "run_id": "c465733cd0",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_frac0.1_seed0__a6fc123b",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_frac0.1_seed0",
+  "run_id": "a6fc123b6c",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_frac0.1_seed100__a51d0000",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_frac0.1_seed100",
+  "run_id": "a51d0000ce",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_frac0.1_seed200__524a401f",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_frac0.1_seed200",
+  "run_id": "524a401fb7",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nf5_seed0__dad68b5a",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nf5_seed0",
+  "run_id": "dad68b5ac2",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nf5_seed100__51fe068c",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nf5_seed100",
+  "run_id": "51fe068c3f",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nf5_seed200__f818c27e",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nf5_seed200",
+  "run_id": "f818c27eb9",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nref500k_seed0__8c4ace5f",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nref500k_seed0",
+  "run_id": "8c4ace5f2f",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nref500k_seed100__96b180c1",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nref500k_seed100",
+  "run_id": "96b180c107",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nref500k_seed200__03412e4f",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nref500k_seed200",
+  "run_id": "03412e4f51",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nseeds1_seed0__7bb7b384",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nseeds1_seed0",
+  "run_id": "7bb7b384b1",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nseeds1_seed100__65a2d394",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nseeds1_seed100",
+  "run_id": "65a2d394b2",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nseeds1_seed200__825a5d85",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nseeds1_seed200",
+  "run_id": "825a5d853b",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nseeds8_seed0__dc07f747",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nseeds8_seed0",
+  "run_id": "dc07f74735",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nseeds8_seed100__df0018ae",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nseeds8_seed100",
+  "run_id": "df0018aed4",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/heldout/p2_nseeds8_seed200__620fcaf3",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p2_nseeds8_seed200",
+  "run_id": "620fcaf39d",
+  "cores": 8,
+  "mem_gb": 6.5
+ }
+]

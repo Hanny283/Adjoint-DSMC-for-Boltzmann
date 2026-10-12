@@ -1,0 +1,20 @@
+[
+ {
+  "run_dir": "sweep_results_pass4/heldout/p4_final_250k__0ef8d3a1",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p4_final_250k",
+  "run_id": "0ef8d3a17e",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass4/heldout/p4_final_1M__2afba128",
+  "kind": "gradstat",
+  "group": "heldout",
+  "name": "p4_final_1M",
+  "run_id": "2afba128f2",
+  "cores": 16,
+  "mem_gb": 40.3
+ }
+]

@@ -1,0 +1,494 @@
+=== 2026-09-28 12:54:19  optimise adaptive/grow4to32_seed100  id=ca276110cd  pid=3519276=== 2026-09-28 12:54:19  optimise adaptive/grow4to32_seed100  id=ca276110cd  pid=3519276
+
+{"N_REF": 250000, "N_FOURIER": 10, "N_AVG": 4, "N_AVG_MAX": 32, "SEED0": 100, "GRAD_INIT_FRAC": 0.05, "N_ITER": 100, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}{"N_REF": 250000, "N_FOURIER": 10, "N_AVG": 4, "N_AVG_MAX": 32, "SEED0": 100, "GRAD_INIT_FRAC": 0.05, "N_ITER": 100, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}
+
+[sweep] optimise adaptive/grow4to32_seed100 id=ca276110cd seeds=[100, 101, 102, 103] workers=4[sweep] optimise adaptive/grow4to32_seed100 id=ca276110cd seeds=[100, 101, 102, 103] workers=4
+
+Geometry selftest passed.Geometry selftest passed.
+
+Open-channel drag minimisation (inflow left / outflow right / freestream top-bottom) -- exact adjointOpen-channel drag minimisation (inflow left / outflow right / freestream top-bottom) -- exact adjoint
+
+  box 16.0x8.0  U0=1.0 T0=0.5 Kn=1.0  dt=0.1  window (0.0, 5.0] = steps 0..49  N_REF=250000 (inflow 1642.1 particles/step, warm start T_WARM=60.0)  collisions=True  box 16.0x8.0  U0=1.0 T0=0.5 Kn=1.0  dt=0.1  window (0.0, 5.0] = steps 0..49  N_REF=250000 (inflow 1642.1 particles/step, warm start T_WARM=60.0)  collisions=True
+
+  objective: drag + 1 x oint kappa^2 ds (= 6.3 at C_init, P0 = 6.283)   constraint: perimeter (L0 = 6.283, A0 = 3.142)  objective: drag + 1 x oint kappa^2 ds (= 6.3 at C_init, P0 = 6.283)   constraint: perimeter (L0 = 6.283, A0 = 3.142)
+
+  units: loss J/J(C_init) -> 1 and gradient/||g(C_init)|| -> 1 (independent factors; the optimiser uses the true slope kappa g.d);  first trial moves C by 0.05 x ||C_init|| = 0.0500   seeds 4->32   edge term reported only  units: loss J/J(C_init) -> 1 and gradient/||g(C_init)|| -> 1 (independent factors; the optimiser uses the true slope kappa g.d);  first trial moves C by 0.05 x ||C_init|| = 0.0500   seeds 4->32   edge term reported only
+
+init: ||grad||=1.000e+00 -> init_step=5.000e-02 (first trial moves C by 0.05)init: ||grad||=1.000e+00 -> init_step=5.000e-02 (first trial moves C by 0.05)
+
+   [215s] perimeter=6.283  seeds=4  ||g||/s.e.=13.1  ||g||corr=1.075 (=107.5% of initial)  F_x=6088.4  edge-term=0%   [215s] perimeter=6.283  seeds=4  ||g||/s.e.=13.1  ||g||corr=1.075 (=107.5% of initial)  F_x=6088.4  edge-term=0%
+
+iter   0: L=0.926684  ||grad||=1.0784e+00  step=0.075  alpha=0.05  |dC|=0.05iter   0: L=0.926684  ||grad||=1.0784e+00  step=0.075  alpha=0.05  |dC|=0.05
+
+   [322s] perimeter=6.283  seeds=4  ||g||/s.e.=12.3  ||g||corr=1.059 (=105.9% of initial)  F_x=5237.7  edge-term=0%   [322s] perimeter=6.283  seeds=4  ||g||/s.e.=12.3  ||g||corr=1.059 (=105.9% of initial)  F_x=5237.7  edge-term=0%
+
+iter   1: L=0.798197  ||grad||=1.0626e+00  step=0.1125  alpha=0.075  |dC|=0.0809iter   1: L=0.798197  ||grad||=1.0626e+00  step=0.1125  alpha=0.075  |dC|=0.0809
+
+   [434s] perimeter=6.283  seeds=4  ||g||/s.e.=5.9  ||g||corr=1.846 (=184.6% of initial)  F_x=4945.9  edge-term=0%   [434s] perimeter=6.283  seeds=4  ||g||/s.e.=5.9  ||g||corr=1.846 (=184.6% of initial)  F_x=4945.9  edge-term=0%
+
+iter   2: L=0.765285  ||grad||=1.8731e+00  step=0.1688  alpha=0.1125  |dC|=0.12iter   2: L=0.765285  ||grad||=1.8731e+00  step=0.1688  alpha=0.1125  |dC|=0.12
+
+   [573s] perimeter=6.283  seeds=4  ||g||/s.e.=5.8  ||g||corr=1.964 (=196.4% of initial)  F_x=4542.5  edge-term=0%   [573s] perimeter=6.283  seeds=4  ||g||/s.e.=5.8  ||g||corr=1.964 (=196.4% of initial)  F_x=4542.5  edge-term=0%
+
+iter   3: L=0.697604  ||grad||=1.9947e+00  step=0.06328  alpha=0.04219  |dC|=0.079iter   3: L=0.697604  ||grad||=1.9947e+00  step=0.06328  alpha=0.04219  |dC|=0.079
+
+   [700s] perimeter=6.283  seeds=4  ||g||/s.e.=5.3  ||g||corr=1.88 (=188.0% of initial)  F_x=4366.3  edge-term=0%   [700s] perimeter=6.283  seeds=4  ||g||/s.e.=5.3  ||g||corr=1.88 (=188.0% of initial)  F_x=4366.3  edge-term=0%
+
+iter   4: L=0.671623  ||grad||=1.9147e+00  step=0.04746  alpha=0.03164  |dC|=0.0631iter   4: L=0.671623  ||grad||=1.9147e+00  step=0.04746  alpha=0.03164  |dC|=0.0631
+
+   [828s] perimeter=6.283  seeds=4  ||g||/s.e.=5.4  ||g||corr=1.207 (=120.7% of initial)  F_x=3918.3  edge-term=0%   [828s] perimeter=6.283  seeds=4  ||g||/s.e.=5.4  ||g||corr=1.207 (=120.7% of initial)  F_x=3918.3  edge-term=0%
+
+iter   5: L=0.600995  ||grad||=1.2278e+00  step=0.0356  alpha=0.02373  |dC|=0.0454iter   5: L=0.600995  ||grad||=1.2278e+00  step=0.0356  alpha=0.02373  |dC|=0.0454
+
+   [960s] perimeter=6.283  seeds=4  ||g||/s.e.=3.7  ||g||corr=0.6643 (=66.4% of initial)  F_x=3757.5  edge-term=0%   [960s] perimeter=6.283  seeds=4  ||g||/s.e.=3.7  ||g||corr=0.6643 (=66.4% of initial)  F_x=3757.5  edge-term=0%
+
+iter   6: L=0.576265  ||grad||=6.9064e-01  step=0.0267  alpha=0.0178  |dC|=0.0219iter   6: L=0.576265  ||grad||=6.9064e-01  step=0.0267  alpha=0.0178  |dC|=0.0219
+
+   [1074s] perimeter=6.283  seeds=4  ||g||/s.e.=2.7  ||g||corr=0.763 (=76.3% of initial)  F_x=3646.2  edge-term=0%   [1074s] perimeter=6.283  seeds=4  ||g||/s.e.=2.7  ||g||corr=0.763 (=76.3% of initial)  F_x=3646.2  edge-term=0%
+
+iter   7: L=0.559268  ||grad||=8.2262e-01  step=0.04005  alpha=0.0267  |dC|=0.0184iter   7: L=0.559268  ||grad||=8.2262e-01  step=0.04005  alpha=0.0267  |dC|=0.0184
+
+   [1186s] perimeter=6.283  seeds=4  ||g||/s.e.=3.2  ||g||corr=0.8548 (=85.5% of initial)  F_x=3592.5  edge-term=0%   [1186s] perimeter=6.283  seeds=4  ||g||/s.e.=3.2  ||g||corr=0.8548 (=85.5% of initial)  F_x=3592.5  edge-term=0%
+
+iter   8: L=0.552495  ||grad||=9.0108e-01  step=0.06007  alpha=0.04005  |dC|=0.0329iter   8: L=0.552495  ||grad||=9.0108e-01  step=0.06007  alpha=0.04005  |dC|=0.0329
+
+   [1314s] perimeter=6.283  seeds=4  ||g||/s.e.=2.0  ||g||corr=0.9715 (=97.2% of initial)  F_x=3562.1  edge-term=0%   [1314s] perimeter=6.283  seeds=4  ||g||/s.e.=2.0  ||g||corr=0.9715 (=97.2% of initial)  F_x=3562.1  edge-term=0%
+
+iter   9: L=0.548082  ||grad||=1.1240e+00  step=0.04505  alpha=0.03003  |dC|=0.0271iter   9: L=0.548082  ||grad||=1.1240e+00  step=0.04505  alpha=0.03003  |dC|=0.0271
+
+   [1444s] perimeter=6.283  seeds=4  ||g||/s.e.=1.1  ||g||corr=0.2047 (=20.5% of initial)  F_x=3455.0  edge-term=0%   [1444s] perimeter=6.283  seeds=4  ||g||/s.e.=1.1  ||g||corr=0.2047 (=20.5% of initial)  F_x=3455.0  edge-term=0%
+
+iter  10: L=0.533073  ||grad||=5.4208e-01  step=0.03379  alpha=0.02253  |dC|=0.0253iter  10: L=0.533073  ||grad||=5.4208e-01  step=0.03379  alpha=0.02253  |dC|=0.0253
+
+   [1556s] perimeter=6.283  seeds=4  ||g||/s.e.=1.0  ||g||corr=0.137 (=13.7% of initial)  F_x=3375.5  edge-term=0%   [1556s] perimeter=6.283  seeds=4  ||g||/s.e.=1.0  ||g||corr=0.137 (=13.7% of initial)  F_x=3375.5  edge-term=0%
+
+iter  11: L=0.520703  ||grad||=5.2087e-01  step=0.05068  alpha=0.03379  |dC|=0.0183iter  11: L=0.520703  ||grad||=5.2087e-01  step=0.05068  alpha=0.03379  |dC|=0.0183
+
+   [1664s] perimeter=6.283  seeds=4  ||g||/s.e.=5.6  ||g||corr=0.8943 (=89.4% of initial)  F_x=3350.0  edge-term=0%   [1664s] perimeter=6.283  seeds=4  ||g||/s.e.=5.6  ||g||corr=0.8943 (=89.4% of initial)  F_x=3350.0  edge-term=0%
+
+iter  12: L=0.518756  ||grad||=9.0868e-01  step=0.07602  alpha=0.05068  |dC|=0.0264iter  12: L=0.518756  ||grad||=9.0868e-01  step=0.07602  alpha=0.05068  |dC|=0.0264
+
+   [1803s] perimeter=6.283  seeds=4  ||g||/s.e.=2.6  ||g||corr=0.3738 (=37.4% of initial)  F_x=3239.4  edge-term=0%   [1803s] perimeter=6.283  seeds=4  ||g||/s.e.=2.6  ||g||corr=0.3738 (=37.4% of initial)  F_x=3239.4  edge-term=0%
+
+iter  13: L=0.500372  ||grad||=4.0598e-01  step=0.02851  alpha=0.01901  |dC|=0.0173iter  13: L=0.500372  ||grad||=4.0598e-01  step=0.02851  alpha=0.01901  |dC|=0.0173
+
+   [1913s] perimeter=6.283  seeds=4  ||g||/s.e.=2.4  ||g||corr=0.3493 (=34.9% of initial)  F_x=3177.8  edge-term=0%   [1913s] perimeter=6.283  seeds=4  ||g||/s.e.=2.4  ||g||corr=0.3493 (=34.9% of initial)  F_x=3177.8  edge-term=0%
+
+iter  14: L=0.491311  ||grad||=3.8569e-01  step=0.04276  alpha=0.02851  |dC|=0.0116iter  14: L=0.491311  ||grad||=3.8569e-01  step=0.04276  alpha=0.02851  |dC|=0.0116
+
+   [2019s] perimeter=6.283  seeds=4  ||g||/s.e.=5.4  ||g||corr=0.6137 (=61.4% of initial)  F_x=3155.0  edge-term=0%   [2019s] perimeter=6.283  seeds=4  ||g||/s.e.=5.4  ||g||corr=0.6137 (=61.4% of initial)  F_x=3155.0  edge-term=0%
+
+iter  15: L=0.487593  ||grad||=6.2437e-01  step=0.06414  alpha=0.04276  |dC|=0.0165iter  15: L=0.487593  ||grad||=6.2437e-01  step=0.06414  alpha=0.04276  |dC|=0.0165
+
+   [2155s] perimeter=6.283  seeds=4  ||g||/s.e.=4.0  ||g||corr=0.4064 (=40.6% of initial)  F_x=3120.3  edge-term=0%   [2155s] perimeter=6.283  seeds=4  ||g||/s.e.=4.0  ||g||corr=0.4064 (=40.6% of initial)  F_x=3120.3  edge-term=0%
+
+iter  16: L=0.482862  ||grad||=4.1986e-01  step=0.02405  alpha=0.01604  |dC|=0.01iter  16: L=0.482862  ||grad||=4.1986e-01  step=0.02405  alpha=0.01604  |dC|=0.01
+
+   [2262s] perimeter=6.283  seeds=4  ||g||/s.e.=4.8  ||g||corr=0.5473 (=54.7% of initial)  F_x=3077.9  edge-term=0%   [2262s] perimeter=6.283  seeds=4  ||g||/s.e.=4.8  ||g||corr=0.5473 (=54.7% of initial)  F_x=3077.9  edge-term=0%
+
+iter  17: L=0.475914  ||grad||=5.5975e-01  step=0.03608  alpha=0.02405  |dC|=0.0101iter  17: L=0.475914  ||grad||=5.5975e-01  step=0.03608  alpha=0.02405  |dC|=0.0101
+
+   [2386s] perimeter=6.283  seeds=4  ||g||/s.e.=3.4  ||g||corr=0.4453 (=44.5% of initial)  F_x=3062.4  edge-term=0%   [2386s] perimeter=6.283  seeds=4  ||g||/s.e.=3.4  ||g||corr=0.4453 (=44.5% of initial)  F_x=3062.4  edge-term=0%
+
+iter  18: L=0.474433  ||grad||=4.6629e-01  step=0.02706  alpha=0.01804  |dC|=0.0101iter  18: L=0.474433  ||grad||=4.6629e-01  step=0.02706  alpha=0.01804  |dC|=0.0101
+
+   [2484s] perimeter=6.283  seeds=4  ||g||/s.e.=4.1  ||g||corr=0.5494 (=54.9% of initial)  F_x=3022.7  edge-term=0%   [2484s] perimeter=6.283  seeds=4  ||g||/s.e.=4.1  ||g||corr=0.5494 (=54.9% of initial)  F_x=3022.7  edge-term=0%
+
+iter  19: L=0.467189  ||grad||=5.6698e-01  step=0.04059  alpha=0.02706  |dC|=0.0126iter  19: L=0.467189  ||grad||=5.6698e-01  step=0.04059  alpha=0.02706  |dC|=0.0126
+
+   [2599s] perimeter=6.283  seeds=4  ||g||/s.e.=3.3  ||g||corr=0.3904 (=39.0% of initial)  F_x=3006.3  edge-term=0%   [2599s] perimeter=6.283  seeds=4  ||g||/s.e.=3.3  ||g||corr=0.3904 (=39.0% of initial)  F_x=3006.3  edge-term=0%
+
+iter  20: L=0.465742  ||grad||=4.0937e-01  step=0.03044  alpha=0.0203  |dC|=0.0115iter  20: L=0.465742  ||grad||=4.0937e-01  step=0.03044  alpha=0.0203  |dC|=0.0115
+
+   [2700s] perimeter=6.283  seeds=4  ||g||/s.e.=3.7  ||g||corr=0.4611 (=46.1% of initial)  F_x=3018.1  edge-term=0%   [2700s] perimeter=6.283  seeds=4  ||g||/s.e.=3.7  ||g||corr=0.4611 (=46.1% of initial)  F_x=3018.1  edge-term=0%
+
+iter  21: L=0.466786  ||grad||=4.7865e-01  step=0.04567  alpha=0.03044  |dC|=0.0125iter  21: L=0.466786  ||grad||=4.7865e-01  step=0.04567  alpha=0.03044  |dC|=0.0125
+
+   [2815s] perimeter=6.283  seeds=4  ||g||/s.e.=3.4  ||g||corr=0.4279 (=42.8% of initial)  F_x=2976.6  edge-term=0%   [2815s] perimeter=6.283  seeds=4  ||g||/s.e.=3.4  ||g||corr=0.4279 (=42.8% of initial)  F_x=2976.6  edge-term=0%
+
+iter  22: L=0.461458  ||grad||=4.4787e-01  step=0.03425  alpha=0.02283  |dC|=0.0109iter  22: L=0.461458  ||grad||=4.4787e-01  step=0.03425  alpha=0.02283  |dC|=0.0109
+
+   [2908s] perimeter=6.283  seeds=4  ||g||/s.e.=5.2  ||g||corr=0.707 (=70.7% of initial)  F_x=2965.0  edge-term=0%   [2908s] perimeter=6.283  seeds=4  ||g||/s.e.=5.2  ||g||corr=0.707 (=70.7% of initial)  F_x=2965.0  edge-term=0%
+
+iter  23: L=0.458809  ||grad||=7.2043e-01  step=0.05137  alpha=0.03425  |dC|=0.0153iter  23: L=0.458809  ||grad||=7.2043e-01  step=0.05137  alpha=0.03425  |dC|=0.0153
+
+   [3023s] perimeter=6.283  seeds=4  ||g||/s.e.=5.9  ||g||corr=0.8004 (=80.0% of initial)  F_x=2952.7  edge-term=0%   [3023s] perimeter=6.283  seeds=4  ||g||/s.e.=5.9  ||g||corr=0.8004 (=80.0% of initial)  F_x=2952.7  edge-term=0%
+
+iter  24: L=0.458602  ||grad||=8.1193e-01  step=0.03853  alpha=0.02569  |dC|=0.0185iter  24: L=0.458602  ||grad||=8.1193e-01  step=0.03853  alpha=0.02569  |dC|=0.0185
+
+   [3142s] perimeter=6.283  seeds=4  ||g||/s.e.=4.3  ||g||corr=0.5462 (=54.6% of initial)  F_x=2886.0  edge-term=0%   [3142s] perimeter=6.283  seeds=4  ||g||/s.e.=4.3  ||g||corr=0.5462 (=54.6% of initial)  F_x=2886.0  edge-term=0%
+
+iter  25: L=0.446353  ||grad||=5.6149e-01  step=0.0289  alpha=0.01927  |dC|=0.0156iter  25: L=0.446353  ||grad||=5.6149e-01  step=0.0289  alpha=0.01927  |dC|=0.0156
+
+   [3231s] perimeter=6.283  seeds=4  ||g||/s.e.=4.6  ||g||corr=0.6731 (=67.3% of initial)  F_x=2914.3  edge-term=0%   [3231s] perimeter=6.283  seeds=4  ||g||/s.e.=4.6  ||g||corr=0.6731 (=67.3% of initial)  F_x=2914.3  edge-term=0%
+
+iter  26: L=0.452443  ||grad||=6.8940e-01  step=0.04335  alpha=0.0289  |dC|=0.0162iter  26: L=0.452443  ||grad||=6.8940e-01  step=0.04335  alpha=0.0289  |dC|=0.0162
+
+   [3336s] perimeter=6.283  seeds=4  ||g||/s.e.=4.3  ||g||corr=0.5175 (=51.8% of initial)  F_x=2853.5  edge-term=0%   [3336s] perimeter=6.283  seeds=4  ||g||/s.e.=4.3  ||g||corr=0.5175 (=51.8% of initial)  F_x=2853.5  edge-term=0%
+
+iter  27: L=0.441308  ||grad||=5.3208e-01  step=0.03251  alpha=0.02167  |dC|=0.0149iter  27: L=0.441308  ||grad||=5.3208e-01  step=0.03251  alpha=0.02167  |dC|=0.0149
+
+   [3443s] perimeter=6.283  seeds=4  ||g||/s.e.=2.4  ||g||corr=0.3941 (=39.4% of initial)  F_x=2802.5  edge-term=0%   [3443s] perimeter=6.283  seeds=4  ||g||/s.e.=2.4  ||g||corr=0.3941 (=39.4% of initial)  F_x=2802.5  edge-term=0%
+
+iter  28: L=0.434078  ||grad||=4.3183e-01  step=0.02438  alpha=0.01625  |dC|=0.00865iter  28: L=0.434078  ||grad||=4.3183e-01  step=0.02438  alpha=0.01625  |dC|=0.00865
+
+   [3529s] perimeter=6.283  seeds=4  ||g||/s.e.=2.5  ||g||corr=0.3624 (=36.2% of initial)  F_x=2815.3  edge-term=0%   [3529s] perimeter=6.283  seeds=4  ||g||/s.e.=2.5  ||g||corr=0.3624 (=36.2% of initial)  F_x=2815.3  edge-term=0%
+
+iter  29: L=0.435948  ||grad||=3.9495e-01  step=0.03657  alpha=0.02438  |dC|=0.0105iter  29: L=0.435948  ||grad||=3.9495e-01  step=0.03657  alpha=0.02438  |dC|=0.0105
+
+   [3615s] perimeter=6.283  seeds=4  ||g||/s.e.=4.0  ||g||corr=0.6489 (=64.9% of initial)  F_x=2780.0  edge-term=0%   [3615s] perimeter=6.283  seeds=4  ||g||/s.e.=4.0  ||g||corr=0.6489 (=64.9% of initial)  F_x=2780.0  edge-term=0%
+
+iter  30: L=0.430037  ||grad||=6.6978e-01  step=0.05486  alpha=0.03657  |dC|=0.0144iter  30: L=0.430037  ||grad||=6.6978e-01  step=0.05486  alpha=0.03657  |dC|=0.0144
+
+   [3739s] perimeter=6.283  seeds=4  ||g||/s.e.=2.4  ||g||corr=0.2429 (=24.3% of initial)  F_x=2767.5  edge-term=0%   [3739s] perimeter=6.283  seeds=4  ||g||/s.e.=2.4  ||g||corr=0.2429 (=24.3% of initial)  F_x=2767.5  edge-term=0%
+
+iter  31: L=0.428116  ||grad||=2.6711e-01  step=0.02057  alpha=0.01372  |dC|=0.00919iter  31: L=0.428116  ||grad||=2.6711e-01  step=0.02057  alpha=0.01372  |dC|=0.00919
+
+iter  32: noise-limited (predicted decrease 0.00384 < 2 x paired loss s.e. 0.00214 at |dC|=0.0055) -> seeds grown to 8, retryingiter  32: noise-limited (predicted decrease 0.00384 < 2 x paired loss s.e. 0.00214 at |dC|=0.0055) -> seeds grown to 8, retrying
+
+   [4109s] perimeter=6.283  seeds=8  ||g||/s.e.=2.9  ||g||corr=0.2336 (=23.4% of initial)  F_x=2729.0  edge-term=0%   [4109s] perimeter=6.283  seeds=8  ||g||/s.e.=2.9  ||g||corr=0.2336 (=23.4% of initial)  F_x=2729.0  edge-term=0%
+
+iter  32: L=0.422178  ||grad||=2.4943e-01  step=0.03086  alpha=0.02057  |dC|=0.00568iter  32: L=0.422178  ||grad||=2.4943e-01  step=0.03086  alpha=0.02057  |dC|=0.00568
+
+   [4293s] perimeter=6.283  seeds=8  ||g||/s.e.=3.5  ||g||corr=0.3705 (=37.1% of initial)  F_x=2724.7  edge-term=0%   [4293s] perimeter=6.283  seeds=8  ||g||/s.e.=3.5  ||g||corr=0.3705 (=37.1% of initial)  F_x=2724.7  edge-term=0%
+
+iter  33: L=0.421795  ||grad||=3.8650e-01  step=0.04629  alpha=0.03086  |dC|=0.0077iter  33: L=0.421795  ||grad||=3.8650e-01  step=0.04629  alpha=0.03086  |dC|=0.0077
+
+   [4513s] perimeter=6.283  seeds=8  ||g||/s.e.=4.6  ||g||corr=0.459 (=45.9% of initial)  F_x=2717.4  edge-term=0%   [4513s] perimeter=6.283  seeds=8  ||g||/s.e.=4.6  ||g||corr=0.459 (=45.9% of initial)  F_x=2717.4  edge-term=0%
+
+iter  34: L=0.420634  ||grad||=4.7032e-01  step=0.03472  alpha=0.02314  |dC|=0.00895iter  34: L=0.420634  ||grad||=4.7032e-01  step=0.03472  alpha=0.02314  |dC|=0.00895
+
+   [4728s] perimeter=6.283  seeds=8  ||g||/s.e.=2.3  ||g||corr=0.3095 (=31.0% of initial)  F_x=2693.5  edge-term=0%   [4728s] perimeter=6.283  seeds=8  ||g||/s.e.=2.3  ||g||corr=0.3095 (=31.0% of initial)  F_x=2693.5  edge-term=0%
+
+iter  35: L=0.416340  ||grad||=3.4295e-01  step=0.02604  alpha=0.01736  |dC|=0.00816iter  35: L=0.416340  ||grad||=3.4295e-01  step=0.02604  alpha=0.01736  |dC|=0.00816
+
+   [4920s] perimeter=6.283  seeds=8  ||g||/s.e.=3.2  ||g||corr=0.4007 (=40.1% of initial)  F_x=2652.7  edge-term=0%   [4920s] perimeter=6.283  seeds=8  ||g||/s.e.=3.2  ||g||corr=0.4007 (=40.1% of initial)  F_x=2652.7  edge-term=0%
+
+iter  36: L=0.410892  ||grad||=4.2172e-01  step=0.03906  alpha=0.02604  |dC|=0.00893iter  36: L=0.410892  ||grad||=4.2172e-01  step=0.03906  alpha=0.02604  |dC|=0.00893
+
+   [5133s] perimeter=6.283  seeds=8  ||g||/s.e.=3.0  ||g||corr=0.3898 (=39.0% of initial)  F_x=2635.6  edge-term=0%   [5133s] perimeter=6.283  seeds=8  ||g||/s.e.=3.0  ||g||corr=0.3898 (=39.0% of initial)  F_x=2635.6  edge-term=0%
+
+iter  37: L=0.407511  ||grad||=4.1324e-01  step=0.02929  alpha=0.01953  |dC|=0.00824iter  37: L=0.407511  ||grad||=4.1324e-01  step=0.02929  alpha=0.01953  |dC|=0.00824
+
+   [5345s] perimeter=6.283  seeds=8  ||g||/s.e.=1.8  ||g||corr=0.6634 (=66.3% of initial)  F_x=2636.5  edge-term=0%   [5345s] perimeter=6.283  seeds=8  ||g||/s.e.=1.8  ||g||corr=0.6634 (=66.3% of initial)  F_x=2636.5  edge-term=0%
+
+iter  38: L=0.407758  ||grad||=8.0304e-01  step=0.02197  alpha=0.01465  |dC|=0.00605iter  38: L=0.407758  ||grad||=8.0304e-01  step=0.02197  alpha=0.01465  |dC|=0.00605
+
+   [5590s] perimeter=6.283  seeds=8  ||g||/s.e.=0.8  ||g||corr=0 (=0.0% of initial)  F_x=2613.3  edge-term=0%   [5590s] perimeter=6.283  seeds=8  ||g||/s.e.=0.8  ||g||corr=0 (=0.0% of initial)  F_x=2613.3  edge-term=0%
+
+iter  39: L=0.404800  ||grad||=3.6887e-01  step=0.008238  alpha=0.005492  |dC|=0.00441iter  39: L=0.404800  ||grad||=3.6887e-01  step=0.008238  alpha=0.005492  |dC|=0.00441
+
+iter  40: noise-limited (predicted decrease 0.00294 < 2 x paired loss s.e. 0.00164 at |dC|=0.00304) -> seeds grown to 16, retryingiter  40: noise-limited (predicted decrease 0.00294 < 2 x paired loss s.e. 0.00164 at |dC|=0.00304) -> seeds grown to 16, retrying
+
+   [6625s] perimeter=6.283  seeds=16  ||g||/s.e.=5.3  ||g||corr=0.2728 (=27.3% of initial)  F_x=2620.1  edge-term=0%   [6625s] perimeter=6.283  seeds=16  ||g||/s.e.=5.3  ||g||corr=0.2728 (=27.3% of initial)  F_x=2620.1  edge-term=0%
+
+iter  40: L=0.405371  ||grad||=2.7780e-01  step=0.01236  alpha=0.008238  |dC|=0.00303iter  40: L=0.405371  ||grad||=2.7780e-01  step=0.01236  alpha=0.008238  |dC|=0.00303
+
+   [7004s] perimeter=6.283  seeds=16  ||g||/s.e.=5.0  ||g||corr=0.2621 (=26.2% of initial)  F_x=2609.8  edge-term=0%   [7004s] perimeter=6.283  seeds=16  ||g||/s.e.=5.0  ||g||corr=0.2621 (=26.2% of initial)  F_x=2609.8  edge-term=0%
+
+iter  41: L=0.403554  ||grad||=2.6745e-01  step=0.01854  alpha=0.01236  |dC|=0.00343iter  41: L=0.403554  ||grad||=2.6745e-01  step=0.01854  alpha=0.01236  |dC|=0.00343
+
+   [7395s] perimeter=6.283  seeds=16  ||g||/s.e.=4.8  ||g||corr=0.2812 (=28.1% of initial)  F_x=2595.2  edge-term=0%   [7395s] perimeter=6.283  seeds=16  ||g||/s.e.=4.8  ||g||corr=0.2812 (=28.1% of initial)  F_x=2595.2  edge-term=0%
+
+iter  42: L=0.401278  ||grad||=2.8750e-01  step=0.0278  alpha=0.01854  |dC|=0.00496iter  42: L=0.401278  ||grad||=2.8750e-01  step=0.0278  alpha=0.01854  |dC|=0.00496
+
+   [7773s] perimeter=6.283  seeds=16  ||g||/s.e.=4.3  ||g||corr=0.2372 (=23.7% of initial)  F_x=2587.8  edge-term=0%   [7773s] perimeter=6.283  seeds=16  ||g||/s.e.=4.3  ||g||corr=0.2372 (=23.7% of initial)  F_x=2587.8  edge-term=0%
+
+iter  43: L=0.399790  ||grad||=2.4397e-01  step=0.04171  alpha=0.0278  |dC|=0.00799iter  43: L=0.399790  ||grad||=2.4397e-01  step=0.04171  alpha=0.0278  |dC|=0.00799
+
+   [8135s] perimeter=6.283  seeds=16  ||g||/s.e.=4.6  ||g||corr=0.2613 (=26.1% of initial)  F_x=2551.9  edge-term=0%   [8135s] perimeter=6.283  seeds=16  ||g||/s.e.=4.6  ||g||corr=0.2613 (=26.1% of initial)  F_x=2551.9  edge-term=0%
+
+iter  44: L=0.394533  ||grad||=2.6781e-01  step=0.06256  alpha=0.04171  |dC|=0.0102iter  44: L=0.394533  ||grad||=2.6781e-01  step=0.06256  alpha=0.04171  |dC|=0.0102
+
+   [8522s] perimeter=6.283  seeds=16  ||g||/s.e.=11.8  ||g||corr=0.6735 (=67.3% of initial)  F_x=2538.9  edge-term=0%   [8522s] perimeter=6.283  seeds=16  ||g||/s.e.=11.8  ||g||corr=0.6735 (=67.3% of initial)  F_x=2538.9  edge-term=0%
+
+iter  45: L=0.392012  ||grad||=6.7593e-01  step=0.09384  alpha=0.06256  |dC|=0.0168iter  45: L=0.392012  ||grad||=6.7593e-01  step=0.09384  alpha=0.06256  |dC|=0.0168
+
+   [9040s] perimeter=6.283  seeds=16  ||g||/s.e.=6.3  ||g||corr=0.6698 (=67.0% of initial)  F_x=2531.3  edge-term=0%   [9040s] perimeter=6.283  seeds=16  ||g||/s.e.=6.3  ||g||corr=0.6698 (=67.0% of initial)  F_x=2531.3  edge-term=0%
+
+iter  46: L=0.392574  ||grad||=6.7824e-01  step=0.03519  alpha=0.02346  |dC|=0.0159iter  46: L=0.392574  ||grad||=6.7824e-01  step=0.03519  alpha=0.02346  |dC|=0.0159
+
+   [9465s] perimeter=6.283  seeds=16  ||g||/s.e.=4.1  ||g||corr=0.417 (=41.7% of initial)  F_x=2476.7  edge-term=0%   [9465s] perimeter=6.283  seeds=16  ||g||/s.e.=4.1  ||g||corr=0.417 (=41.7% of initial)  F_x=2476.7  edge-term=0%
+
+iter  47: L=0.382235  ||grad||=4.3020e-01  step=0.02639  alpha=0.0176  |dC|=0.0119iter  47: L=0.382235  ||grad||=4.3020e-01  step=0.02639  alpha=0.0176  |dC|=0.0119
+
+   [9834s] perimeter=6.283  seeds=16  ||g||/s.e.=4.7  ||g||corr=0.4949 (=49.5% of initial)  F_x=2476.5  edge-term=0%   [9834s] perimeter=6.283  seeds=16  ||g||/s.e.=4.7  ||g||corr=0.4949 (=49.5% of initial)  F_x=2476.5  edge-term=0%
+
+iter  48: L=0.383741  ||grad||=5.0632e-01  step=0.03959  alpha=0.02639  |dC|=0.0114iter  48: L=0.383741  ||grad||=5.0632e-01  step=0.03959  alpha=0.02639  |dC|=0.0114
+
+   [10258s] perimeter=6.283  seeds=16  ||g||/s.e.=6.4  ||g||corr=0.3664 (=36.6% of initial)  F_x=2462.7  edge-term=0%   [10258s] perimeter=6.283  seeds=16  ||g||/s.e.=6.4  ||g||corr=0.3664 (=36.6% of initial)  F_x=2462.7  edge-term=0%
+
+iter  49: L=0.380009  ||grad||=3.7093e-01  step=0.02969  alpha=0.01979  |dC|=0.01iter  49: L=0.380009  ||grad||=3.7093e-01  step=0.02969  alpha=0.01979  |dC|=0.01
+
+   [10632s] perimeter=6.283  seeds=16  ||g||/s.e.=9.3  ||g||corr=0.5626 (=56.3% of initial)  F_x=2433.8  edge-term=0%   [10632s] perimeter=6.283  seeds=16  ||g||/s.e.=9.3  ||g||corr=0.5626 (=56.3% of initial)  F_x=2433.8  edge-term=0%
+
+iter  50: L=0.377159  ||grad||=5.6582e-01  step=0.04454  alpha=0.02969  |dC|=0.011iter  50: L=0.377159  ||grad||=5.6582e-01  step=0.04454  alpha=0.02969  |dC|=0.011
+
+   [11040s] perimeter=6.283  seeds=16  ||g||/s.e.=9.1  ||g||corr=0.6152 (=61.5% of initial)  F_x=2437.4  edge-term=0%   [11040s] perimeter=6.283  seeds=16  ||g||/s.e.=9.1  ||g||corr=0.6152 (=61.5% of initial)  F_x=2437.4  edge-term=0%
+
+iter  51: L=0.376077  ||grad||=6.1897e-01  step=0.0334  alpha=0.02227  |dC|=0.0126iter  51: L=0.376077  ||grad||=6.1897e-01  step=0.0334  alpha=0.02227  |dC|=0.0126
+
+   [11473s] perimeter=6.283  seeds=16  ||g||/s.e.=5.0  ||g||corr=0.3395 (=34.0% of initial)  F_x=2404.5  edge-term=0%   [11473s] perimeter=6.283  seeds=16  ||g||/s.e.=5.0  ||g||corr=0.3395 (=34.0% of initial)  F_x=2404.5  edge-term=0%
+
+iter  52: L=0.372112  ||grad||=3.4664e-01  step=0.02505  alpha=0.0167  |dC|=0.0103iter  52: L=0.372112  ||grad||=3.4664e-01  step=0.02505  alpha=0.0167  |dC|=0.0103
+
+   [11836s] perimeter=6.283  seeds=16  ||g||/s.e.=5.4  ||g||corr=0.3599 (=36.0% of initial)  F_x=2399.6  edge-term=0%   [11836s] perimeter=6.283  seeds=16  ||g||/s.e.=5.4  ||g||corr=0.3599 (=36.0% of initial)  F_x=2399.6  edge-term=0%
+
+iter  53: L=0.370253  ||grad||=3.6620e-01  step=0.03758  alpha=0.02505  |dC|=0.00868iter  53: L=0.370253  ||grad||=3.6620e-01  step=0.03758  alpha=0.02505  |dC|=0.00868
+
+   [12244s] perimeter=6.283  seeds=16  ||g||/s.e.=5.3  ||g||corr=0.2914 (=29.1% of initial)  F_x=2375.7  edge-term=0%   [12244s] perimeter=6.283  seeds=16  ||g||/s.e.=5.3  ||g||corr=0.2914 (=29.1% of initial)  F_x=2375.7  edge-term=0%
+
+iter  54: L=0.367370  ||grad||=2.9665e-01  step=0.02818  alpha=0.01879  |dC|=0.00688iter  54: L=0.367370  ||grad||=2.9665e-01  step=0.02818  alpha=0.01879  |dC|=0.00688
+
+   [12593s] perimeter=6.283  seeds=16  ||g||/s.e.=7.8  ||g||corr=0.4088 (=40.9% of initial)  F_x=2357.5  edge-term=0%   [12593s] perimeter=6.283  seeds=16  ||g||/s.e.=7.8  ||g||corr=0.4088 (=40.9% of initial)  F_x=2357.5  edge-term=0%
+
+iter  55: L=0.363868  ||grad||=4.1214e-01  step=0.04228  alpha=0.02818  |dC|=0.00836iter  55: L=0.363868  ||grad||=4.1214e-01  step=0.04228  alpha=0.02818  |dC|=0.00836
+
+   [13015s] perimeter=6.283  seeds=16  ||g||/s.e.=6.3  ||g||corr=0.3914 (=39.1% of initial)  F_x=2349.7  edge-term=0%   [13015s] perimeter=6.283  seeds=16  ||g||/s.e.=6.3  ||g||corr=0.3914 (=39.1% of initial)  F_x=2349.7  edge-term=0%
+
+iter  56: L=0.363814  ||grad||=3.9637e-01  step=0.03171  alpha=0.02114  |dC|=0.00871iter  56: L=0.363814  ||grad||=3.9637e-01  step=0.03171  alpha=0.02114  |dC|=0.00871
+
+   [13396s] perimeter=6.283  seeds=16  ||g||/s.e.=10.2  ||g||corr=0.6716 (=67.2% of initial)  F_x=2347.6  edge-term=0%   [13396s] perimeter=6.283  seeds=16  ||g||/s.e.=10.2  ||g||corr=0.6716 (=67.2% of initial)  F_x=2347.6  edge-term=0%
+
+iter  57: L=0.362218  ||grad||=6.7484e-01  step=0.04756  alpha=0.03171  |dC|=0.0126iter  57: L=0.362218  ||grad||=6.7484e-01  step=0.04756  alpha=0.03171  |dC|=0.0126
+
+   [13903s] perimeter=6.283  seeds=16  ||g||/s.e.=3.2  ||g||corr=0.2018 (=20.2% of initial)  F_x=2313.0  edge-term=0%   [13903s] perimeter=6.283  seeds=16  ||g||/s.e.=3.2  ||g||corr=0.2018 (=20.2% of initial)  F_x=2313.0  edge-term=0%
+
+iter  58: L=0.357399  ||grad||=2.1262e-01  step=0.01784  alpha=0.01189  |dC|=0.00802iter  58: L=0.357399  ||grad||=2.1262e-01  step=0.01784  alpha=0.01189  |dC|=0.00802
+
+iter  59: noise-limited (predicted decrease 0.00211 < 2 x paired loss s.e. 0.00108 at |dC|=0.00379) -> seeds grown to 32, retryingiter  59: noise-limited (predicted decrease 0.00211 < 2 x paired loss s.e. 0.00108 at |dC|=0.00379) -> seeds grown to 32, retrying
+
+   [15822s] perimeter=6.283  seeds=32  ||g||/s.e.=5.6  ||g||corr=0.206 (=20.6% of initial)  F_x=2293.1  edge-term=0%   [15822s] perimeter=6.283  seeds=32  ||g||/s.e.=5.6  ||g||corr=0.206 (=20.6% of initial)  F_x=2293.1  edge-term=0%
+
+iter  59: L=0.354275  ||grad||=2.0937e-01  step=0.02675  alpha=0.01784  |dC|=0.00377iter  59: L=0.354275  ||grad||=2.0937e-01  step=0.02675  alpha=0.01784  |dC|=0.00377
+
+   [16458s] perimeter=6.283  seeds=32  ||g||/s.e.=4.4  ||g||corr=0.2034 (=20.3% of initial)  F_x=2277.0  edge-term=0%   [16458s] perimeter=6.283  seeds=32  ||g||/s.e.=4.4  ||g||corr=0.2034 (=20.3% of initial)  F_x=2277.0  edge-term=0%
+
+iter  60: L=0.352030  ||grad||=2.0880e-01  step=0.04013  alpha=0.02675  |dC|=0.0056iter  60: L=0.352030  ||grad||=2.0880e-01  step=0.04013  alpha=0.02675  |dC|=0.0056
+
+   [17074s] perimeter=6.283  seeds=32  ||g||/s.e.=5.5  ||g||corr=0.2516 (=25.2% of initial)  F_x=2261.7  edge-term=0%   [17074s] perimeter=6.283  seeds=32  ||g||/s.e.=5.5  ||g||corr=0.2516 (=25.2% of initial)  F_x=2261.7  edge-term=0%
+
+iter  61: L=0.349395  ||grad||=2.5584e-01  step=0.06019  alpha=0.04013  |dC|=0.00838iter  61: L=0.349395  ||grad||=2.5584e-01  step=0.06019  alpha=0.04013  |dC|=0.00838
+
+   [17802s] perimeter=6.283  seeds=32  ||g||/s.e.=6.0  ||g||corr=0.3173 (=31.7% of initial)  F_x=2245.3  edge-term=0%   [17802s] perimeter=6.283  seeds=32  ||g||/s.e.=6.0  ||g||corr=0.3173 (=31.7% of initial)  F_x=2245.3  edge-term=0%
+
+iter  62: L=0.347683  ||grad||=3.2182e-01  step=0.04514  alpha=0.0301  |dC|=0.0077iter  62: L=0.347683  ||grad||=3.2182e-01  step=0.04514  alpha=0.0301  |dC|=0.0077
+
+   [18561s] perimeter=6.283  seeds=32  ||g||/s.e.=7.4  ||g||corr=0.3201 (=32.0% of initial)  F_x=2232.8  edge-term=0%   [18561s] perimeter=6.283  seeds=32  ||g||/s.e.=7.4  ||g||corr=0.3201 (=32.0% of initial)  F_x=2232.8  edge-term=0%
+
+iter  63: L=0.345029  ||grad||=3.2305e-01  step=0.03386  alpha=0.02257  |dC|=0.00726iter  63: L=0.345029  ||grad||=3.2305e-01  step=0.03386  alpha=0.02257  |dC|=0.00726
+
+   [19261s] perimeter=6.283  seeds=32  ||g||/s.e.=4.6  ||g||corr=0.2308 (=23.1% of initial)  F_x=2210.7  edge-term=0%   [19261s] perimeter=6.283  seeds=32  ||g||/s.e.=4.6  ||g||corr=0.2308 (=23.1% of initial)  F_x=2210.7  edge-term=0%
+
+iter  64: L=0.342102  ||grad||=2.3652e-01  step=0.02539  alpha=0.01693  |dC|=0.00547iter  64: L=0.342102  ||grad||=2.3652e-01  step=0.02539  alpha=0.01693  |dC|=0.00547
+
+   [19868s] perimeter=6.283  seeds=32  ||g||/s.e.=6.2  ||g||corr=0.2738 (=27.4% of initial)  F_x=2199.2  edge-term=0%   [19868s] perimeter=6.283  seeds=32  ||g||/s.e.=6.2  ||g||corr=0.2738 (=27.4% of initial)  F_x=2199.2  edge-term=0%
+
+iter  65: L=0.339929  ||grad||=2.7748e-01  step=0.03809  alpha=0.02539  |dC|=0.00601iter  65: L=0.339929  ||grad||=2.7748e-01  step=0.03809  alpha=0.02539  |dC|=0.00601
+
+   [20587s] perimeter=6.283  seeds=32  ||g||/s.e.=5.3  ||g||corr=0.266 (=26.6% of initial)  F_x=2180.3  edge-term=0%   [20587s] perimeter=6.283  seeds=32  ||g||/s.e.=5.3  ||g||corr=0.266 (=26.6% of initial)  F_x=2180.3  edge-term=0%
+
+iter  66: L=0.337556  ||grad||=2.7092e-01  step=0.02857  alpha=0.01905  |dC|=0.00528iter  66: L=0.337556  ||grad||=2.7092e-01  step=0.02857  alpha=0.01905  |dC|=0.00528
+
+   [21187s] perimeter=6.283  seeds=32  ||g||/s.e.=7.8  ||g||corr=0.3376 (=33.8% of initial)  F_x=2185.7  edge-term=0%   [21187s] perimeter=6.283  seeds=32  ||g||/s.e.=7.8  ||g||corr=0.3376 (=33.8% of initial)  F_x=2185.7  edge-term=0%
+
+iter  67: L=0.338032  ||grad||=3.4036e-01  step=0.04285  alpha=0.02857  |dC|=0.00774iter  67: L=0.338032  ||grad||=3.4036e-01  step=0.04285  alpha=0.02857  |dC|=0.00774
+
+   [21894s] perimeter=6.283  seeds=32  ||g||/s.e.=7.8  ||g||corr=0.3546 (=35.5% of initial)  F_x=2170.9  edge-term=0%   [21894s] perimeter=6.283  seeds=32  ||g||/s.e.=7.8  ||g||corr=0.3546 (=35.5% of initial)  F_x=2170.9  edge-term=0%
+
+iter  68: L=0.336523  ||grad||=3.5751e-01  step=0.03214  alpha=0.02143  |dC|=0.00729iter  68: L=0.336523  ||grad||=3.5751e-01  step=0.03214  alpha=0.02143  |dC|=0.00729
+
+   [22730s] perimeter=6.283  seeds=32  ||g||/s.e.=6.5  ||g||corr=0.2409 (=24.1% of initial)  F_x=2163.2  edge-term=0%   [22730s] perimeter=6.283  seeds=32  ||g||/s.e.=6.5  ||g||corr=0.2409 (=24.1% of initial)  F_x=2163.2  edge-term=0%
+
+iter  69: L=0.334722  ||grad||=2.4388e-01  step=0.0241  alpha=0.01607  |dC|=0.00575iter  69: L=0.334722  ||grad||=2.4388e-01  step=0.0241  alpha=0.01607  |dC|=0.00575
+
+   [23478s] perimeter=6.283  seeds=32  ||g||/s.e.=7.0  ||g||corr=0.2615 (=26.1% of initial)  F_x=2145.7  edge-term=0%   [23478s] perimeter=6.283  seeds=32  ||g||/s.e.=7.0  ||g||corr=0.2615 (=26.1% of initial)  F_x=2145.7  edge-term=0%
+
+iter  70: L=0.332455  ||grad||=2.6422e-01  step=0.03616  alpha=0.0241  |dC|=0.00588iter  70: L=0.332455  ||grad||=2.6422e-01  step=0.03616  alpha=0.0241  |dC|=0.00588
+
+   [24165s] perimeter=6.283  seeds=32  ||g||/s.e.=11.0  ||g||corr=0.4939 (=49.4% of initial)  F_x=2145.6  edge-term=0%   [24165s] perimeter=6.283  seeds=32  ||g||/s.e.=11.0  ||g||corr=0.4939 (=49.4% of initial)  F_x=2145.6  edge-term=0%
+
+iter  71: L=0.332330  ||grad||=4.9598e-01  step=0.05424  alpha=0.03616  |dC|=0.00955iter  71: L=0.332330  ||grad||=4.9598e-01  step=0.05424  alpha=0.03616  |dC|=0.00955
+
+   [25104s] perimeter=6.283  seeds=32  ||g||/s.e.=4.7  ||g||corr=0.2214 (=22.1% of initial)  F_x=2122.0  edge-term=0%   [25104s] perimeter=6.283  seeds=32  ||g||/s.e.=4.7  ||g||corr=0.2214 (=22.1% of initial)  F_x=2122.0  edge-term=0%
+
+iter  72: L=0.328756  ||grad||=2.2661e-01  step=0.02034  alpha=0.01356  |dC|=0.00672iter  72: L=0.328756  ||grad||=2.2661e-01  step=0.02034  alpha=0.01356  |dC|=0.00672
+
+   [25823s] perimeter=6.283  seeds=32  ||g||/s.e.=4.2  ||g||corr=0.208 (=20.8% of initial)  F_x=2123.5  edge-term=0%   [25823s] perimeter=6.283  seeds=32  ||g||/s.e.=4.2  ||g||corr=0.208 (=20.8% of initial)  F_x=2123.5  edge-term=0%
+
+iter  73: L=0.328870  ||grad||=2.1421e-01  step=0.03051  alpha=0.02034  |dC|=0.00461iter  73: L=0.328870  ||grad||=2.1421e-01  step=0.03051  alpha=0.02034  |dC|=0.00461
+
+   [26532s] perimeter=6.283  seeds=32  ||g||/s.e.=5.6  ||g||corr=0.2858 (=28.6% of initial)  F_x=2106.1  edge-term=0%   [26532s] perimeter=6.283  seeds=32  ||g||/s.e.=5.6  ||g||corr=0.2858 (=28.6% of initial)  F_x=2106.1  edge-term=0%
+
+iter  74: L=0.326478  ||grad||=2.9055e-01  step=0.04576  alpha=0.03051  |dC|=0.00654iter  74: L=0.326478  ||grad||=2.9055e-01  step=0.04576  alpha=0.03051  |dC|=0.00654
+
+iter  75: feasibility projection active (moved trial point by 0.00282); the raw gradient norm need not vanish at a constrained optimumiter  75: feasibility projection active (moved trial point by 0.00282); the raw gradient norm need not vanish at a constrained optimum
+
+   [27339s] perimeter=6.283  seeds=32  ||g||/s.e.=6.6  ||g||corr=0.3284 (=32.8% of initial)  F_x=2098.7  edge-term=0%   [27339s] perimeter=6.283  seeds=32  ||g||/s.e.=6.6  ||g||corr=0.3284 (=32.8% of initial)  F_x=2098.7  edge-term=0%
+
+iter  75: L=0.325167  ||grad||=3.3234e-01  step=0.03432  alpha=0.02288  |dC|=0.00632iter  75: L=0.325167  ||grad||=3.3234e-01  step=0.03432  alpha=0.02288  |dC|=0.00632
+
+iter  76: feasibility projection active (moved trial point by 0.00256); the raw gradient norm need not vanish at a constrained optimumiter  76: feasibility projection active (moved trial point by 0.00256); the raw gradient norm need not vanish at a constrained optimum
+
+   [28185s] perimeter=6.283  seeds=32  ||g||/s.e.=5.7  ||g||corr=0.2758 (=27.6% of initial)  F_x=2100.5  edge-term=0%   [28185s] perimeter=6.283  seeds=32  ||g||/s.e.=5.7  ||g||corr=0.2758 (=27.6% of initial)  F_x=2100.5  edge-term=0%
+
+iter  76: L=0.325702  ||grad||=2.8019e-01  step=0.02574  alpha=0.01716  |dC|=0.00554iter  76: L=0.325702  ||grad||=2.8019e-01  step=0.02574  alpha=0.01716  |dC|=0.00554
+
+iter  77: feasibility projection active (moved trial point by 0.00395); the raw gradient norm need not vanish at a constrained optimumiter  77: feasibility projection active (moved trial point by 0.00395); the raw gradient norm need not vanish at a constrained optimum
+
+   [28907s] perimeter=6.283  seeds=32  ||g||/s.e.=9.7  ||g||corr=0.3877 (=38.8% of initial)  F_x=2092.8  edge-term=0%   [28907s] perimeter=6.283  seeds=32  ||g||/s.e.=9.7  ||g||corr=0.3877 (=38.8% of initial)  F_x=2092.8  edge-term=0%
+
+iter  77: L=0.324470  ||grad||=3.8978e-01  step=0.03861  alpha=0.02574  |dC|=0.0069iter  77: L=0.324470  ||grad||=3.8978e-01  step=0.03861  alpha=0.02574  |dC|=0.0069
+
+iter  78: feasibility projection active (moved trial point by 0.00306); the raw gradient norm need not vanish at a constrained optimumiter  78: feasibility projection active (moved trial point by 0.00306); the raw gradient norm need not vanish at a constrained optimum
+
+   [29740s] perimeter=6.283  seeds=32  ||g||/s.e.=8.2  ||g||corr=0.3296 (=33.0% of initial)  F_x=2081.1  edge-term=0%   [29740s] perimeter=6.283  seeds=32  ||g||/s.e.=8.2  ||g||corr=0.3296 (=33.0% of initial)  F_x=2081.1  edge-term=0%
+
+iter  78: L=0.323225  ||grad||=3.3209e-01  step=0.02896  alpha=0.01931  |dC|=0.00731iter  78: L=0.323225  ||grad||=3.3209e-01  step=0.02896  alpha=0.01931  |dC|=0.00731
+
+iter  79: feasibility projection active (moved trial point by 0.00221); the raw gradient norm need not vanish at a constrained optimumiter  79: feasibility projection active (moved trial point by 0.00221); the raw gradient norm need not vanish at a constrained optimum
+
+   [30342s] perimeter=6.283  seeds=32  ||g||/s.e.=5.2  ||g||corr=0.1914 (=19.1% of initial)  F_x=2083.2  edge-term=0%   [30342s] perimeter=6.283  seeds=32  ||g||/s.e.=5.2  ||g||corr=0.1914 (=19.1% of initial)  F_x=2083.2  edge-term=0%
+
+iter  79: L=0.323001  ||grad||=1.9503e-01  step=0.02172  alpha=0.01448  |dC|=0.00463iter  79: L=0.323001  ||grad||=1.9503e-01  step=0.02172  alpha=0.01448  |dC|=0.00463
+
+iter  80: feasibility projection active (moved trial point by 0.00374); the raw gradient norm need not vanish at a constrained optimumiter  80: feasibility projection active (moved trial point by 0.00374); the raw gradient norm need not vanish at a constrained optimum
+
+   [30847s] perimeter=6.283  seeds=32  ||g||/s.e.=4.3  ||g||corr=0.1882 (=18.8% of initial)  F_x=2079.3  edge-term=0%   [30847s] perimeter=6.283  seeds=32  ||g||/s.e.=4.3  ||g||corr=0.1882 (=18.8% of initial)  F_x=2079.3  edge-term=0%
+
+iter  80: L=0.322712  ||grad||=1.9351e-01  step=0.03258  alpha=0.02172  |dC|=0.00359iter  80: L=0.322712  ||grad||=1.9351e-01  step=0.03258  alpha=0.02172  |dC|=0.00359
+
+iter  81: feasibility projection active (moved trial point by 0.00518); the raw gradient norm need not vanish at a constrained optimumiter  81: feasibility projection active (moved trial point by 0.00518); the raw gradient norm need not vanish at a constrained optimum
+
+   [31351s] perimeter=6.283  seeds=32  ||g||/s.e.=7.8  ||g||corr=0.3284 (=32.8% of initial)  F_x=2084.7  edge-term=0%   [31351s] perimeter=6.283  seeds=32  ||g||/s.e.=7.8  ||g||corr=0.3284 (=32.8% of initial)  F_x=2084.7  edge-term=0%
+
+iter  81: L=0.323231  ||grad||=3.3120e-01  step=0.04887  alpha=0.03258  |dC|=0.00555iter  81: L=0.323231  ||grad||=3.3120e-01  step=0.04887  alpha=0.03258  |dC|=0.00555
+
+iter  82: feasibility projection active (moved trial point by 0.00235); the raw gradient norm need not vanish at a constrained optimumiter  82: feasibility projection active (moved trial point by 0.00235); the raw gradient norm need not vanish at a constrained optimum
+
+   [32086s] perimeter=6.283  seeds=32  ||g||/s.e.=4.3  ||g||corr=0.1773 (=17.7% of initial)  F_x=2071.5  edge-term=0%   [32086s] perimeter=6.283  seeds=32  ||g||/s.e.=4.3  ||g||corr=0.1773 (=17.7% of initial)  F_x=2071.5  edge-term=0%
+
+iter  82: L=0.321653  ||grad||=1.8239e-01  step=0.01833  alpha=0.01222  |dC|=0.00378iter  82: L=0.321653  ||grad||=1.8239e-01  step=0.01833  alpha=0.01222  |dC|=0.00378
+
+iter  83: feasibility projection active (moved trial point by 0.00331); the raw gradient norm need not vanish at a constrained optimumiter  83: feasibility projection active (moved trial point by 0.00331); the raw gradient norm need not vanish at a constrained optimum
+
+   [32739s] perimeter=6.283  seeds=32  ||g||/s.e.=5.2  ||g||corr=0.1738 (=17.4% of initial)  F_x=2072.8  edge-term=0%   [32739s] perimeter=6.283  seeds=32  ||g||/s.e.=5.2  ||g||corr=0.1738 (=17.4% of initial)  F_x=2072.8  edge-term=0%
+
+iter  83: L=0.321710  ||grad||=1.7702e-01  step=0.02749  alpha=0.01833  |dC|=0.00273iter  83: L=0.321710  ||grad||=1.7702e-01  step=0.02749  alpha=0.01833  |dC|=0.00273
+
+iter  84: feasibility projection active (moved trial point by 0.00488); the raw gradient norm need not vanish at a constrained optimumiter  84: feasibility projection active (moved trial point by 0.00488); the raw gradient norm need not vanish at a constrained optimum
+
+   [33400s] perimeter=6.283  seeds=32  ||g||/s.e.=5.4  ||g||corr=0.1928 (=19.3% of initial)  F_x=2067.8  edge-term=0%   [33400s] perimeter=6.283  seeds=32  ||g||/s.e.=5.4  ||g||corr=0.1928 (=19.3% of initial)  F_x=2067.8  edge-term=0%
+
+iter  84: L=0.321196  ||grad||=1.9626e-01  step=0.04123  alpha=0.02749  |dC|=0.00376iter  84: L=0.321196  ||grad||=1.9626e-01  step=0.04123  alpha=0.02749  |dC|=0.00376
+
+iter  85: feasibility projection active (moved trial point by 0.00769); the raw gradient norm need not vanish at a constrained optimumiter  85: feasibility projection active (moved trial point by 0.00769); the raw gradient norm need not vanish at a constrained optimum
+
+   [33968s] perimeter=6.283  seeds=32  ||g||/s.e.=8.2  ||g||corr=0.3044 (=30.4% of initial)  F_x=2075.8  edge-term=0%   [33968s] perimeter=6.283  seeds=32  ||g||/s.e.=8.2  ||g||corr=0.3044 (=30.4% of initial)  F_x=2075.8  edge-term=0%
+
+iter  85: L=0.322125  ||grad||=3.0671e-01  step=0.06185  alpha=0.04123  |dC|=0.0065iter  85: L=0.322125  ||grad||=3.0671e-01  step=0.06185  alpha=0.04123  |dC|=0.0065
+
+iter  86: feasibility projection active (moved trial point by 0.00315); the raw gradient norm need not vanish at a constrained optimumiter  86: feasibility projection active (moved trial point by 0.00315); the raw gradient norm need not vanish at a constrained optimum
+
+   [34613s] perimeter=6.283  seeds=32  ||g||/s.e.=4.8  ||g||corr=0.2321 (=23.2% of initial)  F_x=2060.2  edge-term=0%   [34613s] perimeter=6.283  seeds=32  ||g||/s.e.=4.8  ||g||corr=0.2321 (=23.2% of initial)  F_x=2060.2  edge-term=0%
+
+iter  86: L=0.320199  ||grad||=2.3736e-01  step=0.02319  alpha=0.01546  |dC|=0.00426iter  86: L=0.320199  ||grad||=2.3736e-01  step=0.02319  alpha=0.01546  |dC|=0.00426
+
+iter  87: feasibility projection active (moved trial point by 0.00475); the raw gradient norm need not vanish at a constrained optimumiter  87: feasibility projection active (moved trial point by 0.00475); the raw gradient norm need not vanish at a constrained optimum
+
+   [35116s] perimeter=6.283  seeds=32  ||g||/s.e.=5.5  ||g||corr=0.2814 (=28.1% of initial)  F_x=2070.0  edge-term=0%   [35116s] perimeter=6.283  seeds=32  ||g||/s.e.=5.5  ||g||corr=0.2814 (=28.1% of initial)  F_x=2070.0  edge-term=0%
+
+iter  87: L=0.321226  ||grad||=2.8611e-01  step=0.03479  alpha=0.02319  |dC|=0.00458iter  87: L=0.321226  ||grad||=2.8611e-01  step=0.03479  alpha=0.02319  |dC|=0.00458
+
+iter  88: feasibility projection active (moved trial point by 0.00354); the raw gradient norm need not vanish at a constrained optimumiter  88: feasibility projection active (moved trial point by 0.00354); the raw gradient norm need not vanish at a constrained optimum
+
+   [35691s] perimeter=6.283  seeds=32  ||g||/s.e.=4.1  ||g||corr=0.2139 (=21.4% of initial)  F_x=2059.7  edge-term=0%   [35691s] perimeter=6.283  seeds=32  ||g||/s.e.=4.1  ||g||corr=0.2139 (=21.4% of initial)  F_x=2059.7  edge-term=0%
+
+iter  88: L=0.320356  ||grad||=2.2045e-01  step=0.02609  alpha=0.01739  |dC|=0.00441iter  88: L=0.320356  ||grad||=2.2045e-01  step=0.02609  alpha=0.01739  |dC|=0.00441
+
+iter  89: feasibility projection active (moved trial point by 0.00495); the raw gradient norm need not vanish at a constrained optimumiter  89: feasibility projection active (moved trial point by 0.00495); the raw gradient norm need not vanish at a constrained optimum
+
+   [36192s] perimeter=6.283  seeds=32  ||g||/s.e.=6.2  ||g||corr=0.2795 (=28.0% of initial)  F_x=2078.8  edge-term=0%   [36192s] perimeter=6.283  seeds=32  ||g||/s.e.=6.2  ||g||corr=0.2795 (=28.0% of initial)  F_x=2078.8  edge-term=0%
+
+iter  89: L=0.322630  ||grad||=2.8319e-01  step=0.03914  alpha=0.02609  |dC|=0.00475iter  89: L=0.322630  ||grad||=2.8319e-01  step=0.03914  alpha=0.02609  |dC|=0.00475
+
+iter  90: feasibility projection active (moved trial point by 0.00404); the raw gradient norm need not vanish at a constrained optimumiter  90: feasibility projection active (moved trial point by 0.00404); the raw gradient norm need not vanish at a constrained optimum
+
+   [36762s] perimeter=6.283  seeds=32  ||g||/s.e.=5.7  ||g||corr=0.2647 (=26.5% of initial)  F_x=2060.6  edge-term=0%   [36762s] perimeter=6.283  seeds=32  ||g||/s.e.=5.7  ||g||corr=0.2647 (=26.5% of initial)  F_x=2060.6  edge-term=0%
+
+iter  90: L=0.320742  ||grad||=2.6881e-01  step=0.02935  alpha=0.01957  |dC|=0.00485iter  90: L=0.320742  ||grad||=2.6881e-01  step=0.02935  alpha=0.01957  |dC|=0.00485
+
+iter  91: feasibility projection active (moved trial point by 0.00287); the raw gradient norm need not vanish at a constrained optimumiter  91: feasibility projection active (moved trial point by 0.00287); the raw gradient norm need not vanish at a constrained optimum
+
+   [37333s] perimeter=6.283  seeds=32  ||g||/s.e.=4.5  ||g||corr=0.2099 (=21.0% of initial)  F_x=2061.0  edge-term=0%   [37333s] perimeter=6.283  seeds=32  ||g||/s.e.=4.5  ||g||corr=0.2099 (=21.0% of initial)  F_x=2061.0  edge-term=0%
+
+iter  91: L=0.320141  ||grad||=2.1531e-01  step=0.02201  alpha=0.01468  |dC|=0.00349iter  91: L=0.320141  ||grad||=2.1531e-01  step=0.02201  alpha=0.01468  |dC|=0.00349
+
+iter  92: feasibility projection active (moved trial point by 0.0047); the raw gradient norm need not vanish at a constrained optimumiter  92: feasibility projection active (moved trial point by 0.0047); the raw gradient norm need not vanish at a constrained optimum
+
+   [37835s] perimeter=6.283  seeds=32  ||g||/s.e.=4.8  ||g||corr=0.2156 (=21.6% of initial)  F_x=2054.0  edge-term=0%   [37835s] perimeter=6.283  seeds=32  ||g||/s.e.=4.8  ||g||corr=0.2156 (=21.6% of initial)  F_x=2054.0  edge-term=0%
+
+iter  92: L=0.319637  ||grad||=2.2048e-01  step=0.03302  alpha=0.02201  |dC|=0.00366iter  92: L=0.319637  ||grad||=2.2048e-01  step=0.03302  alpha=0.02201  |dC|=0.00366
+
+iter  93: feasibility projection active (moved trial point by 0.00673); the raw gradient norm need not vanish at a constrained optimumiter  93: feasibility projection active (moved trial point by 0.00673); the raw gradient norm need not vanish at a constrained optimum
+
+   [38338s] perimeter=6.283  seeds=32  ||g||/s.e.=7.6  ||g||corr=0.343 (=34.3% of initial)  F_x=2072.6  edge-term=0%   [38338s] perimeter=6.283  seeds=32  ||g||/s.e.=7.6  ||g||corr=0.343 (=34.3% of initial)  F_x=2072.6  edge-term=0%
+
+iter  93: L=0.321823  ||grad||=3.4594e-01  step=0.04953  alpha=0.03302  |dC|=0.00578iter  93: L=0.321823  ||grad||=3.4594e-01  step=0.04953  alpha=0.03302  |dC|=0.00578
+
+iter  94: feasibility projection active (moved trial point by 0.00278); the raw gradient norm need not vanish at a constrained optimumiter  94: feasibility projection active (moved trial point by 0.00278); the raw gradient norm need not vanish at a constrained optimum
+
+   [38984s] perimeter=6.283  seeds=32  ||g||/s.e.=3.4  ||g||corr=0.2111 (=21.1% of initial)  F_x=2058.7  edge-term=0%   [38984s] perimeter=6.283  seeds=32  ||g||/s.e.=3.4  ||g||corr=0.2111 (=21.1% of initial)  F_x=2058.7  edge-term=0%
+
+iter  94: L=0.320274  ||grad||=2.2108e-01  step=0.01858  alpha=0.01238  |dC|=0.00386iter  94: L=0.320274  ||grad||=2.2108e-01  step=0.01858  alpha=0.01238  |dC|=0.00386
+
+iter  95: feasibility projection active (moved trial point by 0.00382); the raw gradient norm need not vanish at a constrained optimumiter  95: feasibility projection active (moved trial point by 0.00382); the raw gradient norm need not vanish at a constrained optimum
+
+   [39492s] perimeter=6.283  seeds=32  ||g||/s.e.=3.0  ||g||corr=0.2415 (=24.1% of initial)  F_x=2052.9  edge-term=0%   [39492s] perimeter=6.283  seeds=32  ||g||/s.e.=3.0  ||g||corr=0.2415 (=24.1% of initial)  F_x=2052.9  edge-term=0%
+
+iter  95: L=0.319089  ||grad||=2.5664e-01  step=0.02786  alpha=0.01858  |dC|=0.00312iter  95: L=0.319089  ||grad||=2.5664e-01  step=0.02786  alpha=0.01858  |dC|=0.00312
+
+iter  96: feasibility projection active (moved trial point by 0.00316); the raw gradient norm need not vanish at a constrained optimumiter  96: feasibility projection active (moved trial point by 0.00316); the raw gradient norm need not vanish at a constrained optimum
+
+   [40068s] perimeter=6.283  seeds=32  ||g||/s.e.=2.5  ||g||corr=0.2006 (=20.1% of initial)  F_x=2051.8  edge-term=0%   [40068s] perimeter=6.283  seeds=32  ||g||/s.e.=2.5  ||g||corr=0.2006 (=20.1% of initial)  F_x=2051.8  edge-term=0%
+
+iter  96: L=0.319349  ||grad||=2.1834e-01  step=0.0209  alpha=0.01393  |dC|=0.00296iter  96: L=0.319349  ||grad||=2.1834e-01  step=0.0209  alpha=0.01393  |dC|=0.00296
+
+iter  97: feasibility projection active (moved trial point by 0.0046); the raw gradient norm need not vanish at a constrained optimumiter  97: feasibility projection active (moved trial point by 0.0046); the raw gradient norm need not vanish at a constrained optimum
+
+   [40576s] perimeter=6.283  seeds=32  ||g||/s.e.=2.8  ||g||corr=0.2379 (=23.8% of initial)  F_x=2054.6  edge-term=0%   [40576s] perimeter=6.283  seeds=32  ||g||/s.e.=2.8  ||g||corr=0.2379 (=23.8% of initial)  F_x=2054.6  edge-term=0%
+
+iter  97: L=0.319604  ||grad||=2.5459e-01  step=0.03135  alpha=0.0209  |dC|=0.0034iter  97: L=0.319604  ||grad||=2.5459e-01  step=0.03135  alpha=0.0209  |dC|=0.0034
+
+iter  98: feasibility projection active (moved trial point by 0.00348); the raw gradient norm need not vanish at a constrained optimumiter  98: feasibility projection active (moved trial point by 0.00348); the raw gradient norm need not vanish at a constrained optimum
+
+   [41152s] perimeter=6.283  seeds=32  ||g||/s.e.=3.5  ||g||corr=0.2355 (=23.6% of initial)  F_x=2060.2  edge-term=0%   [41152s] perimeter=6.283  seeds=32  ||g||/s.e.=3.5  ||g||corr=0.2355 (=23.6% of initial)  F_x=2060.2  edge-term=0%
+
+iter  98: L=0.321035  ||grad||=2.4598e-01  step=0.02351  alpha=0.01567  |dC|=0.00316iter  98: L=0.321035  ||grad||=2.4598e-01  step=0.02351  alpha=0.01567  |dC|=0.00316
+
+iter  99: feasibility projection active (moved trial point by 0.00241); the raw gradient norm need not vanish at a constrained optimumiter  99: feasibility projection active (moved trial point by 0.00241); the raw gradient norm need not vanish at a constrained optimum
+
+   [41721s] perimeter=6.283  seeds=32  ||g||/s.e.=2.8  ||g||corr=0.1959 (=19.6% of initial)  F_x=2057.9  edge-term=0%   [41721s] perimeter=6.283  seeds=32  ||g||/s.e.=2.8  ||g||corr=0.1959 (=19.6% of initial)  F_x=2057.9  edge-term=0%
+
+iter  99: L=0.320249  ||grad||=2.0958e-01  step=0.01763  alpha=0.01175  |dC|=0.00239iter  99: L=0.320249  ||grad||=2.0958e-01  step=0.01763  alpha=0.01175  |dC|=0.00239
+
+
+Line-search phase done in 41721s.  status: max iterations  seeds 4 -> 32
+Line-search phase done in 41721s.  status: max iterations  seeds 4 -> 32
+
+
+Done in 41721s.  F_x 6571.1 -> 2057.9   normalised loss 1.0000 -> 0.3202
+Done in 41721s.  F_x 6571.1 -> 2057.9   normalised loss 1.0000 -> 0.3202
+
+C_opt = [ 7.739e-01 -1.516e-01  4.644e-01 -1.325e-01  2.493e-01 -8.550e-02
+  1.431e-01 -4.610e-02  7.600e-02 -1.640e-02  2.960e-02  7.700e-03
+  6.000e-04  9.100e-03  2.100e-03  6.700e-03  1.700e-03  3.300e-03
+  8.000e-04  1.500e-03 -1.000e-04]C_opt = [ 7.739e-01 -1.516e-01  4.644e-01 -1.325e-01  2.493e-01 -8.550e-02
+  1.431e-01 -4.610e-02  7.600e-02 -1.640e-02  2.960e-02  7.700e-03
+  6.000e-04  9.100e-03  2.100e-03  6.700e-03  1.700e-03  3.300e-03
+  8.000e-04  1.500e-03 -1.000e-04]
+
+Saved /homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep_results_pass3/adaptive/grow4to32_seed100__ca276110/convergence.pngSaved /homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep_results_pass3/adaptive/grow4to32_seed100__ca276110/convergence.png
+
+=== done in 41724s=== done in 41724s
+

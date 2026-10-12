@@ -1,0 +1,4 @@
+frac,SEED0,first_step_disp,backtracks_it0,loss_it1,loss_it5,loss_final,iter_reach_floor,verdict,status
+0.05,0,0.05,1,0.9445548348374788,,0.7672974561515384,,decaying_noisy,max iterations
+0.05,0,0.05,1,0.9445548348374788,,0.7672974561515384,,decaying_noisy,max iterations
+0.05,0,0.05,1,0.9445548348374788,,0.7672974561515384,,decaying_noisy,max iterations

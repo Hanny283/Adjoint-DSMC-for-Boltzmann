@@ -1,0 +1,8 @@
+=== 2026-09-27 20:37:08  warm warm/w500k_nf10  id=d9bc3e4f35  pid=3362671=== 2026-09-27 20:37:08  warm warm/w500k_nf10  id=d9bc3e4f35  pid=3362671
+
+{"N_REF": 500000, "N_FOURIER": 10, "N_AVG": 4, "N_AVG_MAX": 4, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}{"N_REF": 500000, "N_FOURIER": 10, "N_AVG": 4, "N_AVG_MAX": 4, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 20, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}
+
+[sweep] warm warm/w500k_nf10 N_REF=500000 seeds=[100, 101, 102, 103, 200, 201, 202, 203] workers=8[sweep] warm warm/w500k_nf10 N_REF=500000 seeds=[100, 101, 102, 103, 200, 201, 202, 203] workers=8
+
+=== done in 423s=== done in 423s
+

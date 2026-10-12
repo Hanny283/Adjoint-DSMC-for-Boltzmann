@@ -1,0 +1,13 @@
+{
+ "pid": 3842218,
+ "time": "2026-09-29 16:55:24",
+ "running": [
+  {
+   "run_dir": "sweep_results_pass4/diag/C3_1M_nf10__d7289c19",
+   "pid": 3842219
+  }
+ ],
+ "pending": [
+  "sweep_results_pass4/continuation/C3_1M_endgame_seed400__0b6b4b4f"
+ ]
+}

@@ -1,0 +1,44 @@
+[launcher] 21 pending of 21 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started warm/w250k_nf10 (cores=16, ~12.7 GB); running=1 pending=20
+[launcher] finished (0): warm/w250k_nf10
+[launcher] started warm/w500k_nf10 (cores=8, ~11.1 GB); running=1 pending=19
+[launcher] started warm/w250k_nf5 (cores=8, ~6.5 GB); running=2 pending=18
+[launcher] finished (0): warm/w250k_nf5
+[launcher] started sweep_nref/nref500k_seed0 (cores=4, ~5.7 GB); running=2 pending=17
+[launcher] started sweep_nref/nref500k_seed100 (cores=4, ~5.7 GB); running=3 pending=16
+[launcher] finished (0): warm/w500k_nf10
+[launcher] started sweep_nref/nref500k_seed200 (cores=4, ~5.7 GB); running=3 pending=15
+[launcher] started sweep_seeds/nseeds1_seed0 (cores=1, ~1.07 GB); running=4 pending=14
+[launcher] started sweep_seeds/nseeds1_seed100 (cores=1, ~1.07 GB); running=5 pending=13
+[launcher] started sweep_seeds/nseeds1_seed200 (cores=1, ~1.07 GB); running=6 pending=12
+[launcher] finished (0): sweep_seeds/nseeds1_seed200
+[launcher] finished (0): sweep_seeds/nseeds1_seed0
+[launcher] finished (0): sweep_seeds/nseeds1_seed100
+[launcher] finished (0): sweep_nref/nref500k_seed0
+[launcher] started sweep_seeds/nseeds8_seed0 (cores=8, ~6.5 GB); running=3 pending=11
+[launcher] finished (0): sweep_nref/nref500k_seed100
+[launcher] finished (0): sweep_nref/nref500k_seed200
+[launcher] started sweep_seeds/nseeds8_seed100 (cores=8, ~6.5 GB); running=2 pending=10
+[launcher] finished (0): sweep_seeds/nseeds8_seed0
+[launcher] started sweep_seeds/nseeds8_seed200 (cores=8, ~6.5 GB); running=2 pending=9
+[launcher] finished (0): sweep_seeds/nseeds8_seed100
+[launcher] started baseline/B0_seed0 (cores=4, ~3.4 GB); running=2 pending=8
+[launcher] started baseline/B0_seed100 (cores=4, ~3.4 GB); running=3 pending=7
+[launcher] finished (0): baseline/B0_seed100
+[launcher] started baseline/B0_seed200 (cores=4, ~3.4 GB); running=3 pending=6
+[launcher] finished (0): sweep_seeds/nseeds8_seed200
+[launcher] started sweep_frac/frac0.1_seed0 (cores=4, ~3.4 GB); running=3 pending=5
+[launcher] started sweep_frac/frac0.1_seed100 (cores=4, ~3.4 GB); running=4 pending=4
+[launcher] finished (0): baseline/B0_seed0
+[launcher] started sweep_frac/frac0.1_seed200 (cores=4, ~3.4 GB); running=4 pending=3
+[launcher] finished (0): baseline/B0_seed200
+[launcher] started sweep_nfourier/nf5_seed0 (cores=4, ~3.4 GB); running=4 pending=2
+[launcher] finished (0): sweep_nfourier/nf5_seed0
+[launcher] started sweep_nfourier/nf5_seed100 (cores=4, ~3.4 GB); running=4 pending=1
+[launcher] finished (0): sweep_frac/frac0.1_seed100
+[launcher] started sweep_nfourier/nf5_seed200 (cores=4, ~3.4 GB); running=4 pending=0
+[launcher] finished (0): sweep_frac/frac0.1_seed0
+[launcher] finished (0): sweep_frac/frac0.1_seed200
+[launcher] finished (0): sweep_nfourier/nf5_seed100
+[launcher] finished (0): sweep_nfourier/nf5_seed200
+[launcher] queue finished

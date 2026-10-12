@@ -1,0 +1,2 @@
+shape,N_REF,N_FOURIER,K,gnorm_mean,sd_norm,loss_mean,loss_sd,t_grad_s,t_warm_s,run_dir
+C_init,20000,3,3,1268.0944268619933,222.2971244879359,589.9757600486361,18.656421043027308,2.3599655628204346,0.6131696701049805,/homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep_results/smoke/smoke/gradstat20000__93d97b16

@@ -1,0 +1,83 @@
+[
+ {
+  "run_dir": "sweep_results_pass3_diag/warm/w250k_nf10_heldout__79e039b0",
+  "kind": "warm",
+  "group": "warm",
+  "name": "w250k_nf10_heldout",
+  "run_id": "79e039b0bf",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/adapt/adapt_T0_C2__63e2fabd",
+  "kind": "gradstat",
+  "group": "adapt",
+  "name": "adapt_T0_C2",
+  "run_id": "63e2fabdc4",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/adapt/adapt_T10_C2__2b1c153c",
+  "kind": "gradstat",
+  "group": "adapt",
+  "name": "adapt_T10_C2",
+  "run_id": "2b1c153cc5",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/adapt/adapt_T20_C2__f37d807f",
+  "kind": "gradstat",
+  "group": "adapt",
+  "name": "adapt_T20_C2",
+  "run_id": "f37d807f3e",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/adapt/adapt_T40_C2__ab9c0d4a",
+  "kind": "gradstat",
+  "group": "adapt",
+  "name": "adapt_T40_C2",
+  "run_id": "ab9c0d4aa7",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/adapt/adapt_T80_C2__20141c89",
+  "kind": "gradstat",
+  "group": "adapt",
+  "name": "adapt_T80_C2",
+  "run_id": "20141c89f2",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/warm/w100k_nf10_heldout__c10e3512",
+  "kind": "warm",
+  "group": "warm",
+  "name": "w100k_nf10_heldout",
+  "run_id": "c10e3512ea",
+  "cores": 16,
+  "mem_gb": 7.18
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/warm/w500k_nf10_heldout__f8b609d3",
+  "kind": "warm",
+  "group": "warm",
+  "name": "w500k_nf10_heldout",
+  "run_id": "f8b609d376",
+  "cores": 16,
+  "mem_gb": 21.9
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/warm/w250k_nf20_heldout__20d579c5",
+  "kind": "warm",
+  "group": "warm",
+  "name": "w250k_nf20_heldout",
+  "run_id": "20d579c572",
+  "cores": 16,
+  "mem_gb": 12.7
+ }
+]

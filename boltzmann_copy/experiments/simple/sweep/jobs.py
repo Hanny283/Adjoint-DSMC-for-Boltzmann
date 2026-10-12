@@ -29,7 +29,10 @@ def _base_summary(cfg, wall, extra=None):
              wall_total_s=float(wall), finished=time.strftime("%Y-%m-%d %H:%M:%S"),
              params={k: cfg["params"][k] for k in ("N_REF", "CAP", "N_FOURIER", "N_AVG", "N_AVG_MAX", "ADAPTIVE_SEEDS", "SEED0",
                                                    "GRAD_INIT_FRAC", "N_ITER", "NORMALIZE_MODE", "CONSTRAINT", "CURV_LAMBDA",
-                                                   "TOBS", "T_WARM", "REWARM_T", "LX", "LY", "COLLISIONS")})
+                                                   "TOBS", "T_WARM", "REWARM_T", "LX", "LY", "COLLISIONS", "ENDGAME", "ENDGAME_ITERS",
+                                                   "STOP_ON_SIGNIFICANCE")})
+    if cfg["params"].get("C_START") is not None:
+        s["params"]["C_START"] = cfg["params"]["C_START"]
     if extra:
         s.update(extra)
     return s

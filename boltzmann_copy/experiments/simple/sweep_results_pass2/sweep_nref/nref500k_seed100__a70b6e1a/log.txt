@@ -1,0 +1,238 @@
+=== 2026-09-27 20:40:08  optimise sweep_nref/nref500k_seed100  id=a70b6e1a63  pid=3363144=== 2026-09-27 20:40:08  optimise sweep_nref/nref500k_seed100  id=a70b6e1a63  pid=3363144
+
+{"N_REF": 500000, "N_FOURIER": 10, "N_AVG": 4, "N_AVG_MAX": 4, "SEED0": 100, "GRAD_INIT_FRAC": 0.05, "N_ITER": 50, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}{"N_REF": 500000, "N_FOURIER": 10, "N_AVG": 4, "N_AVG_MAX": 4, "SEED0": 100, "GRAD_INIT_FRAC": 0.05, "N_ITER": 50, "TOBS": 5.0, "T_WARM": 60.0, "LX": 16.0, "LY": 8.0}
+
+[sweep] optimise sweep_nref/nref500k_seed100 id=a70b6e1a63 seeds=[100, 101, 102, 103] workers=4[sweep] optimise sweep_nref/nref500k_seed100 id=a70b6e1a63 seeds=[100, 101, 102, 103] workers=4
+
+Geometry selftest passed.Geometry selftest passed.
+
+Open-channel drag minimisation (inflow left / outflow right / freestream top-bottom) -- exact adjointOpen-channel drag minimisation (inflow left / outflow right / freestream top-bottom) -- exact adjoint
+
+  box 16.0x8.0  U0=1.0 T0=0.5 Kn=1.0  dt=0.1  window (0.0, 5.0] = steps 0..49  N_REF=500000 (inflow 3284.1 particles/step, warm start T_WARM=60.0)  collisions=True  box 16.0x8.0  U0=1.0 T0=0.5 Kn=1.0  dt=0.1  window (0.0, 5.0] = steps 0..49  N_REF=500000 (inflow 3284.1 particles/step, warm start T_WARM=60.0)  collisions=True
+
+  objective: drag + 1 x oint kappa^2 ds (= 6.3 at C_init, P0 = 6.283)   constraint: perimeter (L0 = 6.283, A0 = 3.142)  objective: drag + 1 x oint kappa^2 ds (= 6.3 at C_init, P0 = 6.283)   constraint: perimeter (L0 = 6.283, A0 = 3.142)
+
+  units: loss J/J(C_init) -> 1 and gradient/||g(C_init)|| -> 1 (independent factors; the optimiser uses the true slope kappa g.d);  first trial moves C by 0.05 x ||C_init|| = 0.0500   seeds 4->4   edge term reported only  units: loss J/J(C_init) -> 1 and gradient/||g(C_init)|| -> 1 (independent factors; the optimiser uses the true slope kappa g.d);  first trial moves C by 0.05 x ||C_init|| = 0.0500   seeds 4->4   edge term reported only
+
+init: ||grad||=1.000e+00 -> init_step=5.000e-02 (first trial moves C by 0.05)init: ||grad||=1.000e+00 -> init_step=5.000e-02 (first trial moves C by 0.05)
+
+   [676s] perimeter=6.283  seeds=4  ||g||/s.e.=15.7  ||g||corr=1.031 (=103.1% of initial)  F_x=12162.2  edge-term=0%   [676s] perimeter=6.283  seeds=4  ||g||/s.e.=15.7  ||g||corr=1.031 (=103.1% of initial)  F_x=12162.2  edge-term=0%
+
+iter   0: L=0.924451  ||grad||=1.0331e+00  step=0.075  alpha=0.05  |dC|=0.05iter   0: L=0.924451  ||grad||=1.0331e+00  step=0.075  alpha=0.05  |dC|=0.05
+
+   [853s] perimeter=6.283  seeds=4  ||g||/s.e.=12.6  ||g||corr=1.224 (=122.4% of initial)  F_x=10550.1  edge-term=0%   [853s] perimeter=6.283  seeds=4  ||g||/s.e.=12.6  ||g||corr=1.224 (=122.4% of initial)  F_x=10550.1  edge-term=0%
+
+iter   1: L=0.802441  ||grad||=1.2276e+00  step=0.1125  alpha=0.075  |dC|=0.0775iter   1: L=0.802441  ||grad||=1.2276e+00  step=0.1125  alpha=0.075  |dC|=0.0775
+
+   [1085s] perimeter=6.283  seeds=4  ||g||/s.e.=3.4  ||g||corr=2.704 (=270.4% of initial)  F_x=10131.3  edge-term=0%   [1085s] perimeter=6.283  seeds=4  ||g||/s.e.=3.4  ||g||corr=2.704 (=270.4% of initial)  F_x=10131.3  edge-term=0%
+
+iter   2: L=0.772813  ||grad||=2.8257e+00  step=0.08438  alpha=0.05625  |dC|=0.0691iter   2: L=0.772813  ||grad||=2.8257e+00  step=0.08438  alpha=0.05625  |dC|=0.0691
+
+   [1358s] perimeter=6.283  seeds=4  ||g||/s.e.=1.2  ||g||corr=0.5294 (=52.9% of initial)  F_x=9363.8  edge-term=0%   [1358s] perimeter=6.283  seeds=4  ||g||/s.e.=1.2  ||g||corr=0.5294 (=52.9% of initial)  F_x=9363.8  edge-term=0%
+
+iter   3: L=0.713136  ||grad||=9.7847e-01  step=0.01582  alpha=0.01055  |dC|=0.0298iter   3: L=0.713136  ||grad||=9.7847e-01  step=0.01582  alpha=0.01055  |dC|=0.0298
+
+   [1540s] perimeter=6.283  seeds=4  ||g||/s.e.=0.9  ||g||corr=0 (=0.0% of initial)  F_x=8989.9  edge-term=0%   [1540s] perimeter=6.283  seeds=4  ||g||/s.e.=0.9  ||g||corr=0 (=0.0% of initial)  F_x=8989.9  edge-term=0%
+
+iter   4: L=0.684360  ||grad||=7.4886e-01  step=0.02373  alpha=0.01582  |dC|=0.0155iter   4: L=0.684360  ||grad||=7.4886e-01  step=0.02373  alpha=0.01582  |dC|=0.0155
+
+   [1748s] perimeter=6.283  seeds=4  ||g||/s.e.=2.7  ||g||corr=0.692 (=69.2% of initial)  F_x=8725.9  edge-term=0%   [1748s] perimeter=6.283  seeds=4  ||g||/s.e.=2.7  ||g||corr=0.692 (=69.2% of initial)  F_x=8725.9  edge-term=0%
+
+iter   5: L=0.664311  ||grad||=7.4650e-01  step=0.0356  alpha=0.02373  |dC|=0.0178iter   5: L=0.664311  ||grad||=7.4650e-01  step=0.0356  alpha=0.02373  |dC|=0.0178
+
+   [1955s] perimeter=6.283  seeds=4  ||g||/s.e.=3.9  ||g||corr=1.1 (=110.0% of initial)  F_x=8488.8  edge-term=0%   [1955s] perimeter=6.283  seeds=4  ||g||/s.e.=3.9  ||g||corr=1.1 (=110.0% of initial)  F_x=8488.8  edge-term=0%
+
+iter   6: L=0.647329  ||grad||=1.1370e+00  step=0.05339  alpha=0.0356  |dC|=0.0266iter   6: L=0.647329  ||grad||=1.1370e+00  step=0.05339  alpha=0.0356  |dC|=0.0266
+
+   [2206s] perimeter=6.283  seeds=4  ||g||/s.e.=3.9  ||g||corr=1.074 (=107.4% of initial)  F_x=8149.1  edge-term=0%   [2206s] perimeter=6.283  seeds=4  ||g||/s.e.=3.9  ||g||corr=1.074 (=107.4% of initial)  F_x=8149.1  edge-term=0%
+
+iter   7: L=0.621009  ||grad||=1.1117e+00  step=0.04005  alpha=0.0267  |dC|=0.0304iter   7: L=0.621009  ||grad||=1.1117e+00  step=0.04005  alpha=0.0267  |dC|=0.0304
+
+   [2443s] perimeter=6.283  seeds=4  ||g||/s.e.=6.6  ||g||corr=0.8088 (=80.9% of initial)  F_x=7875.6  edge-term=0%   [2443s] perimeter=6.283  seeds=4  ||g||/s.e.=6.6  ||g||corr=0.8088 (=80.9% of initial)  F_x=7875.6  edge-term=0%
+
+iter   8: L=0.600642  ||grad||=8.1832e-01  step=0.03003  alpha=0.02002  |dC|=0.0223iter   8: L=0.600642  ||grad||=8.1832e-01  step=0.03003  alpha=0.02002  |dC|=0.0223
+
+   [2662s] perimeter=6.283  seeds=4  ||g||/s.e.=10.8  ||g||corr=1.032 (=103.2% of initial)  F_x=7706.9  edge-term=0%   [2662s] perimeter=6.283  seeds=4  ||g||/s.e.=10.8  ||g||corr=1.032 (=103.2% of initial)  F_x=7706.9  edge-term=0%
+
+iter   9: L=0.587670  ||grad||=1.0370e+00  step=0.04505  alpha=0.03003  |dC|=0.0246iter   9: L=0.587670  ||grad||=1.0370e+00  step=0.04505  alpha=0.03003  |dC|=0.0246
+
+   [2903s] perimeter=6.283  seeds=4  ||g||/s.e.=7.4  ||g||corr=0.8458 (=84.6% of initial)  F_x=7538.2  edge-term=0%   [2903s] perimeter=6.283  seeds=4  ||g||/s.e.=7.4  ||g||corr=0.8458 (=84.6% of initial)  F_x=7538.2  edge-term=0%
+
+iter  10: L=0.575702  ||grad||=8.5367e-01  step=0.03379  alpha=0.02253  |dC|=0.0234iter  10: L=0.575702  ||grad||=8.5367e-01  step=0.03379  alpha=0.02253  |dC|=0.0234
+
+   [3119s] perimeter=6.283  seeds=4  ||g||/s.e.=1.6  ||g||corr=0.9499 (=95.0% of initial)  F_x=7343.5  edge-term=0%   [3119s] perimeter=6.283  seeds=4  ||g||/s.e.=1.6  ||g||corr=0.9499 (=95.0% of initial)  F_x=7343.5  edge-term=0%
+
+iter  11: L=0.560669  ||grad||=1.2177e+00  step=0.05068  alpha=0.03379  |dC|=0.0288iter  11: L=0.560669  ||grad||=1.2177e+00  step=0.05068  alpha=0.03379  |dC|=0.0288
+
+   [3345s] perimeter=6.283  seeds=4  ||g||/s.e.=1.0  ||g||corr=0 (=0.0% of initial)  F_x=7112.9  edge-term=0%   [3345s] perimeter=6.283  seeds=4  ||g||/s.e.=1.0  ||g||corr=0 (=0.0% of initial)  F_x=7112.9  edge-term=0%
+
+iter  12: L=0.544416  ||grad||=7.4082e-01  step=0.03801  alpha=0.02534  |dC|=0.0309iter  12: L=0.544416  ||grad||=7.4082e-01  step=0.03801  alpha=0.02534  |dC|=0.0309
+
+   [3547s] perimeter=6.283  seeds=4  ||g||/s.e.=1.5  ||g||corr=0.8327 (=83.3% of initial)  F_x=7057.6  edge-term=0%   [3547s] perimeter=6.283  seeds=4  ||g||/s.e.=1.5  ||g||corr=0.8327 (=83.3% of initial)  F_x=7057.6  edge-term=0%
+
+iter  13: L=0.539935  ||grad||=1.1333e+00  step=0.05702  alpha=0.03801  |dC|=0.0282iter  13: L=0.539935  ||grad||=1.1333e+00  step=0.05702  alpha=0.03801  |dC|=0.0282
+
+   [3789s] perimeter=6.283  seeds=4  ||g||/s.e.=3.2  ||g||corr=0.4533 (=45.3% of initial)  F_x=6796.1  edge-term=0%   [3789s] perimeter=6.283  seeds=4  ||g||/s.e.=3.2  ||g||corr=0.4533 (=45.3% of initial)  F_x=6796.1  edge-term=0%
+
+iter  14: L=0.520279  ||grad||=4.7686e-01  step=0.02138  alpha=0.01425  |dC|=0.0162iter  14: L=0.520279  ||grad||=4.7686e-01  step=0.02138  alpha=0.01425  |dC|=0.0162
+
+   [3971s] perimeter=6.283  seeds=4  ||g||/s.e.=3.0  ||g||corr=0.4357 (=43.6% of initial)  F_x=6698.9  edge-term=0%   [3971s] perimeter=6.283  seeds=4  ||g||/s.e.=3.0  ||g||corr=0.4357 (=43.6% of initial)  F_x=6698.9  edge-term=0%
+
+iter  15: L=0.512774  ||grad||=4.6141e-01  step=0.03207  alpha=0.02138  |dC|=0.0102iter  15: L=0.512774  ||grad||=4.6141e-01  step=0.03207  alpha=0.02138  |dC|=0.0102
+
+   [4149s] perimeter=6.283  seeds=4  ||g||/s.e.=5.0  ||g||corr=0.517 (=51.7% of initial)  F_x=6584.0  edge-term=0%   [4149s] perimeter=6.283  seeds=4  ||g||/s.e.=5.0  ||g||corr=0.517 (=51.7% of initial)  F_x=6584.0  edge-term=0%
+
+iter  16: L=0.504210  ||grad||=5.2789e-01  step=0.04811  alpha=0.03207  |dC|=0.0148iter  16: L=0.504210  ||grad||=5.2789e-01  step=0.04811  alpha=0.03207  |dC|=0.0148
+
+   [4330s] perimeter=6.283  seeds=4  ||g||/s.e.=5.4  ||g||corr=1.377 (=137.7% of initial)  F_x=6574.8  edge-term=0%   [4330s] perimeter=6.283  seeds=4  ||g||/s.e.=5.4  ||g||corr=1.377 (=137.7% of initial)  F_x=6574.8  edge-term=0%
+
+iter  17: L=0.503475  ||grad||=1.4019e+00  step=0.07216  alpha=0.04811  |dC|=0.0254iter  17: L=0.503475  ||grad||=1.4019e+00  step=0.07216  alpha=0.04811  |dC|=0.0254
+
+   [4573s] perimeter=6.283  seeds=4  ||g||/s.e.=1.6  ||g||corr=0.3168 (=31.7% of initial)  F_x=6343.3  edge-term=0%   [4573s] perimeter=6.283  seeds=4  ||g||/s.e.=1.6  ||g||corr=0.3168 (=31.7% of initial)  F_x=6343.3  edge-term=0%
+
+iter  18: L=0.485732  ||grad||=4.0839e-01  step=0.01353  alpha=0.00902  |dC|=0.0126iter  18: L=0.485732  ||grad||=4.0839e-01  step=0.01353  alpha=0.00902  |dC|=0.0126
+
+   [4731s] perimeter=6.283  seeds=4  ||g||/s.e.=1.2  ||g||corr=0.1782 (=17.8% of initial)  F_x=6349.0  edge-term=0%   [4731s] perimeter=6.283  seeds=4  ||g||/s.e.=1.2  ||g||corr=0.1782 (=17.8% of initial)  F_x=6349.0  edge-term=0%
+
+iter  19: L=0.486256  ||grad||=3.0954e-01  step=0.0203  alpha=0.01353  |dC|=0.00553iter  19: L=0.486256  ||grad||=3.0954e-01  step=0.0203  alpha=0.01353  |dC|=0.00553
+
+   [4902s] perimeter=6.283  seeds=4  ||g||/s.e.=3.5  ||g||corr=0.331 (=33.1% of initial)  F_x=6281.0  edge-term=0%   [4902s] perimeter=6.283  seeds=4  ||g||/s.e.=3.5  ||g||corr=0.331 (=33.1% of initial)  F_x=6281.0  edge-term=0%
+
+iter  20: L=0.481212  ||grad||=3.4541e-01  step=0.03044  alpha=0.0203  |dC|=0.00628iter  20: L=0.481212  ||grad||=3.4541e-01  step=0.03044  alpha=0.0203  |dC|=0.00628
+
+   [5067s] perimeter=6.283  seeds=4  ||g||/s.e.=2.8  ||g||corr=0.318 (=31.8% of initial)  F_x=6189.7  edge-term=0%   [5067s] perimeter=6.283  seeds=4  ||g||/s.e.=2.8  ||g||corr=0.318 (=31.8% of initial)  F_x=6189.7  edge-term=0%
+
+iter  21: L=0.474302  ||grad||=3.4069e-01  step=0.04567  alpha=0.03044  |dC|=0.0105iter  21: L=0.474302  ||grad||=3.4069e-01  step=0.04567  alpha=0.03044  |dC|=0.0105
+
+   [5231s] perimeter=6.283  seeds=4  ||g||/s.e.=3.0  ||g||corr=0.3538 (=35.4% of initial)  F_x=6054.2  edge-term=0%   [5231s] perimeter=6.283  seeds=4  ||g||/s.e.=3.0  ||g||corr=0.3538 (=35.4% of initial)  F_x=6054.2  edge-term=0%
+
+iter  22: L=0.464030  ||grad||=3.7531e-01  step=0.0685  alpha=0.04567  |dC|=0.0156iter  22: L=0.464030  ||grad||=3.7531e-01  step=0.0685  alpha=0.04567  |dC|=0.0156
+
+   [5393s] perimeter=6.283  seeds=4  ||g||/s.e.=6.6  ||g||corr=0.7527 (=75.3% of initial)  F_x=6039.7  edge-term=0%   [5393s] perimeter=6.283  seeds=4  ||g||/s.e.=6.6  ||g||corr=0.7527 (=75.3% of initial)  F_x=6039.7  edge-term=0%
+
+iter  23: L=0.463353  ||grad||=7.6138e-01  step=0.1027  alpha=0.0685  |dC|=0.0257iter  23: L=0.463353  ||grad||=7.6138e-01  step=0.1027  alpha=0.0685  |dC|=0.0257
+
+   [5606s] perimeter=6.283  seeds=4  ||g||/s.e.=5.3  ||g||corr=0.7108 (=71.1% of initial)  F_x=5961.5  edge-term=0%   [5606s] perimeter=6.283  seeds=4  ||g||/s.e.=5.3  ||g||corr=0.7108 (=71.1% of initial)  F_x=5961.5  edge-term=0%
+
+iter  24: L=0.457406  ||grad||=7.2362e-01  step=0.03853  alpha=0.02569  |dC|=0.0196iter  24: L=0.457406  ||grad||=7.2362e-01  step=0.03853  alpha=0.02569  |dC|=0.0196
+
+   [5796s] perimeter=6.283  seeds=4  ||g||/s.e.=3.3  ||g||corr=0.4248 (=42.5% of initial)  F_x=5869.9  edge-term=0%   [5796s] perimeter=6.283  seeds=4  ||g||/s.e.=3.3  ||g||corr=0.4248 (=42.5% of initial)  F_x=5869.9  edge-term=0%
+
+iter  25: L=0.450311  ||grad||=4.4534e-01  step=0.0289  alpha=0.01927  |dC|=0.0139iter  25: L=0.450311  ||grad||=4.4534e-01  step=0.0289  alpha=0.01927  |dC|=0.0139
+
+   [5960s] perimeter=6.283  seeds=4  ||g||/s.e.=4.5  ||g||corr=0.6072 (=60.7% of initial)  F_x=5810.1  edge-term=0%   [5960s] perimeter=6.283  seeds=4  ||g||/s.e.=4.5  ||g||corr=0.6072 (=60.7% of initial)  F_x=5810.1  edge-term=0%
+
+iter  26: L=0.445831  ||grad||=6.2264e-01  step=0.04335  alpha=0.0289  |dC|=0.0129iter  26: L=0.445831  ||grad||=6.2264e-01  step=0.04335  alpha=0.0289  |dC|=0.0129
+
+   [6151s] perimeter=6.283  seeds=4  ||g||/s.e.=4.6  ||g||corr=0.522 (=52.2% of initial)  F_x=5806.8  edge-term=0%   [6151s] perimeter=6.283  seeds=4  ||g||/s.e.=4.6  ||g||corr=0.522 (=52.2% of initial)  F_x=5806.8  edge-term=0%
+
+iter  27: L=0.445441  ||grad||=5.3489e-01  step=0.03251  alpha=0.02167  |dC|=0.0135iter  27: L=0.445441  ||grad||=5.3489e-01  step=0.03251  alpha=0.02167  |dC|=0.0135
+
+   [6343s] perimeter=6.283  seeds=4  ||g||/s.e.=2.7  ||g||corr=0.2874 (=28.7% of initial)  F_x=5732.1  edge-term=0%   [6343s] perimeter=6.283  seeds=4  ||g||/s.e.=2.7  ||g||corr=0.2874 (=28.7% of initial)  F_x=5732.1  edge-term=0%
+
+iter  28: L=0.439548  ||grad||=3.0941e-01  step=0.02438  alpha=0.01625  |dC|=0.00869iter  28: L=0.439548  ||grad||=3.0941e-01  step=0.02438  alpha=0.01625  |dC|=0.00869
+
+   [6515s] perimeter=6.283  seeds=4  ||g||/s.e.=3.1  ||g||corr=0.3099 (=31.0% of initial)  F_x=5649.8  edge-term=0%   [6515s] perimeter=6.283  seeds=4  ||g||/s.e.=3.1  ||g||corr=0.3099 (=31.0% of initial)  F_x=5649.8  edge-term=0%
+
+iter  29: L=0.433545  ||grad||=3.2799e-01  step=0.03657  alpha=0.02438  |dC|=0.00754iter  29: L=0.433545  ||grad||=3.2799e-01  step=0.03657  alpha=0.02438  |dC|=0.00754
+
+   [6679s] perimeter=6.283  seeds=4  ||g||/s.e.=5.5  ||g||corr=0.4506 (=45.1% of initial)  F_x=5631.3  edge-term=0%   [6679s] perimeter=6.283  seeds=4  ||g||/s.e.=5.5  ||g||corr=0.4506 (=45.1% of initial)  F_x=5631.3  edge-term=0%
+
+iter  30: L=0.431874  ||grad||=4.5813e-01  step=0.05486  alpha=0.03657  |dC|=0.012iter  30: L=0.431874  ||grad||=4.5813e-01  step=0.05486  alpha=0.03657  |dC|=0.012
+
+   [6870s] perimeter=6.283  seeds=4  ||g||/s.e.=6.0  ||g||corr=0.5018 (=50.2% of initial)  F_x=5622.2  edge-term=0%   [6870s] perimeter=6.283  seeds=4  ||g||/s.e.=6.0  ||g||corr=0.5018 (=50.2% of initial)  F_x=5622.2  edge-term=0%
+
+iter  31: L=0.431719  ||grad||=5.0879e-01  step=0.04115  alpha=0.02743  |dC|=0.0126iter  31: L=0.431719  ||grad||=5.0879e-01  step=0.04115  alpha=0.02743  |dC|=0.0126
+
+   [7064s] perimeter=6.283  seeds=4  ||g||/s.e.=4.3  ||g||corr=0.3998 (=40.0% of initial)  F_x=5543.8  edge-term=0%   [7064s] perimeter=6.283  seeds=4  ||g||/s.e.=4.3  ||g||corr=0.3998 (=40.0% of initial)  F_x=5543.8  edge-term=0%
+
+iter  32: L=0.425185  ||grad||=4.1121e-01  step=0.03086  alpha=0.02057  |dC|=0.0105iter  32: L=0.425185  ||grad||=4.1121e-01  step=0.03086  alpha=0.02057  |dC|=0.0105
+
+   [7228s] perimeter=6.283  seeds=4  ||g||/s.e.=5.0  ||g||corr=0.5425 (=54.3% of initial)  F_x=5541.6  edge-term=0%   [7228s] perimeter=6.283  seeds=4  ||g||/s.e.=5.0  ||g||corr=0.5425 (=54.3% of initial)  F_x=5541.6  edge-term=0%
+
+iter  33: L=0.425727  ||grad||=5.5361e-01  step=0.04629  alpha=0.03086  |dC|=0.0127iter  33: L=0.425727  ||grad||=5.5361e-01  step=0.04629  alpha=0.03086  |dC|=0.0127
+
+   [7408s] perimeter=6.283  seeds=4  ||g||/s.e.=4.3  ||g||corr=0.4926 (=49.3% of initial)  F_x=5488.4  edge-term=0%   [7408s] perimeter=6.283  seeds=4  ||g||/s.e.=4.3  ||g||corr=0.4926 (=49.3% of initial)  F_x=5488.4  edge-term=0%
+
+iter  34: L=0.420987  ||grad||=5.0678e-01  step=0.03472  alpha=0.02314  |dC|=0.0128iter  34: L=0.420987  ||grad||=5.0678e-01  step=0.03472  alpha=0.02314  |dC|=0.0128
+
+   [7590s] perimeter=6.283  seeds=4  ||g||/s.e.=3.1  ||g||corr=0.3232 (=32.3% of initial)  F_x=5450.7  edge-term=0%   [7590s] perimeter=6.283  seeds=4  ||g||/s.e.=3.1  ||g||corr=0.3232 (=32.3% of initial)  F_x=5450.7  edge-term=0%
+
+iter  35: L=0.418409  ||grad||=3.4093e-01  step=0.02604  alpha=0.01736  |dC|=0.0088iter  35: L=0.418409  ||grad||=3.4093e-01  step=0.02604  alpha=0.01736  |dC|=0.0088
+
+   [7751s] perimeter=6.283  seeds=4  ||g||/s.e.=3.1  ||g||corr=0.3844 (=38.4% of initial)  F_x=5369.6  edge-term=0%   [7751s] perimeter=6.283  seeds=4  ||g||/s.e.=3.1  ||g||corr=0.3844 (=38.4% of initial)  F_x=5369.6  edge-term=0%
+
+iter  36: L=0.411898  ||grad||=4.0644e-01  step=0.03906  alpha=0.02604  |dC|=0.00888iter  36: L=0.411898  ||grad||=4.0644e-01  step=0.03906  alpha=0.02604  |dC|=0.00888
+
+   [7932s] perimeter=6.283  seeds=4  ||g||/s.e.=2.7  ||g||corr=0.3253 (=32.5% of initial)  F_x=5364.9  edge-term=0%   [7932s] perimeter=6.283  seeds=4  ||g||/s.e.=2.7  ||g||corr=0.3253 (=32.5% of initial)  F_x=5364.9  edge-term=0%
+
+iter  37: L=0.412018  ||grad||=3.5008e-01  step=0.02929  alpha=0.01953  |dC|=0.00794iter  37: L=0.412018  ||grad||=3.5008e-01  step=0.02929  alpha=0.01953  |dC|=0.00794
+
+   [8087s] perimeter=6.283  seeds=4  ||g||/s.e.=3.2  ||g||corr=0.4425 (=44.2% of initial)  F_x=5324.1  edge-term=0%   [8087s] perimeter=6.283  seeds=4  ||g||/s.e.=3.2  ||g||corr=0.4425 (=44.2% of initial)  F_x=5324.1  edge-term=0%
+
+iter  38: L=0.408594  ||grad||=4.6597e-01  step=0.04394  alpha=0.02929  |dC|=0.0103iter  38: L=0.408594  ||grad||=4.6597e-01  step=0.04394  alpha=0.02929  |dC|=0.0103
+
+   [8261s] perimeter=6.283  seeds=4  ||g||/s.e.=3.7  ||g||corr=0.4029 (=40.3% of initial)  F_x=5283.6  edge-term=0%   [8261s] perimeter=6.283  seeds=4  ||g||/s.e.=3.7  ||g||corr=0.4029 (=40.3% of initial)  F_x=5283.6  edge-term=0%
+
+iter  39: L=0.405774  ||grad||=4.1868e-01  step=0.03295  alpha=0.02197  |dC|=0.0102iter  39: L=0.405774  ||grad||=4.1868e-01  step=0.03295  alpha=0.02197  |dC|=0.0102
+
+   [8406s] perimeter=6.283  seeds=4  ||g||/s.e.=5.9  ||g||corr=0.6164 (=61.6% of initial)  F_x=5288.8  edge-term=0%   [8406s] perimeter=6.283  seeds=4  ||g||/s.e.=5.9  ||g||corr=0.6164 (=61.6% of initial)  F_x=5288.8  edge-term=0%
+
+iter  40: L=0.405756  ||grad||=6.2549e-01  step=0.04943  alpha=0.03295  |dC|=0.0138iter  40: L=0.405756  ||grad||=6.2549e-01  step=0.04943  alpha=0.03295  |dC|=0.0138
+
+   [8586s] perimeter=6.283  seeds=4  ||g||/s.e.=7.0  ||g||corr=0.6072 (=60.7% of initial)  F_x=5260.8  edge-term=0%   [8586s] perimeter=6.283  seeds=4  ||g||/s.e.=7.0  ||g||corr=0.6072 (=60.7% of initial)  F_x=5260.8  edge-term=0%
+
+iter  41: L=0.404378  ||grad||=6.1345e-01  step=0.03707  alpha=0.02472  |dC|=0.0155iter  41: L=0.404378  ||grad||=6.1345e-01  step=0.03707  alpha=0.02472  |dC|=0.0155
+
+   [8763s] perimeter=6.283  seeds=4  ||g||/s.e.=4.5  ||g||corr=0.413 (=41.3% of initial)  F_x=5192.4  edge-term=0%   [8763s] perimeter=6.283  seeds=4  ||g||/s.e.=4.5  ||g||corr=0.413 (=41.3% of initial)  F_x=5192.4  edge-term=0%
+
+iter  42: L=0.398322  ||grad||=4.2364e-01  step=0.0278  alpha=0.01854  |dC|=0.0114iter  42: L=0.398322  ||grad||=4.2364e-01  step=0.0278  alpha=0.01854  |dC|=0.0114
+
+   [8908s] perimeter=6.283  seeds=4  ||g||/s.e.=5.3  ||g||corr=0.5255 (=52.6% of initial)  F_x=5178.7  edge-term=0%   [8908s] perimeter=6.283  seeds=4  ||g||/s.e.=5.3  ||g||corr=0.5255 (=52.6% of initial)  F_x=5178.7  edge-term=0%
+
+iter  43: L=0.397644  ||grad||=5.3525e-01  step=0.04171  alpha=0.0278  |dC|=0.0118iter  43: L=0.397644  ||grad||=5.3525e-01  step=0.04171  alpha=0.0278  |dC|=0.0118
+
+   [9093s] perimeter=6.283  seeds=4  ||g||/s.e.=2.4  ||g||corr=0.3277 (=32.8% of initial)  F_x=5085.4  edge-term=0%   [9093s] perimeter=6.283  seeds=4  ||g||/s.e.=2.4  ||g||corr=0.3277 (=32.8% of initial)  F_x=5085.4  edge-term=0%
+
+iter  44: L=0.389967  ||grad||=3.5980e-01  step=0.03128  alpha=0.02085  |dC|=0.0112iter  44: L=0.389967  ||grad||=3.5980e-01  step=0.03128  alpha=0.02085  |dC|=0.0112
+
+   [9257s] perimeter=6.283  seeds=4  ||g||/s.e.=3.5  ||g||corr=0.5048 (=50.5% of initial)  F_x=5100.4  edge-term=0%   [9257s] perimeter=6.283  seeds=4  ||g||/s.e.=3.5  ||g||corr=0.5048 (=50.5% of initial)  F_x=5100.4  edge-term=0%
+
+iter  45: L=0.391768  ||grad||=5.2670e-01  step=0.04692  alpha=0.03128  |dC|=0.0113iter  45: L=0.391768  ||grad||=5.2670e-01  step=0.04692  alpha=0.03128  |dC|=0.0113
+
+   [9443s] perimeter=6.283  seeds=4  ||g||/s.e.=3.2  ||g||corr=0.5076 (=50.8% of initial)  F_x=5024.2  edge-term=0%   [9443s] perimeter=6.283  seeds=4  ||g||/s.e.=3.2  ||g||corr=0.5076 (=50.8% of initial)  F_x=5024.2  edge-term=0%
+
+iter  46: L=0.385188  ||grad||=5.3444e-01  step=0.03519  alpha=0.02346  |dC|=0.0124iter  46: L=0.385188  ||grad||=5.3444e-01  step=0.03519  alpha=0.02346  |dC|=0.0124
+
+   [9633s] perimeter=6.283  seeds=4  ||g||/s.e.=3.0  ||g||corr=0.3336 (=33.4% of initial)  F_x=5004.3  edge-term=0%   [9633s] perimeter=6.283  seeds=4  ||g||/s.e.=3.0  ||g||corr=0.3336 (=33.4% of initial)  F_x=5004.3  edge-term=0%
+
+iter  47: L=0.384066  ||grad||=3.5454e-01  step=0.02639  alpha=0.0176  |dC|=0.0094iter  47: L=0.384066  ||grad||=3.5454e-01  step=0.02639  alpha=0.0176  |dC|=0.0094
+
+   [9799s] perimeter=6.283  seeds=4  ||g||/s.e.=3.1  ||g||corr=0.3236 (=32.4% of initial)  F_x=4952.2  edge-term=0%   [9799s] perimeter=6.283  seeds=4  ||g||/s.e.=3.1  ||g||corr=0.3236 (=32.4% of initial)  F_x=4952.2  edge-term=0%
+
+iter  48: L=0.379608  ||grad||=3.4233e-01  step=0.03959  alpha=0.02639  |dC|=0.00936iter  48: L=0.379608  ||grad||=3.4233e-01  step=0.03959  alpha=0.02639  |dC|=0.00936
+
+   [10005s] perimeter=6.283  seeds=4  ||g||/s.e.=7.1  ||g||corr=0.6459 (=64.6% of initial)  F_x=4939.3  edge-term=0%   [10005s] perimeter=6.283  seeds=4  ||g||/s.e.=7.1  ||g||corr=0.6459 (=64.6% of initial)  F_x=4939.3  edge-term=0%
+
+iter  49: L=0.379594  ||grad||=6.5251e-01  step=0.05938  alpha=0.03959  |dC|=0.0136iter  49: L=0.379594  ||grad||=6.5251e-01  step=0.05938  alpha=0.03959  |dC|=0.0136
+
+
+Line-search phase done in 10005s.  status: max iterations  seeds 4 -> 4
+Line-search phase done in 10005s.  status: max iterations  seeds 4 -> 4
+
+
+Done in 10005s.  F_x 13157.3 -> 4939.3   normalised loss 1.0000 -> 0.3796
+Done in 10005s.  F_x 13157.3 -> 4939.3   normalised loss 1.0000 -> 0.3796
+
+C_opt = [ 8.682e-01 -1.109e-01  4.185e-01 -1.586e-01  1.748e-01 -1.023e-01
+  1.079e-01 -4.090e-02  6.610e-02 -1.180e-02  3.670e-02 -2.300e-03
+  3.000e-03 -6.200e-03  1.800e-03 -6.900e-03  4.000e-04 -4.200e-03
+  4.000e-04 -3.400e-03  3.800e-03]C_opt = [ 8.682e-01 -1.109e-01  4.185e-01 -1.586e-01  1.748e-01 -1.023e-01
+  1.079e-01 -4.090e-02  6.610e-02 -1.180e-02  3.670e-02 -2.300e-03
+  3.000e-03 -6.200e-03  1.800e-03 -6.900e-03  4.000e-04 -4.200e-03
+  4.000e-04 -3.400e-03  3.800e-03]
+
+Saved /homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep_results_pass2/sweep_nref/nref500k_seed100__a70b6e1a/convergence.pngSaved /homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep_results_pass2/sweep_nref/nref500k_seed100__a70b6e1a/convergence.png
+
+=== done in 10008s=== done in 10008s
+

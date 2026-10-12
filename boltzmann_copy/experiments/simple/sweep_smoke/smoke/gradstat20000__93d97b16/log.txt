@@ -1,0 +1,8 @@
+=== 2026-09-22 22:33:38  gradstat smoke/gradstat20000  id=93d97b16de  pid=2199560
+{"N_REF": 20000, "N_FOURIER": 3, "N_AVG": 3, "N_AVG_MAX": 3, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 3, "TOBS": 2.0, "T_WARM": 5.0, "LX": 6.0, "LY": 4.0}
+[sweep] gradstat smoke/gradstat20000 id=93d97b16de N_REF=20000 seeds=[0, 1, 2] workers=2
+=== done in 3s
+=== 2026-09-22 22:34:42  gradstat smoke/gradstat20000  id=93d97b16de  pid=2199886
+{"N_REF": 20000, "N_FOURIER": 3, "N_AVG": 3, "N_AVG_MAX": 3, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 3, "TOBS": 2.0, "T_WARM": 5.0, "LX": 6.0, "LY": 4.0}
+[sweep] gradstat smoke/gradstat20000 id=93d97b16de N_REF=20000 seeds=[0, 1, 2] workers=2
+=== done in 3s

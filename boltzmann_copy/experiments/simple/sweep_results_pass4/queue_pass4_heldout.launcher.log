@@ -1,0 +1,6 @@
+[launcher] 2 pending of 2 (0 already DONE); max_cores=16 mem_budget=60.0 GB
+[launcher] started heldout/p4_final_250k (cores=16, ~12.7 GB); running=1 pending=1
+[launcher] finished (0): heldout/p4_final_250k
+[launcher] started heldout/p4_final_1M (cores=16, ~40.3 GB); running=1 pending=0
+[launcher] finished (0): heldout/p4_final_1M
+[launcher] queue finished

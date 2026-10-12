@@ -1,0 +1,38 @@
+[
+ {
+  "run_dir": "sweep_results_pass3/adaptive/grow4to32_seed0__dd1f5cb5",
+  "kind": "optimise",
+  "group": "adaptive",
+  "name": "grow4to32_seed0",
+  "run_id": "dd1f5cb5e0",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass3/adaptive/grow4to32_seed100__ca276110",
+  "kind": "optimise",
+  "group": "adaptive",
+  "name": "grow4to32_seed100",
+  "run_id": "ca276110cd",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass3/adaptive/grow4to32_seed200__dd8fa98a",
+  "kind": "optimise",
+  "group": "adaptive",
+  "name": "grow4to32_seed200",
+  "run_id": "dd8fa98a26",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass3/adaptive/grow4to32_seed300__c1132de3",
+  "kind": "optimise",
+  "group": "adaptive",
+  "name": "grow4to32_seed300",
+  "run_id": "c1132de3ec",
+  "cores": 4,
+  "mem_gb": 3.4
+ }
+]

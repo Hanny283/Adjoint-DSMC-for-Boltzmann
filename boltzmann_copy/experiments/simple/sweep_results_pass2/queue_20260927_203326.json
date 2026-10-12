@@ -1,0 +1,191 @@
+[
+ {
+  "run_dir": "sweep_results_pass2/warm/w250k_nf10__6a51c62b",
+  "kind": "warm",
+  "group": "warm",
+  "name": "w250k_nf10",
+  "run_id": "6a51c62b8a",
+  "cores": 16,
+  "mem_gb": 12.7
+ },
+ {
+  "run_dir": "sweep_results_pass2/warm/w500k_nf10__d9bc3e4f",
+  "kind": "warm",
+  "group": "warm",
+  "name": "w500k_nf10",
+  "run_id": "d9bc3e4f35",
+  "cores": 8,
+  "mem_gb": 11.1
+ },
+ {
+  "run_dir": "sweep_results_pass2/warm/w250k_nf5__91c36717",
+  "kind": "warm",
+  "group": "warm",
+  "name": "w250k_nf5",
+  "run_id": "91c36717bd",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_nref/nref500k_seed0__449bcddc",
+  "kind": "optimise",
+  "group": "sweep_nref",
+  "name": "nref500k_seed0",
+  "run_id": "449bcddc5b",
+  "cores": 4,
+  "mem_gb": 5.7
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_nref/nref500k_seed100__a70b6e1a",
+  "kind": "optimise",
+  "group": "sweep_nref",
+  "name": "nref500k_seed100",
+  "run_id": "a70b6e1a63",
+  "cores": 4,
+  "mem_gb": 5.7
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_nref/nref500k_seed200__1ad818fc",
+  "kind": "optimise",
+  "group": "sweep_nref",
+  "name": "nref500k_seed200",
+  "run_id": "1ad818fce0",
+  "cores": 4,
+  "mem_gb": 5.7
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_seeds/nseeds1_seed0__e4635ab0",
+  "kind": "optimise",
+  "group": "sweep_seeds",
+  "name": "nseeds1_seed0",
+  "run_id": "e4635ab0c2",
+  "cores": 1,
+  "mem_gb": 1.07
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_seeds/nseeds1_seed100__76237077",
+  "kind": "optimise",
+  "group": "sweep_seeds",
+  "name": "nseeds1_seed100",
+  "run_id": "76237077e7",
+  "cores": 1,
+  "mem_gb": 1.07
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_seeds/nseeds1_seed200__8738404f",
+  "kind": "optimise",
+  "group": "sweep_seeds",
+  "name": "nseeds1_seed200",
+  "run_id": "8738404f01",
+  "cores": 1,
+  "mem_gb": 1.07
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_seeds/nseeds8_seed0__74f983ac",
+  "kind": "optimise",
+  "group": "sweep_seeds",
+  "name": "nseeds8_seed0",
+  "run_id": "74f983ace5",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_seeds/nseeds8_seed100__050aec4a",
+  "kind": "optimise",
+  "group": "sweep_seeds",
+  "name": "nseeds8_seed100",
+  "run_id": "050aec4a56",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_seeds/nseeds8_seed200__0c2c8e27",
+  "kind": "optimise",
+  "group": "sweep_seeds",
+  "name": "nseeds8_seed200",
+  "run_id": "0c2c8e27f9",
+  "cores": 8,
+  "mem_gb": 6.5
+ },
+ {
+  "run_dir": "sweep_results_pass2/baseline/B0_seed0__a113ea36",
+  "kind": "optimise",
+  "group": "baseline",
+  "name": "B0_seed0",
+  "run_id": "a113ea3603",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass2/baseline/B0_seed100__39fc88d2",
+  "kind": "optimise",
+  "group": "baseline",
+  "name": "B0_seed100",
+  "run_id": "39fc88d292",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass2/baseline/B0_seed200__318e4045",
+  "kind": "optimise",
+  "group": "baseline",
+  "name": "B0_seed200",
+  "run_id": "318e404555",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_frac/frac0.1_seed0__3abf8a13",
+  "kind": "optimise",
+  "group": "sweep_frac",
+  "name": "frac0.1_seed0",
+  "run_id": "3abf8a13e3",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_frac/frac0.1_seed100__a6631a58",
+  "kind": "optimise",
+  "group": "sweep_frac",
+  "name": "frac0.1_seed100",
+  "run_id": "a6631a58d4",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_frac/frac0.1_seed200__dfac5270",
+  "kind": "optimise",
+  "group": "sweep_frac",
+  "name": "frac0.1_seed200",
+  "run_id": "dfac527013",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_nfourier/nf5_seed0__fa88aad7",
+  "kind": "optimise",
+  "group": "sweep_nfourier",
+  "name": "nf5_seed0",
+  "run_id": "fa88aad792",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_nfourier/nf5_seed100__3d0ed534",
+  "kind": "optimise",
+  "group": "sweep_nfourier",
+  "name": "nf5_seed100",
+  "run_id": "3d0ed534df",
+  "cores": 4,
+  "mem_gb": 3.4
+ },
+ {
+  "run_dir": "sweep_results_pass2/sweep_nfourier/nf5_seed200__67acf257",
+  "kind": "optimise",
+  "group": "sweep_nfourier",
+  "name": "nf5_seed200",
+  "run_id": "67acf25752",
+  "cores": 4,
+  "mem_gb": 3.4
+ }
+]

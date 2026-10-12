@@ -1,0 +1,20 @@
+[
+ {
+  "run_dir": "sweep_results_pass4/diag/C3_1M_nf10__d7289c19",
+  "kind": "gradstat",
+  "group": "diag",
+  "name": "C3_1M_nf10",
+  "run_id": "d7289c19e2",
+  "cores": 16,
+  "mem_gb": 40.3
+ },
+ {
+  "run_dir": "sweep_results_pass4/continuation/C3_1M_endgame_seed400__0b6b4b4f",
+  "kind": "optimise",
+  "group": "continuation",
+  "name": "C3_1M_endgame_seed400",
+  "run_id": "0b6b4b4f87",
+  "cores": 8,
+  "mem_gb": 20.3
+ }
+]

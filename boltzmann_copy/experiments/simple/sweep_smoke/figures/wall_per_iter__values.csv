@@ -1,0 +1,4 @@
+N_REF,N_AVG,n_workers,wall_per_iter_s,wall_min,name,group
+20000,2,2,1.527342716852824,0.12175086339314779,smoke_pool,smoke
+20000,2,1,2.731284221013387,0.18908979495366415,smoke_serial,smoke
+20000,2,1,2.8298377195994058,0.19564443429311115,smoke_serial_again,smoke

@@ -1,0 +1,74 @@
+[
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C2hi_t0.0025__9078bef2",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C2hi_t0.0025",
+  "run_id": "9078bef25b",
+  "cores": 12,
+  "mem_gb": 9.6
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C2hi_t0.005__92b89509",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C2hi_t0.005",
+  "run_id": "92b895094c",
+  "cores": 12,
+  "mem_gb": 9.6
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C2hi_t0.01__656192e7",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C2hi_t0.01",
+  "run_id": "656192e7b0",
+  "cores": 12,
+  "mem_gb": 9.6
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C2hi_t0.02__0b9181f4",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C2hi_t0.02",
+  "run_id": "0b9181f4be",
+  "cores": 12,
+  "mem_gb": 9.6
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C5hi_t0.005__78986a66",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C5hi_t0.005",
+  "run_id": "78986a66ce",
+  "cores": 12,
+  "mem_gb": 9.6
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C5hi_t0.01__d22253d6",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C5hi_t0.01",
+  "run_id": "d22253d614",
+  "cores": 12,
+  "mem_gb": 9.6
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C5hi_t0.02__a1bdd1c2",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C5hi_t0.02",
+  "run_id": "a1bdd1c22a",
+  "cores": 12,
+  "mem_gb": 9.6
+ },
+ {
+  "run_dir": "sweep_results_pass3_diag/probe/C5hi_t0.04__84381263",
+  "kind": "gradstat",
+  "group": "probe",
+  "name": "C5hi_t0.04",
+  "run_id": "84381263eb",
+  "cores": 12,
+  "mem_gb": 9.6
+ }
+]

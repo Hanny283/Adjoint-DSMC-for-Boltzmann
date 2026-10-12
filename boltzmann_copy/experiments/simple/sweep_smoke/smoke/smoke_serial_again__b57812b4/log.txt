@@ -1,0 +1,46 @@
+=== 2026-09-22 22:33:26  optimise smoke/smoke_serial_again  id=b57812b450  pid=2199529
+{"N_REF": 20000, "N_FOURIER": 3, "N_AVG": 2, "N_AVG_MAX": 2, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 3, "TOBS": 2.0, "T_WARM": 5.0, "LX": 6.0, "LY": 4.0}
+[sweep] optimise smoke/smoke_serial_again id=b57812b450 seeds=[0, 1] workers=1
+Geometry selftest passed.
+Open-channel drag minimisation (inflow left / outflow right / freestream top-bottom) -- exact adjoint
+  box 6.0x4.0  U0=1.0 T0=0.5 Kn=1.0  dt=0.1  window (0.0, 2.0] = steps 0..19  N_REF=20000 (inflow 65.7 particles/step, warm start T_WARM=5.0)  collisions=True
+  objective: drag + 1 x oint kappa^2 ds (= 6.3 at C_init, P0 = 6.283)   constraint: perimeter (L0 = 6.283, A0 = 3.142)
+  units: loss J/J(C_init) -> 1 and gradient/||g(C_init)|| -> 1 (independent factors; the optimiser uses the true slope kappa g.d);  first trial moves C by 0.05 x ||C_init|| = 0.0500   seeds 2->2   edge term reported only
+init: ||grad||=1.000e+00 -> init_step=5.000e-02 (first trial moves C by 0.05)
+   [5s] perimeter=6.283  seeds=2  ||g||/s.e.=6.5  ||g||corr=0.9509 (=95.1% of initial)  F_x=556.1  edge-term=0%
+iter   0: L=0.944555  ||grad||=9.6245e-01  step=0.075  alpha=0.05  |dC|=0.05
+   [8s] perimeter=6.283  seeds=2  ||g||/s.e.=5.2  ||g||corr=0.6324 (=63.2% of initial)  F_x=482.0  edge-term=0%
+iter   1: L=0.822156  ||grad||=6.4449e-01  step=0.1125  alpha=0.075  |dC|=0.0722
+   [11s] perimeter=6.283  seeds=2  ||g||/s.e.=5.4  ||g||corr=0.4339 (=43.4% of initial)  F_x=447.2  edge-term=0%
+iter   2: L=0.767297  ||grad||=4.4151e-01  step=0.1688  alpha=0.1125  |dC|=0.0725
+
+Line-search phase done in 11s.  status: max iterations  seeds 2 -> 2
+
+Done in 11s.  F_x 589.4 -> 447.2   normalised loss 1.0000 -> 0.7673
+C_opt = [ 9.878e-01 -1.170e-02  1.553e-01 -1.136e-01 -3.000e-04  1.800e-03
+ -8.100e-03]
+Saved /homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep_results/smoke/smoke/smoke_serial_again__b57812b4/convergence.png
+=== done in 12s
+=== 2026-09-22 22:34:30  optimise smoke/smoke_serial_again  id=b57812b450  pid=2199855
+{"N_REF": 20000, "N_FOURIER": 3, "N_AVG": 2, "N_AVG_MAX": 2, "SEED0": 0, "GRAD_INIT_FRAC": 0.05, "N_ITER": 3, "TOBS": 2.0, "T_WARM": 5.0, "LX": 6.0, "LY": 4.0}
+[sweep] optimise smoke/smoke_serial_again id=b57812b450 seeds=[0, 1] workers=1
+Geometry selftest passed.
+Open-channel drag minimisation (inflow left / outflow right / freestream top-bottom) -- exact adjoint
+  box 6.0x4.0  U0=1.0 T0=0.5 Kn=1.0  dt=0.1  window (0.0, 2.0] = steps 0..19  N_REF=20000 (inflow 65.7 particles/step, warm start T_WARM=5.0)  collisions=True
+  objective: drag + 1 x oint kappa^2 ds (= 6.3 at C_init, P0 = 6.283)   constraint: perimeter (L0 = 6.283, A0 = 3.142)
+  units: loss J/J(C_init) -> 1 and gradient/||g(C_init)|| -> 1 (independent factors; the optimiser uses the true slope kappa g.d);  first trial moves C by 0.05 x ||C_init|| = 0.0500   seeds 2->2   edge term reported only
+init: ||grad||=1.000e+00 -> init_step=5.000e-02 (first trial moves C by 0.05)
+   [5s] perimeter=6.283  seeds=2  ||g||/s.e.=6.5  ||g||corr=0.9509 (=95.1% of initial)  F_x=556.1  edge-term=0%
+iter   0: L=0.944555  ||grad||=9.6245e-01  step=0.075  alpha=0.05  |dC|=0.05
+   [8s] perimeter=6.283  seeds=2  ||g||/s.e.=5.2  ||g||corr=0.6324 (=63.2% of initial)  F_x=482.0  edge-term=0%
+iter   1: L=0.822156  ||grad||=6.4449e-01  step=0.1125  alpha=0.075  |dC|=0.0722
+   [11s] perimeter=6.283  seeds=2  ||g||/s.e.=5.4  ||g||corr=0.4339 (=43.4% of initial)  F_x=447.2  edge-term=0%
+iter   2: L=0.767297  ||grad||=4.4151e-01  step=0.1688  alpha=0.1125  |dC|=0.0725
+
+Line-search phase done in 11s.  status: max iterations  seeds 2 -> 2
+
+Done in 11s.  F_x 589.4 -> 447.2   normalised loss 1.0000 -> 0.7673
+C_opt = [ 9.878e-01 -1.170e-02  1.553e-01 -1.136e-01 -3.000e-04  1.800e-03
+ -8.100e-03]
+Saved /homes/hec66/Adjoint-DSMC-for-Boltzmann/boltzmann_copy/experiments/simple/sweep_results/smoke/smoke/smoke_serial_again__b57812b4/convergence.png
+=== done in 12s
