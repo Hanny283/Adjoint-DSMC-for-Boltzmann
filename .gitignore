@@ -7,3 +7,4 @@ warm_cache/
 *.mp4
 .DS_Store
 **/sweep_results/smoke/
+boltzmann_copy/experiments/ffd/output/
